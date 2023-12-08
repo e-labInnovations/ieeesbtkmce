@@ -1,0 +1,9 @@
+IEEE SB TKMCE Theme License (Version 1.0)
+
+Copyright (c) 2023 e-lab innovations
+
+This WordPress theme is licensed exclusively for use by IEEE Student Branch TKMCE. No other entity or individual is granted the right to use, modify, or distribute this theme without explicit written permission from the developer.
+
+For licensing inquiries, please contact ashad@elabins.com.
+
+This theme is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
