@@ -44,5 +44,13 @@ function bannerBlock() {
 }
 add_action('init', 'bannerBlock');
 
+function aboutUsBlock() {
+  wp_register_script('aboutUsBlockScript', get_stylesheet_directory_uri() . '/build/about-us.js', array('wp-blocks', 'wp-editor'));
+  register_block_type('ieeesbtkmce/about-us', array(
+    'editor_script' => 'aboutUsBlockScript'
+  ));
+}
+add_action('init', 'aboutUsBlock');
+
 //Custom menu walker class
 require_once get_stylesheet_directory() . '/inc/walker.php';
