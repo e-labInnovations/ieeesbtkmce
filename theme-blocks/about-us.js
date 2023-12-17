@@ -54,11 +54,11 @@ function EditComponent({ attributes, setAttributes }) {
                                         allowedTypes={['image']}
                                         value={image.id}
                                         render={({ open }) => (
-                                            <img src={image.url} onClick={open} className="hidden group-hover:block cursor-edit rounded-full object-cover aspect-square h-full w-full shadow" alt={image.alt} />
+                                            <img src={image.url} onClick={open} className="hidden group-hover:block cursor-edit rounded-full object-cover my-auto aspect-square w-full shadow-inner" alt={image.alt} />
                                         )}
                                     />
                                 </MediaUploadCheck>
-                                <img src={image.url} className="block group-hover:hidden rounded-full object-cover aspect-square h-full w-full shadow" alt={image.alt} />
+                                <img src={image.url} className="block group-hover:hidden rounded-full object-cover my-auto aspect-square w-full shadow-inner" alt={image.alt} />
                             </>
                         ) : (
                             <MediaPlaceholder onSelect={(media) => setAttributes({
@@ -119,9 +119,9 @@ function SaveComponent({ attributes }) {
             <div className="flex w-full sm:w-1/2 p-3 sm:px-8 md:px-10 justify-center">
                 <div className="flex bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-">
                     {image && image.url ? (
-                        <img src={image.url} className="rounded-full object-cover aspect-square h-full w-full shadow" alt={image.alt} />
+                        <img src={image.url} className="rounded-full object-cover my-auto aspect-square w-full shadow-inner" alt={image.alt} />
                     ) : (
-                        <img src="https://picsum.photos/600/600" className="rounded-full object-cover aspect-square h-full w-full shadow" alt="About Us Image" />
+                        <img src="https://picsum.photos/600/600" className="rounded-full object-cover my-auto aspect-square w-full shadow-inner" alt="About Us Image" />
                     )}
                 </div>
             </div>

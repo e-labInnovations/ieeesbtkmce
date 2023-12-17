@@ -215,12 +215,12 @@ function EditComponent({
     }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: image.url,
       onClick: open,
-      className: "hidden group-hover:block cursor-edit rounded-full object-cover aspect-square h-full w-full shadow",
+      className: "hidden group-hover:block cursor-edit rounded-full object-cover my-auto aspect-square w-full shadow-inner",
       alt: image.alt
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: image.url,
-    className: "block group-hover:hidden rounded-full object-cover aspect-square h-full w-full shadow",
+    className: "block group-hover:hidden rounded-full object-cover my-auto aspect-square w-full shadow-inner",
     alt: image.alt
   })) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     onSelect: media => setAttributes({
@@ -302,11 +302,11 @@ function SaveComponent({
     className: "flex bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-"
   }, image && image.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: image.url,
-    className: "rounded-full object-cover aspect-square h-full w-full shadow",
+    className: "rounded-full object-cover my-auto aspect-square w-full shadow-inner",
     alt: image.alt
   }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: "https://picsum.photos/600/600",
-    className: "rounded-full object-cover aspect-square h-full w-full shadow",
+    className: "rounded-full object-cover my-auto aspect-square w-full shadow-inner",
     alt: "About Us Image"
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-col justify-center w-full sm:w-1/2 p-3"
