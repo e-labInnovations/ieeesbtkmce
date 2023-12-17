@@ -1,5 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, RichText, MediaPlaceholder } from "@wordpress/block-editor"
+import { useBlockProps, RichText, MediaPlaceholder, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor"
+import { Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n'
 const { Fragment } = wp.element
 
@@ -41,9 +42,25 @@ function EditComponent({ attributes, setAttributes }) {
         <Fragment>
             <div className="flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48 ">
                 <div className="flex w-full sm:w-1/2 p-3 sm:px-8 md:px-10 justify-center">
-                    <div className="flex bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-">
+                    <div className="flex group bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-">
                         {url? (
-                            <img src={ url } className="rounded-full object-cover aspect-square h-full w-full shadow" alt={ alt } />
+                            <>
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={ (media) => setAttributes({
+                                        id: media.id,
+                                        alt: media.alt || "About Us Image",
+                                        url: media.url
+                                    }) }
+                                    allowedTypes={ ['image'] }
+                                    value={ id }
+                                    render={ ( { open } ) => (
+                                        <img src={ url } onClick={ open } className="hidden group-hover:block cursor-edit rounded-full object-cover aspect-square h-full w-full shadow" alt={ alt } />
+                                    ) }
+                                />
+                            </MediaUploadCheck>
+                            <img src={ url } className="block group-hover:hidden rounded-full object-cover aspect-square h-full w-full shadow" alt={ alt } />
+                            </>
                         ) : (
                             <MediaPlaceholder onSelect = { (media) => setAttributes({
                                     id: media.id,
