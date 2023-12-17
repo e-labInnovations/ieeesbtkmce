@@ -42,6 +42,16 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -137,6 +147,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -159,14 +172,11 @@ const {
       source: 'html',
       selector: 'p'
     },
-    id: {
-      type: "number"
+    image: {
+      type: "object"
     },
-    url: {
-      type: "string"
-    },
-    alt: {
-      type: "string"
+    linkObject: {
+      type: "object"
     }
   },
   edit: EditComponent,
@@ -180,42 +190,45 @@ function EditComponent({
   const {
     subTitle,
     content,
-    id,
-    url,
-    alt
+    image,
+    linkObject
   } = attributes;
-  console.log(attributes);
+  const [isLinkPickerVisible, setIsLinkPickerVisible] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48 "
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex w-full sm:w-1/2 p-3 sm:px-8 md:px-10 justify-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex group bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-"
-  }, url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+  }, image && image.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     onSelect: media => setAttributes({
-      id: media.id,
-      alt: media.alt || "About Us Image",
-      url: media.url
+      image: {
+        id: media.id,
+        alt: media.alt || "About Us Image",
+        url: media.url
+      }
     }),
     allowedTypes: ['image'],
-    value: id,
+    value: image.id,
     render: ({
       open
     }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: url,
+      src: image.url,
       onClick: open,
       className: "hidden group-hover:block cursor-edit rounded-full object-cover aspect-square h-full w-full shadow",
-      alt: alt
+      alt: image.alt
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: url,
+    src: image.url,
     className: "block group-hover:hidden rounded-full object-cover aspect-square h-full w-full shadow",
-    alt: alt
+    alt: image.alt
   })) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     onSelect: media => setAttributes({
-      id: media.id,
-      alt: media.alt || "About Us Image",
-      url: media.url
+      image: {
+        id: media.id,
+        alt: media.alt || "About Us Image",
+        url: media.url
+      }
     }),
     allowedTypes: ['image'],
     multiple: false,
@@ -247,9 +260,29 @@ function EditComponent({
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-8 flex flex-row sm:mt-8 md:mt-10 xl:mt-12"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
+    onClick: () => setIsLinkPickerVisible(prev => !prev),
     className: "rounded p-2 px-5 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400 no-underline"
-  }, "More Details")))));
+  }, "More Details")))), isLinkPickerVisible && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Popover, {
+    position: "middle center",
+    onFocusOutside: () => setIsLinkPickerVisible(false)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalLinkControl, {
+    settings: [],
+    value: linkObject,
+    onChange: newLink => setAttributes({
+      linkObject: newLink
+    }),
+    style: {
+      display: 'block',
+      width: '80%'
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    variant: "primary",
+    onClick: () => setIsLinkPickerVisible(false),
+    style: {
+      display: 'block',
+      width: '100%'
+    }
+  }, "Confirm Link")));
 }
 function SaveComponent({
   attributes
@@ -258,9 +291,8 @@ function SaveComponent({
   const {
     subTitle,
     content,
-    id,
-    url,
-    alt
+    image,
+    linkObject
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48 "
@@ -268,10 +300,10 @@ function SaveComponent({
     className: "flex w-full sm:w-1/2 p-3 sm:px-8 md:px-10 justify-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-"
-  }, url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: url,
+  }, image && image.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: image.url,
     className: "rounded-full object-cover aspect-square h-full w-full shadow",
-    alt: alt
+    alt: image.alt
   }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: "https://picsum.photos/600/600",
     className: "rounded-full object-cover aspect-square h-full w-full shadow",
@@ -291,7 +323,7 @@ function SaveComponent({
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-8 flex flex-row sm:mt-8 md:mt-10 xl:mt-12"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
+    href: linkObject ? linkObject.url : '#',
     className: "rounded p-2 px-5 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400 no-underline"
   }, "More Details"))));
 }
