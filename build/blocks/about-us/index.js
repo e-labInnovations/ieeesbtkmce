@@ -331,7 +331,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-us","version":"0.1.0","title":"About Us","category":"ieeesbtkmce","icon":"info","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-us","version":"0.1.0","title":"About Us","category":"ieeesbtkmce","icon":"info","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","example":{"attributes":{"subTitle":"Lorem Ipsum","content":"Lorem ipsum dolor sit amet consectetur. Sapien suspendisse cursus vestibulum cursus eget ultricies habitasse. Mi enim mauris aliquam potenti amet pharetra consequat adipiscing. Quis a euismod elit congue molestie cum. Tristique sem ut ut orci sed lobortis. Fames vestibulum convallis neque sem non nullam sit. Viverra placerat est eleifend cras non lorem bibendum.","image":{"url":"https://picsum.photos/id/183/300/300"},"linkObject":null}}}');
 
 /***/ })
 
