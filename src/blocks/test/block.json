@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "ieeesbtkmce/test",
+	"version": "0.1.0",
+	"title": "Test Block",
+	"category": "ieeesbtkmce",
+	"icon": "smiley",
+	"description": "Example block written with ESNext standard and JSX support build step required.",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"textdomain": "ieeesbtkmce",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

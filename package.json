@@ -8,7 +8,7 @@
     "sync": "browser-sync start -p 'http://ieeesbtkmce.localhost/' --files '**/*.php' 'build/*.js' 'build/*.css'",
     "buildwp": "wp-scripts build",
     "build": "npm-run-all --sequential buildwp tailwindbuild",
-    "wpstart": "wp-scripts start src/index.js theme-blocks/banner.js theme-blocks/about-us.js theme-blocks/counter.js theme-blocks/counter-item.js",
+    "wpstart": "wp-scripts start",
     "start": "npm-run-all --parallel wpstart tailwindwatch",
     "tailwindbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
     "tailwindwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",

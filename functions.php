@@ -50,10 +50,19 @@ class JSXBlock {
   }
 }
 
-new JSXBlock('banner');
-new JSXBlock('about-us');
-new JSXBlock('counter');
-new JSXBlock('counter-item');
+// new JSXBlock('banner');
+// new JSXBlock('about-us');
+// new JSXBlock('counter');
+// new JSXBlock('counter-item');
+
+add_action('init', 'register_blocks');
+function register_blocks() {
+  register_block_type(dirname(__FILE__) . "/build/blocks/test");
+  register_block_type(dirname(__FILE__) . "/build/blocks/banner");
+  register_block_type(dirname(__FILE__) . "/build/blocks/counter");
+  register_block_type(dirname(__FILE__) . "/build/blocks/counter-item");
+  register_block_type(dirname(__FILE__) . "/build/blocks/about-us");
+}
 
 //Custom menu walker class
 require_once get_stylesheet_directory() . '/inc/walker.php';
