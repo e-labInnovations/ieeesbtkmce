@@ -36,25 +36,6 @@ function ieeesbtkmce_menus() {
 }
 add_action('init', 'ieeesbtkmce_menus');
 
-class JSXBlock {
-  function __construct($name) {
-    $this->name = $name;
-    add_action('init', [$this, 'onInit']);
-  }
-
-  function onInit() {
-    wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array('wp-blocks', 'wp-editor'));
-    register_block_type("ieeesbtkmce/{$this->name}", array(
-      'editor_script' => $this->name
-    ));
-  }
-}
-
-// new JSXBlock('banner');
-// new JSXBlock('about-us');
-// new JSXBlock('counter');
-// new JSXBlock('counter-item');
-
 add_action('init', 'register_blocks');
 function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/test");
@@ -62,6 +43,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/counter");
   register_block_type(dirname(__FILE__) . "/build/blocks/counter-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/about-us");
+  register_block_type(dirname(__FILE__) . "/build/blocks/header");
 }
 
 //Custom menu walker class
