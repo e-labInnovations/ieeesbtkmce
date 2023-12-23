@@ -1,4 +1,4 @@
-import { RichText, MediaPlaceholder, MediaUpload, MediaUploadCheck, __experimentalLinkControl as LinkControl } from "@wordpress/block-editor"
+import { RichText, MediaPlaceholder, MediaUpload, MediaUploadCheck, __experimentalLinkControl as LinkControl, useBlockProps } from "@wordpress/block-editor"
 import { Popover, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n'
 import { useState } from '@wordpress/element'
@@ -8,10 +8,13 @@ import './editor.scss';
 export default function Edit({ attributes, setAttributes }) {
 	const { subTitle, content, image, linkObject } = attributes
 	const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false)
+	const blockProps = useBlockProps({
+		className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48"
+	})
 
 	return (
 		<Fragment>
-			<div className="flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48 ">
+			<div {...blockProps}>
 				<div className="flex w-full sm:w-1/2 p-3 sm:px-8 md:px-10 justify-center">
 					<div className="flex group bg-contain bg-no-repeat bg-center bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] p-12 sm:p-8 lg:p-16 xl:p-18 h-">
 						{image && image.url ? (

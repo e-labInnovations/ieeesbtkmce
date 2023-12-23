@@ -8,8 +8,8 @@ const attributes = {
 	counter: {
 		type: "object",
 		default: {
-			name: "Active members",
-			count: 256,
+			name: "Name Here",
+			count: 0,
 			suffix: "+"
 		}
 	}

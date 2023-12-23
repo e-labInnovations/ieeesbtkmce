@@ -36,6 +36,9 @@ function Edit({
   const {
     counter
   } = attributes;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: "flex flex-col items-center"
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Counter')
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
@@ -67,7 +70,7 @@ function Edit({
       }
     })
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex flex-col items-center"
+    ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "counter-no"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -104,8 +107,8 @@ const attributes = {
   counter: {
     type: "object",
     default: {
-      name: "Active members",
-      count: 256,
+      name: "Name Here",
+      count: 0,
       suffix: "+"
     }
   }
@@ -243,7 +246,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/counter-item","version":"0.1.0","title":"Counter Item","category":"ieeesbtkmce","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/counter-item","version":"0.1.0","title":"Counter Item","category":"ieeesbtkmce","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","parent":["ieeesbtkmce/counter"],"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

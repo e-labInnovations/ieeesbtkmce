@@ -43,8 +43,11 @@ function Edit({
     linkObject
   } = attributes;
   const [isLinkPickerVisible, setIsLinkPickerVisible] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(false);
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48"
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48 "
+    ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex w-full sm:w-1/2 p-3 sm:px-8 md:px-10 justify-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
