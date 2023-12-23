@@ -8,7 +8,7 @@ export default function Edit({ attributes, setAttributes}) {
 	
 	return (
 		<div {...blockProps}>
-			<InnerBlocks allowedBlocks={ [ 'ieeesbtkmce/counter-item' ] } />
+			<InnerBlocks allowedBlocks={['ieeesbtkmce/counter-item']}  />
 		</div>
 	);
 }

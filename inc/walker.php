@@ -39,7 +39,7 @@ class Header_Menu_Walker extends Walker {
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		// $output .= '<pre>' . json_encode($data_object->object_id) . '</pre>';
 		// $output .= '<pre>' . json_encode($args) . '</pre>';
-		$output .= '<div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">';
+		$output .= '<div id="dropdownNavbar" class="md:z-10 hidden font-normal md:bg-white divide-y divide-gray-100 rounded-lg md:shadow w-full md:w-44 md:absolute md:right-0">';
 		$output .= '<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">';
 	}
 
@@ -78,7 +78,11 @@ class Header_Menu_Walker extends Walker {
 	public function start_el( &$output, $data_object, $depth = 0, $args = null, $current_object_id = 0 ) {
 		// $output .= '<pre>' . json_encode($data_object->object_id) . '</pre>';
 		if($depth == 0) {
-			$output .= "<li class='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 '>";
+			if($args->walker->has_children) {
+				$output .= "<li class='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:relative'>";
+			} else {
+				$output .= "<li class='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0'>";
+			}
 		} else {
 			$output .= "<li>";
 		}
@@ -86,16 +90,20 @@ class Header_Menu_Walker extends Walker {
 		if (!$args->walker->has_children) {
 			if($depth == 0) {
 				if($data_object->current) {
-					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 text-white bg-primary-800 rounded md:bg-transparent md:text-primary-800 md:p-0 " aria-current="page">';
+					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 font-normal font-poppins text-white bg-primary-800 rounded md:bg-transparent md:text-primary-800 md:p-0 " aria-current="page">';
 				} else {
-					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 ">';
+					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 font-normal font-poppins text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 ">';
 				}
 			} else {
-				$output .= '<a href="' . $data_object->url . '" class="block px-4 py-2 hover:bg-gray-100">';
+				if($data_object->current) {
+					$output .= '<a href="' . $data_object->url . '" class="block text-black px-4 py-2 hover:bg-gray-100">';
+				} else {
+					$output .= '<a href="' . $data_object->url . '" class="block px-4 py-2 font-normal font-poppins hover:bg-gray-100">';
+				}
 			}
 		} else {
 			// $output .= '<code>' . json_encode($args) . '</code>';
-			$output .= '<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:w-auto">';
+			$output .= '<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 font-normal font-poppins text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:w-auto">';
 		}
 		
 		$output .= $data_object->title;

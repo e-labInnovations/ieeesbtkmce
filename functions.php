@@ -1,7 +1,7 @@
 <?php
 
 function ieeesbtkmce_load_assets() {
-  wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
+  // wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
   wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
   wp_enqueue_style('ieeesbtkmce-font', 'https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap', array(), '1.0', 'all');
 }
