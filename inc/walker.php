@@ -37,56 +37,10 @@ class Header_Menu_Walker extends Walker {
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
-		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
-			$t = '';
-			$n = '';
-		} else {
-			$t = "\t";
-			$n = "\n";
-		}
-		$indent = str_repeat( $t, $depth );
-
-		// Default class.
-		$classes = array( 'py-2', 'text-sm', 'text-gray-700', 'dark:text-gray-400' );
-
-		/**
-		 * Filters the CSS class(es) applied to a menu list element.
-		 *
-		 * @since 4.8.0
-		 *
-		 * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
-		 * @param stdClass $args    An object of `wp_nav_menu()` arguments.
-		 * @param int      $depth   Depth of menu item. Used for padding.
-		 */
-		$class_names = implode( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
-
-		$atts          = array();
-		$atts['class'] = ! empty( $class_names ) ? $class_names : '';
-		$atts['aria-labelledby'] = 'dropdownLargeButton';
-
-		/**
-		 * Filters the HTML attributes applied to a menu list element.
-		 *
-		 * @since 6.3.0
-		 *
-		 * @param array $atts {
-		 *     The HTML attributes applied to the `<ul>` element, empty strings are ignored.
-		 *
-		 *     @type string $class    HTML CSS class attribute.
-		 * }
-		 * @param stdClass $args      An object of `wp_nav_menu()` arguments.
-		 * @param int      $depth     Depth of menu item. Used for padding.
-		 */
-		$atts       = apply_filters( 'nav_menu_submenu_attributes', $atts, $args, $depth );
-		$attributes = $this->build_atts( $atts );
-
-		// if($depth > 0) {
-		$output .= '<div id="dropdownNavbar-'.$id.'" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">';
-		// }
-		$output .= "{$n}{$indent}<ul{$attributes}>{$n}";
-		// if($depth > 0) {
-			$output .= "";
-		// }
+		// $output .= '<pre>' . json_encode($data_object->object_id) . '</pre>';
+		// $output .= '<pre>' . json_encode($args) . '</pre>';
+		$output .= '<div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">';
+		$output .= '<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">';
 	}
 
 	/**
@@ -101,15 +55,8 @@ class Header_Menu_Walker extends Walker {
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = null ) {
-		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
-			$t = '';
-			$n = '';
-		} else {
-			$t = "\t";
-			$n = "\n";
-		}
-		$indent  = str_repeat( $t, $depth );
-		$output .= "$indent</ul>{$n}";
+		// $output .= '<pre>' . json_encode($args) . '</pre>';
+		$output .= '</div>';
 	}
 
 	/**
@@ -129,186 +76,43 @@ class Header_Menu_Walker extends Walker {
 	 * @param int      $current_object_id Optional. ID of the current menu item. Default 0.
 	 */
 	public function start_el( &$output, $data_object, $depth = 0, $args = null, $current_object_id = 0 ) {
-		// Restores the more descriptive, specific name for use within this method.
-		$menu_item = $data_object;
-
-		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
-			$t = '';
-			$n = '';
+		// $output .= '<pre>' . json_encode($data_object->object_id) . '</pre>';
+		if($depth == 0) {
+			$output .= "<li class='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 '>";
 		} else {
-			$t = "\t";
-			$n = "\n";
-		}
-		$indent = ( $depth ) ? str_repeat( $t, $depth ) : '';
-
-		$classes   = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
-		$classes[] = 'menu-item-' . $menu_item->ID;
-		$classes = array();
-
-
-		/**
-		 * Filters the arguments for a single nav menu item.
-		 *
-		 * @since 4.4.0
-		 *
-		 * @param stdClass $args      An object of wp_nav_menu() arguments.
-		 * @param WP_Post  $menu_item Menu item data object.
-		 * @param int      $depth     Depth of menu item. Used for padding.
-		 */
-		$args = apply_filters( 'nav_menu_item_args', $args, $menu_item, $depth );
-
-		/**
-		 * Filters the CSS classes applied to a menu item's list item element.
-		 *
-		 * @since 3.0.0
-		 * @since 4.1.0 The `$depth` parameter was added.
-		 *
-		 * @param string[] $classes   Array of the CSS classes that are applied to the menu item's `<li>` element.
-		 * @param WP_Post  $menu_item The current menu item object.
-		 * @param stdClass $args      An object of wp_nav_menu() arguments.
-		 * @param int      $depth     Depth of menu item. Used for padding.
-		 */
-		$class_names = implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $menu_item, $args, $depth ) );
-
-		/**
-		 * Filters the ID attribute applied to a menu item's list item element.
-		 *
-		 * @since 3.0.1
-		 * @since 4.1.0 The `$depth` parameter was added.
-		 *
-		 * @param string   $menu_item_id The ID attribute applied to the menu item's `<li>` element.
-		 * @param WP_Post  $menu_item    The current menu item.
-		 * @param stdClass $args         An object of wp_nav_menu() arguments.
-		 * @param int      $depth        Depth of menu item. Used for padding.
-		 */
-		$id = apply_filters( 'nav_menu_item_id', '', $menu_item, $args, $depth );
-
-		$li_atts          = array();
-		$li_atts['id']    = ! empty( $id ) ? $id : '';
-		$li_atts['class'] = ! empty( $class_names ) ? $class_names : '';
-
-		/**
-		 * Filters the HTML attributes applied to a menu's list item element.
-		 *
-		 * @since 6.3.0
-		 *
-		 * @param array $li_atts {
-		 *     The HTML attributes applied to the menu item's `<li>` element, empty strings are ignored.
-		 *
-		 *     @type string $class        HTML CSS class attribute.
-		 *     @type string $id           HTML id attribute.
-		 * }
-		 * @param WP_Post  $menu_item The current menu item object.
-		 * @param stdClass $args      An object of wp_nav_menu() arguments.
-		 * @param int      $depth     Depth of menu item. Used for padding.
-		 */
-		$li_atts       = apply_filters( 'nav_menu_item_attributes', $li_atts, $menu_item, $args, $depth );
-		$li_attributes = $this->build_atts( $li_atts );
-
-		$output .= $indent . '<li' . $li_attributes . '>';
-
-		$atts           = array();
-		$atts['title']  = ! empty( $menu_item->attr_title ) ? $menu_item->attr_title : '';
-		$atts['target'] = ! empty( $menu_item->target ) ? $menu_item->target : '';
-		if ( '_blank' === $menu_item->target && empty( $menu_item->xfn ) ) {
-			$atts['rel'] = 'noopener';
-		} else {
-			$atts['rel'] = $menu_item->xfn;
+			$output .= "<li>";
 		}
 
-		if ( ! empty( $menu_item->url ) ) {
-			if ( get_privacy_policy_url() === $menu_item->url ) {
-				$atts['rel'] = empty( $atts['rel'] ) ? 'privacy-policy' : $atts['rel'] . ' privacy-policy';
+		if (!$args->walker->has_children) {
+			if($depth == 0) {
+				if($data_object->current) {
+					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 text-white bg-primary-800 rounded md:bg-transparent md:text-primary-800 md:p-0 " aria-current="page">';
+				} else {
+					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 ">';
+				}
+			} else {
+				$output .= '<a href="' . $data_object->url . '" class="block px-4 py-2 hover:bg-gray-100">';
 			}
-
-			$atts['href'] = $menu_item->url;
 		} else {
-			$atts['href'] = '';
+			// $output .= '<code>' . json_encode($args) . '</code>';
+			$output .= '<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:w-auto">';
 		}
-
-		$atts['aria-current'] = $menu_item->current ? 'page' : '';
-		$atts['class'] = 'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent';
 		
-
-		if($depth > 0) {
-			$atts['class'] = 'block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white';
-		}
-
-		/**
-		 * Filters the HTML attributes applied to a menu item's anchor element.
-		 *
-		 * @since 3.6.0
-		 * @since 4.1.0 The `$depth` parameter was added.
-		 *
-		 * @param array $atts {
-		 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
-		 *
-		 *     @type string $title        Title attribute.
-		 *     @type string $target       Target attribute.
-		 *     @type string $rel          The rel attribute.
-		 *     @type string $href         The href attribute.
-		 *     @type string $aria-current The aria-current attribute.
-		 * }
-		 * @param WP_Post  $menu_item The current menu item object.
-		 * @param stdClass $args      An object of wp_nav_menu() arguments.
-		 * @param int      $depth     Depth of menu item. Used for padding.
-		 */
-		$atts       = apply_filters( 'nav_menu_link_attributes', $atts, $menu_item, $args, $depth );
-		$attributes = $this->build_atts( $atts );
-
-		/** This filter is documented in wp-includes/post-template.php */
-		$title = apply_filters( 'the_title', $menu_item->title, $menu_item->ID );
-
-		/**
-		 * Filters a menu item's title.
-		 *
-		 * @since 4.4.0
-		 *
-		 * @param string   $title     The menu item's title.
-		 * @param WP_Post  $menu_item The current menu item object.
-		 * @param stdClass $args      An object of wp_nav_menu() arguments.
-		 * @param int      $depth     Depth of menu item. Used for padding.
-		 */
-		$title = apply_filters( 'nav_menu_item_title', $title, $menu_item, $args, $depth );
-		$button = '';
-
-		if($this->has_children) {
-			$atts['class'] = 'block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white';
-			
-			$button = '<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">'
-			.$title
-			.'<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+		$output .= $data_object->title;
+		
+		if (!$args->walker->has_children) {
+			$output .= '</a>';
+		} else {
+			$output .= '<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-			</svg>
+		  </svg>
 		</button>';
 		}
-		
-		$item_output  = $args->before;
-		if($this->has_children) {
-			$item_output .= $button;
-		} else {
-			$item_output .= '<a' . $attributes . '>';
-			$item_output .= $args->link_before . $title . $args->link_after;
-			$item_output .= '</a>';
-		}
-		$item_output .= $args->after;
-
-		/**
-		 * Filters a menu item's starting output.
-		 *
-		 * The menu item's starting output only includes `$args->before`, the opening `<a>`,
-		 * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
-		 * no filter for modifying the opening and closing `<li>` for a menu item.
-		 *
-		 * @since 3.0.0
-		 *
-		 * @param string   $item_output The menu item's starting HTML output.
-		 * @param WP_Post  $menu_item   Menu item data object.
-		 * @param int      $depth       Depth of menu item. Used for padding.
-		 * @param stdClass $args        An object of wp_nav_menu() arguments.
-		 */
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $menu_item, $depth, $args );
 	}
+
+
+// {"menu":"primary","container":"div","container_class":"","container_id":"","container_aria_label":"","menu_class":"menu","menu_id":"","echo":true,"fallback_cb":"wp_page_menu","before":"","after":"","link_before":"","link_after":"","items_wrap":"
+// %3$s<\/ul>","item_spacing":"preserve","depth":0,"walker":{"tree_type":["post_type","taxonomy","custom"],"db_fields":{"parent":"menu_item_parent","id":"db_id"},"max_pages":1,"has_children":true},"theme_location":"primary"}More
 
 	/**
 	 * Ends the element output, if needed.
@@ -324,14 +128,12 @@ class Header_Menu_Walker extends Walker {
 	 * @param stdClass $args        An object of wp_nav_menu() arguments.
 	 */
 	public function end_el( &$output, $data_object, $depth = 0, $args = null ) {
-		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
-			$t = '';
-			$n = '';
+		// $output .= '<pre>' . json_encode($data_object) . '</pre>';
+		if ($args->walker->has_children) {
+			$output .= '----';
 		} else {
-			$t = "\t";
-			$n = "\n";
+			$output .= '</li>';
 		}
-		$output .= "</li>{$n}";
 	}
 
 	/**
