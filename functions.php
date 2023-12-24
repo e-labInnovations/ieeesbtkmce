@@ -1,6 +1,10 @@
 <?php
 
 function ieeesbtkmce_load_assets() {
+  // The core GSAP library
+  wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
+  // ScrollTrigger - with gsap.js passed as a dependency
+  wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js', array('gsap-js'), false, true);
   // wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
   wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
   wp_enqueue_style('ieeesbtkmce-font', 'https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap', array(), '1.0', 'all');
