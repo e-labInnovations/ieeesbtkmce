@@ -9,6 +9,14 @@
     "html": false,
     "anchor": true
   },
+  "attributes": {
+    "linkObject": {
+      "type": "object",
+      "default": {
+        "url": "#"
+      }
+    }
+  },
   "textdomain": "ieeesbtkmce",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",

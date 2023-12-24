@@ -34,12 +34,16 @@
           'container_class' => 'hidden w-full md:block md:w-auto',
           'container_id'    => 'navbar-dropdown',
           'menu_class'      => 'flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white',
-          'walker'          => new Header_Menu_Walker()
+          'walker'          => new Header_Menu_Walker(),
         )
       );
     ?>
 
-    <a href="#" class="text-white bg-primary-800 font-normal font-poppins hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-4 py-2 text-center">Join IEEE</a>
+    <a href="<?php echo $attributes['linkObject']['url'] ?>" class="text-white bg-primary-800 font-normal font-poppins hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-4 py-2 text-center">Join IEEE</a>
 
   </div>
 </nav>
+
+<?php
+// print_r($attributes['linkObject']['url']);
+?>

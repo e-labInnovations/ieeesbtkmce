@@ -1,3 +1,11 @@
 /*
 * Style Works for Editor Only
 */
+
+.block-editor-link-control {
+    min-width: 100% !important;
+
+    button {
+        flex-wrap: wrap;
+    }
+}
