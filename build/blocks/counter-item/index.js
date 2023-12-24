@@ -246,7 +246,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/counter-item","version":"0.1.0","title":"Counter Item","category":"ieeesbtkmce","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","parent":["ieeesbtkmce/counter"],"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/counter-item","version":"0.1.0","title":"Counter Item","category":"ieeesbtkmce","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","parent":["ieeesbtkmce/counter"],"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

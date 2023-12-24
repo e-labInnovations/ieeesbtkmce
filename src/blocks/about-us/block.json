@@ -5,7 +5,7 @@
 	"title": "About Us",
 	"category": "ieeesbtkmce",
 	"icon": "info",
-	"description": "Example block written with ESNext standard and JSX support build step required.",
+	"description": "You can change the subheading, content and image.",
 	"supports": {
 		"html": false,
 		"anchor": true

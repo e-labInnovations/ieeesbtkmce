@@ -3,7 +3,7 @@ const { colors: defaultColors } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: ["./**/*.php", "./src/**/*.js", "./src**/*.php"],
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
   theme: {
     extend: {
       colors: {

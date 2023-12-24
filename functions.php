@@ -48,6 +48,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/counter-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/about-us");
   register_block_type(dirname(__FILE__) . "/build/blocks/header");
+  register_block_type(dirname(__FILE__) . "/build/blocks/latest-news");
 }
 
 //Custom menu walker class

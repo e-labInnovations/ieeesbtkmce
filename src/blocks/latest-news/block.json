@@ -1,9 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "ieeesbtkmce/counter",
+	"name": "ieeesbtkmce/latest-news",
 	"version": "0.1.0",
-	"title": "Counter",
+	"title": "Latest News",
 	"category": "ieeesbtkmce",
+	"icon": "welcome-widgets-menus",
+	"description": "Shows latest news posts",
 	"supports": {
 		"html": false,
 		"anchor": true

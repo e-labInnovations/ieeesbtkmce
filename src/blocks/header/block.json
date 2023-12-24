@@ -4,7 +4,7 @@
 	"version": "0.1.0",
 	"title": "Header",
 	"category": "ieeesbtkmce",
-	"description": "Example block written with ESNext standard and JSX support build step required.",
+	"description": "General header block with navbar and menu. Editor side only shows the placeholder text. For updating the menu, edit the primary menu on the menu section of theme",
 	"supports": {
 		"html": false,
 		"anchor": true
@@ -22,5 +22,8 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"example": {
+        "attributes": {}
+    }
 }
