@@ -89,10 +89,14 @@ class Header_Menu_Walker extends Walker {
 
 		if (!$args->walker->has_children) {
 			if($depth == 0) {
-				if($data_object->current) {
-					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 font-normal font-poppins text-white bg-primary-800 rounded md:bg-transparent md:text-primary-800 md:p-0 " aria-current="page">';
+				if($data_object->title == "Join IEEE") {
+					$output .= '<a href="' . $data_object->url .'" class="text-white bg-primary-800 font-normal font-poppins hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-4 py-1 text-center">';
 				} else {
-					$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 font-normal font-poppins text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 ">';
+					if($data_object->current) {
+						$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 font-normal font-poppins text-white bg-primary-800 rounded md:bg-transparent md:text-primary-800 md:p-0 " aria-current="page">';
+					} else {
+						$output .= '<a href="' . $data_object->url . '" class="block py-2 px-3 font-normal font-poppins text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 ">';
+					}
 				}
 			} else {
 				if($data_object->current) {

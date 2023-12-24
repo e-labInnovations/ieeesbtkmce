@@ -1,5 +1,5 @@
-<nav class="bg-white border-gray-200">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav class="bg-white border-gray-200 px-10">
+  <div class="max-w-screen-xl flex flex-wrap mt-6 items-center justify-between mx-auto">
 
     <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
       <?php
@@ -38,12 +38,6 @@
         )
       );
     ?>
-
-    <a href="<?php echo $attributes['linkObject']['url'] ?>" class="text-white bg-primary-800 font-normal font-poppins hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm px-4 py-2 text-center">Join IEEE</a>
-
   </div>
+  <hr class="h-px mt-6 bg-gray-200 border-0">
 </nav>
-
-<?php
-// print_r($attributes['linkObject']['url']);
-?>
