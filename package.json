@@ -26,6 +26,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.11.2",
     "gsap": "^3.12.3"
   }
 }

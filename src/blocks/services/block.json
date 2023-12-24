@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "ieeesbtkmce/services",
+	"version": "0.1.0",
+	"title": "Services",
+	"category": "ieeesbtkmce",
+	"icon": "smiley",
+	"description": "What We Offer Block.",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"textdomain": "ieeesbtkmce",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
