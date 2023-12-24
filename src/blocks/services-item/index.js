@@ -21,7 +21,8 @@ const attributes = {
 		type: "String",
 	},
 	color: {
-		type: "String"
+		type: "String",
+		default: "#1ABC9C"
 	}
 }
 
