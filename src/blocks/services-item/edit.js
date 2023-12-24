@@ -1,57 +1,94 @@
 import { InspectorControls, RichText, useBlockProps } from "@wordpress/block-editor"
 import './editor.scss';
-import { PanelBody, ColorPalette } from '@wordpress/components';
+import { PanelBody, Button, ColorPalette, TextareaControl, __experimentalGrid as Grid } from '@wordpress/components';
 import { __ } from '@wordpress/i18n'
+import { sanitizeSVG } from '@skjnldsv/sanitize-svg'
 const { Fragment } = wp.element
+import { useEffect } from '@wordpress/element';
+import { icons, colors } from './data';
 
 export default function Edit({ attributes, setAttributes }) {
 	const { title, content, icon, color } = attributes
 	const blockProps = useBlockProps({
 		className: "flex flex-col shadow-sm"
 	})
-	const colors = [
-		{ name: 'Turquoise', color: '#1ABC9C' },
-		{ name: 'Royal Blue', color: '#3498DB' },
-		{ name: 'Amethyst', color: '#9B59B6' },
-		{ name: 'Wet Asphalt', color: '#34495E' },
-		{ name: 'Sunflower', color: '#F1C40F' },
-		{ name: 'Elegant Red', color: '#E74C3C' },
-		{ name: 'Mango Tango', color: '#D35400' },
-		{ name: 'Silver Grey', color: '#95A5A6' },
-		{ name: 'Forest Green', color: '#228B22' },
-		{ name: 'Lavender', color: '#E6E6FA' },
-		{ name: 'Sky Blue', color: '#87CEEB' },
-		{ name: 'Navy Blue', color: '#000080' },
-		{ name: 'Dark Chocolate', color: '#37000A' },
-		{ name: 'Coral', color: '#FF7F50' },
-		{ name: 'Salmon', color: '#FA8072' },
-		{ name: 'Midnight Blue', color: '#191970' },
-		{ name: 'Charcoal', color: '#36454F' },
-		{ name: 'Powder Blue', color: '#B0E0E6' },
-		{ name: 'Mustard Yellow', color: '#FFDB58' },
-		{ name: 'Orange Red', color: '#FF4500' },
-		{ name: 'Lime Green', color: '#32CD32' },
-		{ name: 'Teal', color: '#008080' },
-	];
 
-	// #1ABC9C, #3498DB, #9B59B6, #34495E, #F1C40F, #E74C3C, #D35400, #95A5A6
+	useEffect(() => {
+		handleSVGChange(icon)
+	}, [color])
+
+
+	const handleSVGChange = async (newSVG) => {
+		var cleanImage = await sanitizeSVG(newSVG)
+		if (!cleanImage) {
+			alert('Unsafe SVG Icon. Please use safe one')
+			return;
+		}
+
+		cleanImage = modifySvg(cleanImage, color);
+		setAttributes({ icon: cleanImage })
+	}
+
+	function modifySvg(svgString, color) {
+		// Parse the SVG string into a DOM object
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(svgString, 'image/svg+xml');
+
+		// Remove width and height attributes
+		doc.documentElement.removeAttribute('width');
+		doc.documentElement.removeAttribute('height');
+
+		// Change all fill attributes to the specified color
+		const elementsWithFill = doc.querySelectorAll('[fill]');
+		elementsWithFill.forEach((element) => {
+			element.setAttribute('fill', color);
+		});
+
+		// Serialize the modified DOM object back to an SVG string
+		const serializer = new XMLSerializer();
+		const modifiedSvgString = serializer.serializeToString(doc);
+
+		return modifiedSvgString;
+	}
 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={__('Service Item')}>
+				<PanelBody title={__('Color')}>
 					<ColorPalette
 						colors={colors}
 						value={color}
 						onChange={(color) => setAttributes({ color })}
 					/>
 				</PanelBody>
+				<PanelBody title={__('Icon')}>
+					<Grid columns={3}>
+						{
+							icons.map(_icon => {
+								return (
+									<Button onClick={() => handleSVGChange(_icon)} style={{height: '45px', backgroundColor: 'white'}}>
+										<img src={`data:image/svg+xml;utf8,${encodeURIComponent(_icon)}`} style={{width: '30px', margin: 'auto'}} alt={title} />
+									</Button>
+								)
+							})
+						}
+					</Grid>
+
+					<TextareaControl
+						label="SVG icon code"
+						help="Paste SVG icon code here"
+						value={icon}
+						onChange={handleSVGChange}
+					/>
+					<img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon)}`} width="50%" alt={title} />
+				</PanelBody>
 			</InspectorControls>
+
 			<div {...blockProps}>
-				<hr className="h-1 mb-6" style={{ backgroundColor: color }} />
+				<hr className="h-1 mb-2" style={{ backgroundColor: color }} />
 				<div className="flex mx-5">
 					<RichText
-						className="text-black font-light text-balance mt-4 w-full"
+						className="text-black font-light text-balance mt-6 w-full lg:min-h-[3.6] xl:min-h-[4.6rem] 2xl:min-h-0"
 						tagName="h3"
 						value={title}
 						allowedFormats={[]}
@@ -59,11 +96,11 @@ export default function Edit({ attributes, setAttributes }) {
 						placeholder={__('Title...')}
 					/>
 					<div className="ml-5">
-						<i className="bi bi-android2" style={{ color: color, fontSize: '42px' }}></i>
+						<img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon)}`} className="w-12 h-12" alt={title} />
 					</div>
 				</div>
 				<RichText
-					className="mx-5 mt-5  font-light text-gray-600 text-base"
+					className="mx-5 my-4  font-light text-gray-600 text-base"
 					tagName="p"
 					value={content}
 					allowedFormats={[]}
