@@ -1,0 +1,21 @@
+{
+  "apiVersion": 2,
+  "name": "ieeesbtkmce/footer",
+  "version": "0.1.0",
+  "title": "Footer",
+  "category": "ieeesbtkmce",
+  "icon": "text",
+  "description": "General footer block. Editor side only shows the placeholder text. For updating the menu, edit the footer menus on the menu section of theme",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "ieeesbtkmce",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "example": {
+    "attributes": {}
+  }
+}

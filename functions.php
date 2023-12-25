@@ -27,15 +27,16 @@ function ieeesbtkmce_add_support() {
   add_theme_support('custom-logo', $logo_defaults);
   add_theme_support('editor-style');
   add_editor_style(array('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap', 'build/index.css'));
+  add_action('customize_register', '__return_true' );
 }
 add_action('after_setup_theme', 'ieeesbtkmce_add_support');
 
 //Menu
 function ieeesbtkmce_menus() {
   $locations = array(
-      'primary' => "Main Menu",
-      'footer1' => "Footer Menu 1",
-      'footer2' => "Footer Menu 2"
+    'primary' => "Main Menu",
+    'footer1' => "Quick links",
+    'footer2' => "Membership"
   );
 
   register_nav_menus($locations);
@@ -49,6 +50,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/counter-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/about-us");
   register_block_type(dirname(__FILE__) . "/build/blocks/header");
+  register_block_type(dirname(__FILE__) . "/build/blocks/footer");
   register_block_type(dirname(__FILE__) . "/build/blocks/latest-news");
   register_block_type(dirname(__FILE__) . "/build/blocks/services");
   register_block_type(dirname(__FILE__) . "/build/blocks/services-item");
