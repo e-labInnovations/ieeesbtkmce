@@ -77,6 +77,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/latest-news");
   register_block_type(dirname(__FILE__) . "/build/blocks/services");
   register_block_type(dirname(__FILE__) . "/build/blocks/services-item");
+  register_block_type(dirname(__FILE__) . "/build/blocks/faq");
 }
 add_action('init', 'register_blocks');
 
