@@ -4,25 +4,21 @@
             <div class="col-span-3 mb-6 md:mb-0">
                 <a href="/" class="flex items-center">
                     <?php
-                    if (function_exists('the_custom_logo')) {
-                        $custom_logo_id = get_theme_mod('custom_logo');
-                        $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-                    }
-                    ?>
-                    <img src="<?php echo $logo[0]; ?>" class="h-16" alt="<?php echo get_bloginfo('name'); ?>" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap">
-                        <?php
-                        if (!function_exists('the_custom_logo')) {
-                            echo get_bloginfo('name');
-                        }
+                    $hero_bgimage = get_theme_mod('ieeesbtkmce-footer-logo');
+                    if ($hero_bgimage) {
                         ?>
-                    </span>
+                        <img src="<?php echo $hero_bgimage ?>" class="h-16" alt="<?php echo get_bloginfo('name'); ?>" />
+                    <?php } else { ?>
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap">
+                            <?php echo get_bloginfo('name'); ?>
+                        </span>
+                    <?php } ?>
                     <!-- <img src="https://gcdnb.pbrd.co/images/0H0f833FWIK0.png?o=1" class="h-16"
                         alt="IEEE SB TKMCE Logo" /> -->
                 </a>
-                <p class="mt-6 font-poppins text-base font-light text-white text-justify">Lorem ipsum dolor sit amet
-                    consectetur. Convallis elit dignissim proin nunc tempor lacus. Adipiscing dignissim luctus feugiat
-                    risus sem in sapien. Lobortis lectus cursus tellus.</p>
+                <p class="mt-6 font-poppins text-base font-light text-white text-justify">
+                    <?php echo get_theme_mod('ieeesbtkmce-footer-description', '') ?>
+                </p>
                 <div class="flex flex-col justify-between lg:flex-row">
                     <a href="#" class="mt-3 lg:mt-6 font-poppins text-base font-normal text-white">Terms &
                         Conditions</a>
@@ -86,8 +82,7 @@
                     <div>
                         <h2 class="mb-2 lg:mb-4 font-poppins text-base font-normal text-white">Address</h2>
                         <p class="font-poppins text-base font-light text-white">
-                            TKM College of Engineering
-                            Karicode, Kollam
+                            <?php echo get_theme_mod('ieeesbtkmce-address', '') ?>
                         </p>
                     </div>
                 </div>
@@ -187,10 +182,13 @@
         </div>
     </div>
     <div class="w-full bg-gray-200 lg:px-24 py-3 text-gray-600 text-xs font-extralight font-poppins text-center">
-        <span>&#169; All Rights Reserved on <a href="/">IEEE SB TKMCE</a></span>
+        <span>&#169; All Rights Reserved on <a href="/">
+                <?php echo get_theme_mod('ieeesbtkmce-footer-credt-text', get_bloginfo('title')) ?>
+            </a></span>
         |
         <span>
-            Designed by <a href="">sufail.muhammed</a> and Developed by <a href="">e-lab Innovations</a>
+            Designed by <a href="">sufail.muhammed</a> and Developed by <a href="https://elabins.com">e-lab
+                Innovations</a>
         </span>
     </div>
 </footer>

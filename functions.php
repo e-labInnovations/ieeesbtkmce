@@ -93,3 +93,7 @@ add_filter('block_categories_all', 'add_new_block_categories');
 
 //Custom menu walker class
 require_once get_stylesheet_directory() . '/inc/walker.php';
+
+//Customizer
+require_once get_stylesheet_directory() . '/inc/customizer.php';
+new IEEESBTKMCE_Customizer();
