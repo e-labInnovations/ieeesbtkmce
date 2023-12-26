@@ -22,7 +22,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/blocks/header/block.json");
 
 
-// import { ServerSideRender } from '@wordpress/server-side-render';
 
 const {
   Fragment

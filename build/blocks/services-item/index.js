@@ -4797,7 +4797,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/services-item","version":"0.1.0","title":"Services Item","category":"ieeesbtkmce","icon":"smiley","description":"","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/services-item","version":"0.1.0","title":"Services Item","category":"ieeesbtkmce","icon":"smiley","description":"","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","parent":["ieeesbtkmce/services"],"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
