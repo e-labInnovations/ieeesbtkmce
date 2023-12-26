@@ -1,0 +1,19 @@
+{
+  "apiVersion": 2,
+  "name": "ieeesbtkmce/faq-item",
+  "version": "0.1.0",
+  "title": "FAQ Item",
+  "category": "ieeesbtkmce",
+  "description": "Frequently Asked Question",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "ieeesbtkmce",
+  "parent": [
+    "ieeesbtkmce/faq"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

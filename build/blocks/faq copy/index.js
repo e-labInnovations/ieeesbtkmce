@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/faq/edit.js":
-/*!********************************!*\
-  !*** ./src/blocks/faq/edit.js ***!
-  \********************************/
+/***/ "./src/blocks/faq copy/edit.js":
+/*!*************************************!*\
+  !*** ./src/blocks/faq copy/edit.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/faq/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/faq copy/editor.scss");
 
 
 
@@ -27,12 +27,6 @@ function Edit({
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "w-full px-12 text-center lg:px-48 my-6 lg:my-12"
   });
-  const blockProps2 = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "flex w-full flex-col gap-4"
-  });
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps2, {
-    allowedBlocks: ['ieeesbtkmce/faq-item']
-  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
@@ -42,8 +36,27 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "m-2 w-full sm:w-2/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex w-full flex-col gap-4"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex flex-row items-center justify-between rounded-[14px] border-[3px] border-primary-800 px-4 py-2"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "text-left font-poppins text-base font-light text-black"
+  }, "1. Lorem ipsum dolor sit amet consectetur. In sed nisl erat quis ?"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 37,
+    height: 37,
+    viewBox: "0 0 37 37",
+    fill: "none"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M0.801331 18.5208C0.801331 8.60853 8.83759 0.572266 18.7498 0.572266C28.662 0.572266 36.6983 8.60853 36.6983 18.5208C36.6983 28.433 28.662 36.4692 18.7498 36.4692C8.83759 36.4692 0.801331 28.433 0.801331 18.5208ZM19.1511 26.4043C19.2798 26.2766 19.3822 26.1248 19.4522 25.9575C19.5223 25.7903 19.5587 25.6108 19.5595 25.4295C19.5602 25.2482 19.5252 25.0685 19.4564 24.9007C19.3877 24.7329 19.2866 24.5802 19.1588 24.4515L14.6441 19.9014H26.1708C26.537 19.9014 26.8882 19.7559 27.1471 19.497C27.406 19.2381 27.5515 18.8869 27.5515 18.5208C27.5515 18.1546 27.406 17.8034 27.1471 17.5445C26.8882 17.2856 26.537 17.1401 26.1708 17.1401H14.6441L19.1588 12.59C19.2865 12.4611 19.3876 12.3084 19.4563 12.1405C19.525 11.9726 19.5599 11.7928 19.5591 11.6114C19.5583 11.43 19.5218 11.2505 19.4516 11.0832C19.3815 10.9159 19.279 10.7641 19.1502 10.6364C19.0214 10.5087 18.8686 10.4076 18.7007 10.3389C18.5328 10.2702 18.353 10.2353 18.1716 10.2361C17.8052 10.2377 17.4545 10.3848 17.1966 10.645L10.346 17.5483C10.0893 17.8069 9.94533 18.1564 9.94533 18.5208C9.94533 18.8851 10.0893 19.2346 10.346 19.4932L17.1966 26.3965C17.3243 26.5255 17.4762 26.6281 17.6436 26.6983C17.8111 26.7685 17.9907 26.805 18.1722 26.8058C18.3538 26.8065 18.5337 26.7714 18.7016 26.7025C18.8696 26.6336 19.0223 26.5323 19.1511 26.4043Z",
+    fill: "#D8DDE0"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+    placeholder: () => {
+      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Placeholder");
+    }
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "m-2 w-full sm:w-1/3 flex items-center"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex w-full items-center justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6"
@@ -54,10 +67,10 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/blocks/faq/index.js":
-/*!*********************************!*\
-  !*** ./src/blocks/faq/index.js ***!
-  \*********************************/
+/***/ "./src/blocks/faq copy/index.js":
+/*!**************************************!*\
+  !*** ./src/blocks/faq copy/index.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -65,10 +78,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/faq/style.scss");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/faq/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/faq/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/faq/save.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/faq copy/style.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/faq copy/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/faq copy/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/faq copy/save.js");
 
 
 
@@ -96,10 +109,10 @@ const attributes = {};
 
 /***/ }),
 
-/***/ "./src/blocks/faq/save.js":
-/*!********************************!*\
-  !*** ./src/blocks/faq/save.js ***!
-  \********************************/
+/***/ "./src/blocks/faq copy/save.js":
+/*!*************************************!*\
+  !*** ./src/blocks/faq copy/save.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -193,10 +206,10 @@ function save({
 
 /***/ }),
 
-/***/ "./src/blocks/faq/editor.scss":
-/*!************************************!*\
-  !*** ./src/blocks/faq/editor.scss ***!
-  \************************************/
+/***/ "./src/blocks/faq copy/editor.scss":
+/*!*****************************************!*\
+  !*** ./src/blocks/faq copy/editor.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -205,10 +218,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/faq/style.scss":
-/*!***********************************!*\
-  !*** ./src/blocks/faq/style.scss ***!
-  \***********************************/
+/***/ "./src/blocks/faq copy/style.scss":
+/*!****************************************!*\
+  !*** ./src/blocks/faq copy/style.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -247,10 +260,10 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
-/***/ "./src/blocks/faq/block.json":
-/*!***********************************!*\
-  !*** ./src/blocks/faq/block.json ***!
-  \***********************************/
+/***/ "./src/blocks/faq copy/block.json":
+/*!****************************************!*\
+  !*** ./src/blocks/faq copy/block.json ***!
+  \****************************************/
 /***/ ((module) => {
 
 module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/faq","version":"0.1.0","title":"FAQ","category":"ieeesbtkmce","description":"Frequently Asked Questions","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
@@ -367,8 +380,8 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/faq","version":
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"blocks/faq/index": 0,
-/******/ 			"blocks/faq/style-index": 0
+/******/ 			"blocks/faq copy/index": 0,
+/******/ 			"blocks/faq copy/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -418,7 +431,7 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/faq","version":
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/faq/style-index"], () => (__webpack_require__("./src/blocks/faq/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/faq copy/style-index"], () => (__webpack_require__("./src/blocks/faq copy/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
