@@ -38,6 +38,7 @@ add_action('enqueue_block_editor_assets', function() {
 function ieeesbtkmce_add_support() {
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
+
   $logo_defaults = array(
     'height'               => 64,
     'width'                => 228,
@@ -47,9 +48,13 @@ function ieeesbtkmce_add_support() {
     'unlink-homepage-logo' => true, 
   );
   add_theme_support('custom-logo', $logo_defaults);
+
   add_theme_support('editor-style');
   add_editor_style(array('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap', 'build/index.css'));
+  
   add_action('customize_register', '__return_true' );
+
+  add_image_size('major-event-thumb', 330, 230, true);
 }
 add_action('after_setup_theme', 'ieeesbtkmce_add_support');
 

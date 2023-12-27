@@ -47,7 +47,7 @@ function events_custom_fields() {
         'Event Date',
         'event_date_callback',
         'events',
-        'side',
+        'normal',
         'default'
     );
 
@@ -55,6 +55,15 @@ function events_custom_fields() {
         'registration_link',
         'Registration Link',
         'registration_link_callback',
+        'events',
+        'normal',
+        'default'
+    );
+
+    add_meta_box(
+        'registration_status',
+        'Registration Status',
+        'registration_status_callback',
         'events',
         'normal',
         'default'
@@ -77,6 +86,16 @@ function registration_link_callback($post) {
     <?php
 }
 
+function registration_status_callback($post) {
+    $registration_status = get_post_meta($post->ID, 'registration_status', true);
+    ?>
+    <label for="registration_status">
+        <input type="checkbox" id="registration_status" name="registration_status" <?php checked($registration_status, 'open'); ?>>
+        Is Registration Open
+    </label>
+    <?php
+}
+
 function save_event_custom_fields($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     
@@ -87,6 +106,9 @@ function save_event_custom_fields($post_id) {
     if (isset($_POST['registration_link'])) {
         update_post_meta($post_id, 'registration_link', esc_url($_POST['registration_link']));
     }
+
+    $registration_status = isset($_POST['registration_status']) ? 'open' : 'closed';
+    update_post_meta($post_id, 'registration_status', $registration_status);
 }
 
 add_action('add_meta_boxes', 'events_custom_fields');
