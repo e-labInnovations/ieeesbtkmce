@@ -40,4 +40,56 @@ function register_events_post_type() {
 }
 add_action('init', 'register_events_post_type');
 
+// Add custom fields for event date and registration link
+function events_custom_fields() {
+    add_meta_box(
+        'event_date',
+        'Event Date',
+        'event_date_callback',
+        'events',
+        'side',
+        'default'
+    );
+
+    add_meta_box(
+        'registration_link',
+        'Registration Link',
+        'registration_link_callback',
+        'events',
+        'normal',
+        'default'
+    );
+}
+
+function event_date_callback($post) {
+    $event_date = get_post_meta($post->ID, 'event_date', true);
+    ?>
+    <label for="event_date">Event Date:</label>
+    <input type="date" id="event_date" name="event_date" value="<?php echo esc_attr($event_date); ?>">
+    <?php
+}
+
+function registration_link_callback($post) {
+    $registration_link = get_post_meta($post->ID, 'registration_link', true);
+    ?>
+    <label for="registration_link">Registration Link:</label>
+    <input type="text" id="registration_link" name="registration_link" value="<?php echo esc_url($registration_link); ?>">
+    <?php
+}
+
+function save_event_custom_fields($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    
+    if (isset($_POST['event_date'])) {
+        update_post_meta($post_id, 'event_date', sanitize_text_field($_POST['event_date']));
+    }
+
+    if (isset($_POST['registration_link'])) {
+        update_post_meta($post_id, 'registration_link', esc_url($_POST['registration_link']));
+    }
+}
+
+add_action('add_meta_boxes', 'events_custom_fields');
+add_action('save_post', 'save_event_custom_fields');
+
 ?>
