@@ -40,12 +40,12 @@ function register_events_post_type() {
 }
 add_action('init', 'register_events_post_type');
 
-// Add custom fields for event date and registration link
+// Add custom fields for event date, registration link and registration status
 function events_custom_fields() {
     add_meta_box(
-        'event_date',
-        'Event Date',
-        'event_date_callback',
+        'event_datetime',
+        'Event Datetime',
+        'event_datetime_callback',
         'events',
         'normal',
         'default'
@@ -70,11 +70,11 @@ function events_custom_fields() {
     );
 }
 
-function event_date_callback($post) {
-    $event_date = get_post_meta($post->ID, 'event_date', true);
+function event_datetime_callback($post) {
+    $event_datetime = get_post_meta($post->ID, 'event_datetime', true);
     ?>
-    <label for="event_date">Event Date:</label>
-    <input type="date" id="event_date" name="event_date" value="<?php echo esc_attr($event_date); ?>">
+    <label for="event_datetime">Event Date & Time:</label>
+    <input type="datetime-local" id="event_datetime" name="event_datetime" value="<?php echo esc_attr($event_datetime); ?>">
     <?php
 }
 
@@ -90,8 +90,11 @@ function registration_status_callback($post) {
     $registration_status = get_post_meta($post->ID, 'registration_status', true);
     ?>
     <label for="registration_status">
-        <input type="checkbox" id="registration_status" name="registration_status" <?php checked($registration_status, 'open'); ?>>
-        Is Registration Open
+        <select name="registration_status">
+            <option value="open" <?php selected($registration_status, 'open'); ?>>Open</option>
+            <option value="closed" <?php selected($registration_status, 'closed'); ?>>Closed</option>
+        </select>
+        Registration Status
     </label>
     <?php
 }
@@ -99,19 +102,100 @@ function registration_status_callback($post) {
 function save_event_custom_fields($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     
-    if (isset($_POST['event_date'])) {
-        update_post_meta($post_id, 'event_date', sanitize_text_field($_POST['event_date']));
+    if (isset($_POST['event_datetime'])) {
+        update_post_meta($post_id, 'event_datetime', sanitize_text_field($_POST['event_datetime']));
     }
 
     if (isset($_POST['registration_link'])) {
         update_post_meta($post_id, 'registration_link', esc_url($_POST['registration_link']));
     }
 
-    $registration_status = isset($_POST['registration_status']) ? 'open' : 'closed';
-    update_post_meta($post_id, 'registration_status', $registration_status);
+    if (isset($_POST['registration_status'])) {
+        update_post_meta($post_id, 'registration_status', sanitize_text_field($_POST['registration_status']));
+    }
 }
 
 add_action('add_meta_boxes', 'events_custom_fields');
 add_action('save_post', 'save_event_custom_fields');
 
-?>
+
+// Add custom columns to the events table
+function events_custom_columns($columns) {
+    $columns['event_datetime'] = 'Event Date & Time';
+    $columns['registration_status'] = 'Registration Status';
+    return $columns;
+}
+
+function events_custom_column_content($column, $post_id) {
+    switch ($column) {
+        case 'event_datetime':
+            echo get_post_meta($post_id, 'event_datetime', true);
+            break;
+
+        case 'registration_status':
+            $registration_status = get_post_meta($post_id, 'registration_status', true);
+            echo esc_html(ucfirst($registration_status));
+            break;
+    }
+}
+
+add_filter('manage_events_posts_columns', 'events_custom_columns');
+add_action('manage_events_posts_custom_column', 'events_custom_column_content', 10, 2);
+
+
+// Add custom fields to the quick edit area
+// function quick_edit_custom_fields($column_name, $post_type) {
+//     switch( $column_name ) {
+// 		case 'event_datetime': {
+			?>
+				<!-- <fieldset class="inline-edit-col-left">
+					<div class="inline-edit-col">
+                        <div class="inline-edit-group wp-clearfix">
+                            <label class="inline-edit-status alignleft">
+                                <span class="title">Event Date & Time</span>
+                                <input type="datetime-local" name="event_datetime">
+                            </label>
+                        </div>
+					</div> -->
+				<?php
+		// 	break;
+		// }
+		// case 'registration_status': {
+			?>
+					<!-- <div class="inline-edit-col">
+                        <div class="inline-edit-group wp-clearfix">
+                            <label class="inline-edit-status alignleft">
+                                <span class="title">Registration Status</span>
+                                <select name="registration_status">
+                                    <option value="open">Open</option>
+                                    <option value="closed">Closed</option>
+                                </select>
+                            </label>
+					    </div>
+					</div>
+				</fieldset> -->
+			<?php
+// 			break;
+// 		}
+// 	}
+// }
+
+// // Save quick edit custom fields
+// function save_quick_edit_custom_fields($post_id) {
+//     // check inlint edit nonce
+// 	if ( ! wp_verify_nonce( $_POST[ '_inline_edit' ], 'inlineeditnonce' ) ) {
+// 		return;
+// 	}
+    
+//     if (isset($_POST['event_datetime'])) {
+//         update_post_meta($post_id, 'event_datetime', sanitize_text_field($_POST['event_datetime']));
+//     }
+
+//     if (isset($_POST['registration_status'])) {
+//         $registration_status = in_array($_POST['registration_status'], array('open', 'closed')) ? $_REQUEST['registration_status'] : 'closed';
+//         update_post_meta($post_id, 'registration_status', $registration_status);
+//     }
+// }
+
+// add_action('quick_edit_custom_box', 'quick_edit_custom_fields', 10, 2);
+// add_action('save_post', 'save_quick_edit_custom_fields');
