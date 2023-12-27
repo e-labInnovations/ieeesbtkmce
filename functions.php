@@ -99,3 +99,7 @@ require_once get_stylesheet_directory() . '/inc/walker.php';
 //Customizer
 require_once get_stylesheet_directory() . '/inc/customizer.php';
 new IEEESBTKMCE_Customizer();
+
+//Custom Post Type
+//Events
+require_once get_stylesheet_directory() . '/inc/events.php';

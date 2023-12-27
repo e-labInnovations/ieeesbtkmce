@@ -1,1 +1,26 @@
-{}
+{
+    "version": 2,
+    "styles": {
+        "blocks": {
+        }
+    },
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "#0B567F"
+                },
+                {
+                    "name": "Background",
+                    "slug": "background",
+                    "color": "#FFFFFF"
+                }
+            ]
+        },
+        "layout": {
+            "contentSize": "840px"
+        }
+    }
+}
