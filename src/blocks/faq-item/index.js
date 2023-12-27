@@ -4,7 +4,19 @@ import metadata from './block.json';
 import Edit from './edit';
 import Save from './save';
 
-const attributes = {}
+const attributes = {
+	question: {
+		type: "String",
+		source: 'html',
+		selector: 'p',
+	},
+	answer: {
+		type: "String"
+	},
+	uid: {
+		type: "String"
+	}
+}
 
 registerBlockType(metadata, {
 	attributes,
