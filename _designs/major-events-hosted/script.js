@@ -9,6 +9,40 @@ document.querySelectorAll('.major-events-hosted').forEach(mef => {
     let sliderContinerWidth = sliderContiner.clientWidth
     let slideWidth = sliderContinerWidth / elementsToShow
 
+    const changeButtons = () => {
+        let sliderMargin = Math.round(+slider.style.marginLeft.slice(0, -2))
+
+        const enableButton = (btn, enable) => {
+            if (enable) {
+                btn.classList.remove('border-gray-400')
+                btn.classList.add('border-primary-800')
+
+                btn.querySelector('svg').classList.remove('fill-gray-400')
+                btn.querySelector('svg').classList.add('fill-primary-800')
+            } else {
+                btn.classList.remove('border-primary-800')
+                btn.classList.add('border-gray-400')
+
+                btn.querySelector('svg').classList.remove('fill-primary-800')
+                btn.querySelector('svg').classList.add('fill-gray-400')
+            }
+        }
+
+        //Enable prevBtn
+        if ((sliderMargin != 0) && (slides.length > elementsToShow)) {
+            enableButton(prevBtn, true)
+        } else {
+            enableButton(prevBtn, false)
+        }
+
+        //Enable nextBtn
+        if ((sliderMargin != Math.round(-slideWidth * (slides.length - elementsToShow))) && (slides.length > elementsToShow)) {
+            enableButton(nextBtn, true)
+        } else {
+            enableButton(nextBtn, false)
+        }
+    }
+
     const mehInit = () => {
         slider.style.marginLeft = 0
 
@@ -33,6 +67,7 @@ document.querySelectorAll('.major-events-hosted').forEach(mef => {
         slides.forEach(silde => {
             silde.style.width = slideWidth + 'px'
         })
+        changeButtons()
     }
 
     mehInit()
@@ -42,44 +77,8 @@ document.querySelectorAll('.major-events-hosted').forEach(mef => {
         mehInit()
     });
 
-    const changeButtons = () => {
-        let sliderMargin = Math.round(+slider.style.marginLeft.slice(0, -2))
-
-        const enableButton = (btn, enable) => {
-            if (enable) {
-                btn.classList.remove('border-gray-400')
-                btn.classList.add('border-primary-800')
-
-                btn.querySelector('svg').classList.remove('fill-gray-400')
-                btn.querySelector('svg').classList.add('fill-primary-800')
-            } else {
-                btn.classList.remove('border-primary-800')
-                btn.classList.add('border-gray-400')
-
-                btn.querySelector('svg').classList.remove('fill-primary-800')
-                btn.querySelector('svg').classList.add('fill-gray-400')
-            }
-        }
-
-        //Enable prevBtn
-        if (sliderMargin != 0) {
-            enableButton(prevBtn, true)
-        } else {
-            enableButton(prevBtn, false)
-        }
-
-        //Enable nextBtn
-        if (sliderMargin != Math.round(-slideWidth * (slides.length - elementsToShow))) {
-            enableButton(nextBtn, true)
-        } else {
-            enableButton(nextBtn, false)
-        }
-
-
-    }
-
     prevBtn.addEventListener('click', () => {
-        if (Math.round(+slider.style.marginLeft.slice(0, -2)) != 0) {
+        if ((Math.round(+slider.style.marginLeft.slice(0, -2)) != 0) && (slides.length > elementsToShow)) {
             slider.style.marginLeft = (+slider.style.marginLeft.slice(0, -2)) + slideWidth + 'px'
         }
 
@@ -87,7 +86,7 @@ document.querySelectorAll('.major-events-hosted').forEach(mef => {
     })
 
     nextBtn.addEventListener('click', () => {
-        if (Math.round(+slider.style.marginLeft.slice(0, -2)) != Math.round(-slideWidth * (slides.length - elementsToShow))) {
+        if ((Math.round(+slider.style.marginLeft.slice(0, -2)) != Math.round(-slideWidth * (slides.length - elementsToShow))) && (slides.length > elementsToShow)) {
             slider.style.marginLeft = (+slider.style.marginLeft.slice(0, -2)) - slideWidth + 'px'
         }
 
