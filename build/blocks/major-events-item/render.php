@@ -1,12 +1,13 @@
 <?php
 
-$event = new WP_Query(array(
-    'post_type' => 'events',
-    'p'         => $attributes['eventId']
-));
+if (isset($attributes['eventId']) && !($attributes['eventId'] == 'undefined')) {
+    $event = new WP_Query(array(
+        'post_type' => 'events',
+        'p'         => $attributes['eventId']
+    ));
 
-while($event->have_posts()) {
-    $event->the_post();
+    while($event->have_posts()) {
+        $event->the_post();
 ?>
 
 <div class="flex flex-col slide mx-3">
@@ -39,6 +40,7 @@ while($event->have_posts()) {
 </div>
 
 <?php
-wp_reset_postdata();
+    wp_reset_postdata();
+    }
 }
 // print_r($attributes['eventId']);
