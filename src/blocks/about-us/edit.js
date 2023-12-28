@@ -72,15 +72,15 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className="mt-8 flex flex-row sm:mt-8 md:mt-10 xl:mt-12">
 						<a onClick={() => setIsLinkPickerVisible(prev => !prev)} className="rounded p-2 px-5 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400 no-underline">More Details</a>
 					</div>
+
+					{isLinkPickerVisible && (
+						<Popover position='middle center' onFocusOutside={() => setIsLinkPickerVisible(false)}>
+							<LinkControl settings={[]} value={linkObject} onChange={newLink => setAttributes({ linkObject: newLink })} style={{ display: 'block', width: '80%' }} />
+							<Button variant='primary' onClick={() => setIsLinkPickerVisible(false)} style={{ display: 'block', width: '100%' }}>Confirm Link</Button>
+						</Popover>
+					)}
 				</div>
 			</div>
-
-			{isLinkPickerVisible && (
-				<Popover position='middle center' onFocusOutside={() => setIsLinkPickerVisible(false)}>
-					<LinkControl settings={[]} value={linkObject} onChange={newLink => setAttributes({ linkObject: newLink })} style={{ display: 'block', width: '80%' }} />
-					<Button variant='primary' onClick={() => setIsLinkPickerVisible(false)} style={{ display: 'block', width: '100%' }}>Confirm Link</Button>
-				</Popover>
-			)}
 		</Fragment>
 	)
 }

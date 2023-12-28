@@ -114,7 +114,7 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     onClick: () => setIsLinkPickerVisible(prev => !prev),
     className: "rounded p-2 px-5 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400 no-underline"
-  }, "More Details")))), isLinkPickerVisible && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Popover, {
+  }, "More Details")), isLinkPickerVisible && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Popover, {
     position: "middle center",
     onFocusOutside: () => setIsLinkPickerVisible(false)
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.__experimentalLinkControl, {
@@ -134,7 +134,7 @@ function Edit({
       display: 'block',
       width: '100%'
     }
-  }, "Confirm Link")));
+  }, "Confirm Link")))));
 }
 
 /***/ }),
