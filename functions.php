@@ -84,6 +84,8 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/services-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/faq");
   register_block_type(dirname(__FILE__) . "/build/blocks/faq-item");
+  register_block_type(dirname(__FILE__) . "/build/blocks/major-events");
+  register_block_type(dirname(__FILE__) . "/build/blocks/major-events-item");
 }
 add_action('init', 'register_blocks');
 

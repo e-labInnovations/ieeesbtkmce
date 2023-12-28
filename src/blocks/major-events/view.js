@@ -92,13 +92,3 @@ document.querySelectorAll('.major-events-hosted').forEach(mef => {
         changeButtons()
     })
 })
-
-/*
-Avtive: 
-    Button:
-        add     -> border-primary-800
-        remove  -> border-gray-400
-    SVG:
-        add     -> fill-primary-800
-        remove  -> fill-gray-400
-*/
