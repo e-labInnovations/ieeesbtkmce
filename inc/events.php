@@ -147,7 +147,10 @@ add_action('rest_api_init', 'registerMajorEventAPI');
 function registerMajorEventAPI() {
     register_rest_route('majorEvent/v1', 'getHTML', array(
         'method'    => WP_REST_SERVER::READABLE,
-        'callback'  => 'getMajorEventHTML'
+        'callback'  => 'getMajorEventHTML',
+        'permission_callback' => function () {
+            return '__return_true';
+          }
     ));
 
     function getMajorEventHTML($data) {
