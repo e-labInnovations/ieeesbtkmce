@@ -141,3 +141,22 @@ function events_custom_column_content($column, $post_id) {
 
 add_filter('manage_events_posts_columns', 'events_custom_columns');
 add_action('manage_events_posts_custom_column', 'events_custom_column_content', 10, 2);
+
+//Custom API for Major Event editor html
+add_action('rest_api_init', 'registerMajorEventAPI');
+function registerMajorEventAPI() {
+    register_rest_route('majorEvent/v1', 'getHTML', array(
+        'method'    => WP_REST_SERVER::READABLE,
+        'callback'  => 'getMajorEventHTML'
+    ));
+
+    function getMajorEventHTML($data) {
+        $attributes = $data;
+    
+        ob_start();
+        require_once get_stylesheet_directory() . '/build/blocks/major-events-item/render.php';
+        $content = ob_get_clean();
+    
+        return $content;
+    }    
+}
