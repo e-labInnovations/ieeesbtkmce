@@ -36,14 +36,38 @@ add_action('enqueue_block_editor_assets', function() {
 });
 
 //Load SVG Icons file
-add_action('wp_body_open', function () {
+function echoSVGSpriteFile () {
   $svg_path = get_template_directory() . '/build/icons/base-icons.svg';
 
   if (file_exists($svg_path)) {
       $svg_content = file_get_contents($svg_path);
       echo '<div style="display: none;">' . $svg_content . '</div>';
   }
-});
+}
+
+add_action('wp_body_open', 'echoSVGSpriteFile');
+
+
+// Load SVG Icons file in the admin panel
+function echoAdminSVGSpriteFile() {
+  $svg_path = get_template_directory() . '/build/icons/base-icons.svg';
+
+  if (file_exists($svg_path)) {
+      $svg_content = file_get_contents($svg_path);
+      ?>
+      <script type="text/javascript">
+          jQuery(document).ready(function($) {
+              const div = document.createElement('div');
+              div.style.display = 'none';
+              div.innerHTML = `<?php echo $svg_content; ?>`;
+              document.body.insertBefore(div, document.body.firstChild);
+          });
+      </script>
+      <?php
+  }
+}
+
+add_action('admin_footer', 'echoAdminSVGSpriteFile');
 
 
 function ieeesbtkmce_add_support() {
