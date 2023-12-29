@@ -1,12 +1,14 @@
-import { InnerBlocks } from "@wordpress/block-editor"
+import { InnerBlocks } from "@wordpress/block-editor";
 export default function save({ attributes }) {
-	return (
-		<div className="w-full faq px-12 text-center lg:px-48 my-6 lg:my-12">
-			<h2 className="font-poppins text-4xl font-normal text-primary-800 py-8">Frequently Asked Questions</h2>
-			<div className="flex flex-col sm:flex-row">
-				<div className="m-2 w-full sm:w-2/3">
-					<div className="flex w-full flex-col gap-4">
-						{/* <div className="flex flex-row items-center justify-between rounded-[14px] border-[3px] border-primary-800 px-4 py-2">
+  return (
+    <div className="faq my-6 w-full px-12 text-center lg:my-12 lg:px-48">
+      <h2 className="py-8 font-poppins text-4xl font-normal text-primary-800">
+        Frequently Asked Questions
+      </h2>
+      <div className="flex flex-col sm:flex-row">
+        <div className="m-2 w-full sm:w-2/3">
+          <div className="flex w-full flex-col gap-4">
+            {/* <div className="flex flex-row items-center justify-between rounded-[14px] border-[3px] border-primary-800 px-4 py-2">
 							<p className="text-left font-poppins text-base font-light text-black">1. Lorem ipsum dolor sit amet consectetur. In sed nisl erat quis ?</p>
 							<div className>
 								<svg xmlns="http://www.w3.org/2000/svg" width={37} height={37} viewBox="0 0 37 37" fill="none">
@@ -14,15 +16,24 @@ export default function save({ attributes }) {
 								</svg>
 							</div>
 						</div> */}
-						<InnerBlocks.Content />
-					</div>
-				</div>
-				<div className="m-2 w-full sm:w-1/3">
-					<div className="flex w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6 h-full">
-						<p id="faq-answer" className="font-poppins text-base font-light text-black">Lorem ipsum dolor sit amet consectetur. Aenean nisi arcu ac at vulputate mauris ullamcorper. Eu cursus nec etiam lacus egestas lacus phasellus praesent. Convallis facilisis aliquam massa cursus. Diam in aliquam euismod orci gravida eu ridiculus a venenatis. Amet faucibus tempor nisl ligula.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+            <InnerBlocks.Content />
+          </div>
+        </div>
+        <div className="m-2 w-full sm:w-1/3">
+          <div className="flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6">
+            <p
+              id="faq-answer"
+              className="font-poppins text-base font-light text-black"
+            >
+              Lorem ipsum dolor sit amet consectetur. Aenean nisi arcu ac at
+              vulputate mauris ullamcorper. Eu cursus nec etiam lacus egestas
+              lacus phasellus praesent. Convallis facilisis aliquam massa
+              cursus. Diam in aliquam euismod orci gravida eu ridiculus a
+              venenatis. Amet faucibus tempor nisl ligula.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

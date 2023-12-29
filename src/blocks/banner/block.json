@@ -1,17 +1,17 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ieeesbtkmce/banner",
-	"version": "0.1.0",
-	"title": "Banner",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example Dynamic new block.",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "ieeesbtkmce",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ieeesbtkmce/banner",
+  "version": "0.1.0",
+  "title": "Banner",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example Dynamic new block.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ieeesbtkmce",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }

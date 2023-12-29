@@ -6,37 +6,37 @@
 /* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"); */
 
 html {
-    @apply font-poppins
+  @apply font-poppins;
 }
 
 .counter-no {
-    @apply font-bold text-5xl sm:text-7xl;
-    background: -webkit-linear-gradient(#006DA5, #6E6E6EC2);
-    -webkit-background-clip: text;
-    -webkit-text-stroke: 2px transparent;
-    color: #ffffff;
+  @apply text-5xl font-bold sm:text-7xl;
+  background: -webkit-linear-gradient(#006da5, #6e6e6ec2);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px transparent;
+  color: #ffffff;
 }
 
 @layer utilities {
-    .news-front-img {
-        @apply z-20 bg-white border border-gray-200 rounded-2xl shadow p-1 h-full max-h-max w-auto self-center absolute my-auto inset-y-0 transition-all duration-500;
-    }
-    
-    .news-back-img {
-        @apply z-10 bg-white border border-gray-200 rounded-2xl shadow p-1 h-full max-h-max w-auto self-center absolute my-auto inset-y-0 transition-all duration-500 translate-x-3/4 scale-[90%];
-    }
+  .news-front-img {
+    @apply absolute inset-y-0 z-20 my-auto h-full max-h-max w-auto self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+  }
 
-    .news-hidden-front-img {
-        @apply bg-white border border-gray-200 rounded-2xl shadow p-1 h-full max-h-max w-auto self-center absolute my-auto inset-y-0 transition-all duration-500 translate-y-3/4 scale-[80%];
-        visibility: hidden;
-        /* opacity: 0;
-        transition: visibility 0s linear 500ms, opacity 500ms; */
-    }
+  .news-back-img {
+    @apply absolute inset-y-0 z-10 my-auto h-full max-h-max w-auto translate-x-3/4 scale-[90%] self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+  }
 
-    .news-hidden-back-img {
-        @apply bg-white border border-gray-200 rounded-2xl shadow p-1 h-full max-h-max w-auto self-center absolute my-auto inset-y-0 transition-all duration-500 translate-x-3/4 scale-[60%];
-        visibility: hidden;
-        /* opacity: 0;
+  .news-hidden-front-img {
+    @apply absolute inset-y-0 my-auto h-full max-h-max w-auto translate-y-3/4 scale-[80%] self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+    visibility: hidden;
+    /* opacity: 0;
         transition: visibility 0s linear 500ms, opacity 500ms; */
-    }
+  }
+
+  .news-hidden-back-img {
+    @apply absolute inset-y-0 my-auto h-full max-h-max w-auto translate-x-3/4 scale-[60%] self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+    visibility: hidden;
+    /* opacity: 0;
+        transition: visibility 0s linear 500ms, opacity 500ms; */
+  }
 }

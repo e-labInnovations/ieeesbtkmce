@@ -1,16 +1,16 @@
 {
-	"apiVersion": 2,
-	"name": "ieeesbtkmce/counter",
-	"version": "0.1.0",
-	"title": "Counter",
-	"category": "ieeesbtkmce",
-	"supports": {
-		"html": false,
-		"anchor": true
-	},
-	"textdomain": "ieeesbtkmce",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"script": "file:./script.js"
+  "apiVersion": 2,
+  "name": "ieeesbtkmce/counter",
+  "version": "0.1.0",
+  "title": "Counter",
+  "category": "ieeesbtkmce",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "ieeesbtkmce",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "script": "file:./script.js"
 }

@@ -9,9 +9,7 @@
     "anchor": true
   },
   "textdomain": "ieeesbtkmce",
-  "parent": [
-    "ieeesbtkmce/counter"
-  ],
+  "parent": ["ieeesbtkmce/counter"],
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
