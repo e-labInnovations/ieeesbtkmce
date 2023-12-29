@@ -35,6 +35,17 @@ add_action('enqueue_block_editor_assets', function() {
 	);
 });
 
+//Load SVG Icons file
+add_action('wp_body_open', function () {
+  $svg_path = get_template_directory() . '/build/icons/base-icons.svg';
+
+  if (file_exists($svg_path)) {
+      $svg_content = file_get_contents($svg_path);
+      echo '<div style="display: none;">' . $svg_content . '</div>';
+  }
+});
+
+
 function ieeesbtkmce_add_support() {
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');

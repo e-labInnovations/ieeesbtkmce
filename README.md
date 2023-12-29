@@ -10,3 +10,4 @@
 - [ ] Move all svg icons to single one and use references
 - After completion
   - [ ] Watch `201. Templates (Part 2)` and fix the template default images
+  - [ ] `src/blocks/major-events/edit.js` fix child position and scrolling
