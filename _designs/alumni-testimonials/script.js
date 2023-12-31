@@ -1,11 +1,10 @@
 const file = "http://ieeesbtkmce.localhost/wp-json/alumni_testimonials/v1/all";
 const width = 500; //window.innerWidth;
 const height = 500; //window.innerHeight;
-const colors = {
-  html: "#006EA6",
-  css: "#006EA6",
-  js: "#006EA6",
-};
+const atSection = document.querySelector(".alumni-testimonials");
+const contentEle = atSection.querySelector("#at-content");
+const nameEle = atSection.querySelector("#at-name");
+const batchEle = atSection.querySelector("#at-batch");
 
 let minWidth = 0;
 
@@ -60,13 +59,11 @@ const generateChart = (data) => {
     .on("mouseover", function (e, d) {
       getNeighbors(d.x, d.y, d.r, false);
 
-      //   tooltip.select("img").attr("src", d.data.img);
-      //   tooltip.select("a").attr("href", d.data.link).text(d.data.name);
-      //   tooltip
-      //     .select("span")
-      //     .attr("class", d.data.category)
-      //     .text(d.data.category);
-      //   tooltip.style("visibility", "visible");
+      nameEle.classList.remove("hidden");
+      batchEle.classList.remove("hidden");
+      nameEle.innerText = d.data.name;
+      batchEle.innerText = d.data.batch;
+      contentEle.innerText = d.data.content;
 
       d3.select(this).style("stroke", "#0B567F");
       let circleRadius = d.r * 1.1 < minWidth ? minWidth : d.r * 1.1;
@@ -90,6 +87,10 @@ const generateChart = (data) => {
     .on("mouseout", function (e, d) {
       getNeighbors(d.x, d.y, d.r, true);
       d3.select(this).style("stroke", "none");
+
+      nameEle.classList.add("hidden");
+      batchEle.classList.add("hidden");
+
       //Circle radius
       d3.select(this)
         .transition()
