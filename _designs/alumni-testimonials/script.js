@@ -1,4 +1,4 @@
-const file = "data.json";
+const file = "http://ieeesbtkmce.localhost/wp-json/alumni_testimonials/v1/all";
 const width = 500; //window.innerWidth;
 const height = 500; //window.innerHeight;
 const colors = {
@@ -33,7 +33,6 @@ const generateChart = (data) => {
 
   let defs = svg.append("defs");
   node._groups[0].map((data) => {
-    // console.log(data.__data__.r);
     minWidth =
       minWidth < (data.__data__.r * 1.1) / 2
         ? (data.__data__.r * 1.1) / 2
@@ -56,7 +55,7 @@ const generateChart = (data) => {
     .append("circle")
     // .style("fill", (d) => colors[d.data.category])
     .attr("fill", (d) => {
-      return `url(#pattern_${d.data.id})`;
+      return d.data.img ? `url(#pattern_${d.data.id})` : "#006EA6";
     })
     .on("mouseover", function (e, d) {
       getNeighbors(d.x, d.y, d.r, false);
@@ -173,6 +172,28 @@ const generateChart = (data) => {
 };
 
 (async () => {
+  function generateRandomFloat(min, max) {
+    return Math.random() * (max - min) + min;
+  }
   data = await d3.json(file).then((data) => data);
+  data = data.map((item) => {
+    return { ...item, score: generateRandomFloat(3, 10) };
+  });
+
+  // for (let i = 0; i < 500; i++) {
+  //   let b = {
+  //     id:
+  //       Math.random().toString(36).substring(2) +
+  //       new Date().getTime().toString(36),
+  //     name: "fake",
+  //     score: generateRandomFloat(0.5, 1.5),
+  //     content:
+  //       "Gotham's a canvas of corruption, and I'm the vigilante brushstroke. No capes, no quips, just shadows and justice. One by one, the darkness falls, and dawn breaks on a safer city. That's the Batman promise.",
+  //     batch: "Batch 2015-19",
+  //     current_position: "CEO of Wayne Enterprises",
+  //     img: false,
+  //   };
+  //   data.push(b);
+  // }
   generateChart(data);
 })();
