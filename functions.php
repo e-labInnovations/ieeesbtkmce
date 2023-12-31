@@ -142,6 +142,16 @@ require_once get_stylesheet_directory() . '/inc/walker.php';
 require_once get_stylesheet_directory() . '/inc/customizer.php';
 new IEEESBTKMCE_Customizer();
 
-//Custom Post Type
+/*** Custom Post Type **/
 //Events
 require_once get_stylesheet_directory() . '/inc/events.php';
+
+//Alumni Testimonials
+require_once get_stylesheet_directory() . '/inc/alumni-testimonials.php';
+
+//Disable Gutenberg / block editor for certain post types
+add_filter('use_block_editor_for_post_type', 'ieeesbtkmce_disable_gutenberg', 10, 2);
+function ieeesbtkmce_disable_gutenberg($current_status, $post_type) {
+    if ($post_type === 'alumni_testimonials') return false;
+    return $current_status;
+}

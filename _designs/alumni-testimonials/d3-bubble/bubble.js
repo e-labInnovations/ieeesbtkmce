@@ -53,6 +53,7 @@ const generateChart = (data) => {
     })
     .on("mouseover", function (e, d) {
       getNeighbors(d.x, d.y, d.r, false);
+
       //   tooltip.select("img").attr("src", d.data.img);
       //   tooltip.select("a").attr("href", d.data.link).text(d.data.name);
       //   tooltip
@@ -62,11 +63,13 @@ const generateChart = (data) => {
       //   tooltip.style("visibility", "visible");
 
       d3.select(this).style("stroke", "#0B567F");
+      //Circle radius
       d3.select(this)
         .transition()
         .ease(d3.easePolyInOut)
         .duration(200)
         .attr("r", d.r * 1.1);
+      //Image width
       d3.select("#pattern_" + d.data.id)
         .select("image")
         .transition()
@@ -80,11 +83,13 @@ const generateChart = (data) => {
     .on("mouseout", function (e, d) {
       getNeighbors(d.x, d.y, d.r, true);
       d3.select(this).style("stroke", "none");
+      //Circle radius
       d3.select(this)
         .transition()
         .ease(d3.easeExpInOut)
         .duration(200)
         .attr("r", d.r);
+      //Image width
       d3.select("#pattern_" + d.data.id)
         .select("image")
         .transition()
@@ -111,12 +116,14 @@ const generateChart = (data) => {
         const patternId = cir.getAttribute("fill").slice(4, -1); // Remove first 4 characters and last character
 
         if (scaleUp) {
+          //Circle radius
           d3.select(cir)
             .transition()
             .ease(d3.easeExpInOut)
             .duration(200)
             .attr("r", r2);
 
+          //Image width
           d3.select(patternId)
             .select("image")
             .transition()
@@ -124,12 +131,14 @@ const generateChart = (data) => {
             .duration(200)
             .attr("width", 2 * r2);
         } else {
+          //Circle radius
           d3.select(cir)
             .transition()
             .ease(d3.easeExpInOut)
             .duration(200)
             .attr("r", newR2);
 
+          //Image width
           d3.select(patternId)
             .select("image")
             .transition()
