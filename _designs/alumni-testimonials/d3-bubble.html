@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Test</title>
+    <style>
+      /* .bubble_chart {
+        border: 2px solid red;
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        padding-bottom: 100%;
+        aspect ratio
+        vertical-align: top;
+        overflow: hidden;
+      } */
+
+      /* .svg-content-responsive {
+        border: 3px solid green;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bubble_chart"></div>
+      <div class="new-try"></div>
+      <h1>Test</h1>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/d3@7"></script> -->
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.js"
+    ></script>
+    <script type="module">
+      (function () {
+        var json = {
+          call_data: [
+            ["Lifestyle", 1, "https://picsum.photos/400/400?random=1"],
+            ["Sports", 10, "https://picsum.photos/400/400?random=2"],
+            ["Environment", 2, "https://picsum.photos/400/400?random=3"],
+            ["Medical", 6, "https://picsum.photos/400/400?random=4"],
+            ["Food", 4, "https://picsum.photos/400/400?random=5"],
+          ],
+        };
+
+        var svg = d3
+          .select(".bubble_chart")
+          .append("svg")
+          /*
+    .attr("width", diameter)
+    .attr("height", diameter);
+*/
+          .attr("preserveAspectRatio", "xMinYMin meet")
+          .attr("viewBox", "0 0 600 400")
+          //class to make it responsive
+          .classed("svg-content-responsive", true);
+
+        var bubble = d3.layout
+          .pack()
+          .size([600, 400])
+          .value(function (d) {
+            return d.size;
+          })
+          .padding(2);
+
+        // generate data with calculated layout values
+        var nodes = bubble.nodes(processData(json)).filter(function (d) {
+          return !d.children;
+        }); // filter out the outer bubble
+
+        var vis = svg.selectAll("circle").data(nodes, function (d, i) {
+          return d.name + i;
+        });
+
+        // console.log("🚀 ~ nodes:", nodes);
+        let defs = svg.append("defs");
+        // nodes.map((node) => {
+        //   defs
+        //   .append("pattern")
+        //   .attr("id", node.name.toLowerCase())
+        //   .attr("width", 1)
+        //   .attr("height", 1)
+        //   .attr("patternUnits", "objectBoundingBox")
+        //   .append("svg:image")
+        //   .style("opacity", 0)
+        //   .attr("xlink:href", node.img)
+        //   .attr("width", "100%")
+        //   .style("opacity", 1);
+        // });
+
+        vis.enter()[0].map((data) => {
+          console.log(data.__data__);
+          defs
+            .append("pattern")
+            .attr("id", data.__data__.name.toLowerCase())
+            .attr("width", 1)
+            .attr("height", 1)
+            .attr("patternUnits", "objectBoundingBox")
+            .append("svg:image")
+            .style("opacity", 0)
+            .attr("xlink:href", data.__data__.img)
+            .attr("width", 2 * data.__data__.r)
+            .style("opacity", 1);
+        });
+
+        vis
+          .enter()
+          .append("circle")
+          .attr("transform", function (d) {
+            return "translate(" + d.x + "," + d.y + ")";
+          })
+          .attr("class", function (d) {
+            return d.className;
+          })
+          .attr("r", 0)
+          .transition()
+          .duration(1000)
+          .attr("r", function (d) {
+            return d.r;
+          })
+          .attr("fill", (d) => {
+            return `url(#${d.name.toLowerCase()})`;
+          });
+
+        // vis
+        //   .enter()
+        //   .append("svg:image")
+        //   .style("opacity", 0)
+        //   .attr("transform", (d) => "translate(" + d.x + "," + d.y + ")")
+        //   .attr("x", (d) => -(d.r / 0.5) / 2)
+        //   .attr("y", (d) => -(d.r / 0.5) / 2)
+        //   .attr("xlink:href", function (d) {
+        //     return d.img;
+        //   })
+        //   .attr("width", (d) => d.r / 0.5)
+        //   .transition()
+        //   .duration(1000)
+        //   .style("opacity", 1)
+        //   .style("border-radius", "50%");
+
+        function processData(data) {
+          var obj = data.call_data;
+
+          var newDataSet = [];
+
+          for (var prop in obj) {
+            newDataSet.push({
+              name: obj[prop][0],
+              className: obj[prop][0].toLowerCase(),
+              size: obj[prop][1],
+              img: obj[prop][2],
+            });
+          }
+          return {
+            children: newDataSet,
+          };
+        }
+      })();
+    </script>
+  </body>
+</html>
