@@ -9,7 +9,7 @@ const colors = {
 
 const generateChart = (data) => {
   const bubble = (data) =>
-    d3.pack().size([width, height]).padding(2)(
+    d3.pack().size([width, height]).padding(20)(
       d3.hierarchy({ children: data }).sum((d) => d.score),
     );
 
@@ -49,11 +49,10 @@ const generateChart = (data) => {
     .append("circle")
     // .style("fill", (d) => colors[d.data.category])
     .attr("fill", (d) => {
-      console.log(d.data);
       return `url(#pattern_${d.data.id})`;
     })
     .on("mouseover", function (e, d) {
-      getNeighbors(d.x, d.y, d.r * 1.2, false);
+      getNeighbors(d.x, d.y, d.r, false);
       //   tooltip.select("img").attr("src", d.data.img);
       //   tooltip.select("a").attr("href", d.data.link).text(d.data.name);
       //   tooltip
@@ -63,20 +62,41 @@ const generateChart = (data) => {
       //   tooltip.style("visibility", "visible");
 
       d3.select(this).style("stroke", "#0B567F");
-      d3.select(this).attr("r", d.r * 1.1);
+      d3.select(this)
+        .transition()
+        .ease(d3.easePolyInOut)
+        .duration(200)
+        .attr("r", d.r * 1.1);
+      d3.select("#pattern_" + d.data.id)
+        .select("image")
+        .transition()
+        .ease(d3.easePolyInOut)
+        .duration(200)
+        .attr("width", 2 * d.r * 1.1);
     })
     // .on("mousemove", (e) =>
     // //   tooltip.style("top", `${e.pageY}px`).style("left", `${e.pageX + 10}px`),
     // )
     .on("mouseout", function (e, d) {
-      getNeighbors(d.x, d.y, d.r * 1.2, true);
+      getNeighbors(d.x, d.y, d.r, true);
       d3.select(this).style("stroke", "none");
-      d3.select(this).attr("r", d.r);
+      d3.select(this)
+        .transition()
+        .ease(d3.easeExpInOut)
+        .duration(200)
+        .attr("r", d.r);
+      d3.select("#pattern_" + d.data.id)
+        .select("image")
+        .transition()
+        .ease(d3.easeExpInOut)
+        .duration(200)
+        .attr("width", 2 * d.r);
       //   return tooltip.style("visibility", "hidden");
-    })
-    .on("click", (e, d) => window.open(d.data.link));
+    });
+  // .on("click", (e, d) => window.open(d.data.link));
 
   function getNeighbors(x, y, r, scaleUp) {
+    r = r * 1.2 + 20;
     circle._groups[0].map((cir) => {
       let x2 = cir.__data__.x;
       let y2 = cir.__data__.y;
@@ -88,9 +108,35 @@ const generateChart = (data) => {
         var newR2 = d - r;
         // Ensure r2 is not negative (which would make the circle disappear)
         newR2 = Math.max(newR2, 0);
+        const patternId = cir.getAttribute("fill").slice(4, -1); // Remove first 4 characters and last character
 
-        if (scaleUp) d3.select(cir).attr("r", r2);
-        else d3.select(cir).attr("r", newR2);
+        if (scaleUp) {
+          d3.select(cir)
+            .transition()
+            .ease(d3.easeExpInOut)
+            .duration(200)
+            .attr("r", r2);
+
+          d3.select(patternId)
+            .select("image")
+            .transition()
+            .ease(d3.easeExpInOut)
+            .duration(200)
+            .attr("width", 2 * r2);
+        } else {
+          d3.select(cir)
+            .transition()
+            .ease(d3.easeExpInOut)
+            .duration(200)
+            .attr("r", newR2);
+
+          d3.select(patternId)
+            .select("image")
+            .transition()
+            .ease(d3.easeExpInOut)
+            .duration(200)
+            .attr("width", 2 * newR2);
+        }
       }
     });
   }
