@@ -90,6 +90,7 @@ function ieeesbtkmce_add_support() {
   add_action('customize_register', '__return_true' );
 
   add_image_size('major-event-thumb', 330, 230, true);
+  add_image_size('alumni-testimonials-thumb', 400, 400, true);
 }
 add_action('after_setup_theme', 'ieeesbtkmce_add_support');
 

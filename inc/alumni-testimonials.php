@@ -155,7 +155,7 @@ function alumni_testimonials_api() {
             $content          = $testimonial->post_content;
             $batch            = get_post_meta($testimonial->ID, 'alumni_batch', true);
             $current_position = get_post_meta($testimonial->ID, 'alumni_current_position', true);
-            $thumbnail        = get_the_post_thumbnail_url($testimonial->ID, array(150, 150));
+            $thumbnail        = get_the_post_thumbnail_url($testimonial->ID, 'alumni-testimonials-thumb');
 
             $result[] = array(
                 'id'                => $id,
