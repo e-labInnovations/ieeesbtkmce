@@ -31,7 +31,7 @@ function register_alumni_testimonials_post_type() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => null,
-        'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'),
+        'supports'           => array('title', 'editor', 'thumbnail'),
         'menu_icon'          => 'dashicons-groups', // Choose an icon from Dashicons: https://developer.wordpress.org/resource/dashicons/
         'menu_icon'          => 'data:image/svg+xml;base64,' . base64_encode('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#a7aaad" viewBox="0 0 16 16"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm7.194 2.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 4C4.776 4 4 4.746 4 5.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 7.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 4c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/></svg>')
     );
@@ -150,20 +150,20 @@ function alumni_testimonials_api() {
         $result = array();
 
         foreach ($alumni_testimonials as $testimonial) {
-            $id = $testimonial->ID;
-            $title = $testimonial->post_title;
-            $content = $testimonial->post_content;
-            $batch = get_post_meta($testimonial->ID, 'alumni_batch', true);
+            $id               = $testimonial->ID;
+            $title            = $testimonial->post_title;
+            $content          = $testimonial->post_content;
+            $batch            = get_post_meta($testimonial->ID, 'alumni_batch', true);
             $current_position = get_post_meta($testimonial->ID, 'alumni_current_position', true);
-            $thumbnail = get_the_post_thumbnail_url($testimonial->ID, array(150, 150));
+            $thumbnail        = get_the_post_thumbnail_url($testimonial->ID, array(150, 150));
 
             $result[] = array(
-                'id'                      => $id,
-                'name'                    => $title,
-                'content'                 => $content,
-                'alumni_batch'            => $batch,
-                'alumni_current_position' => $current_position,
-                'img'                     => $thumbnail,
+                'id'                => $id,
+                'name'              => $title,
+                'content'           => $content,
+                'batch'             => $batch,
+                'current_position'  => $current_position,
+                'img'               => $thumbnail,
             );
         }
 
