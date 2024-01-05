@@ -29,7 +29,8 @@ function certificates_page_callback() {
             <button type="submit" name="generate_certificate">Generate Certificate</button>
         </form>
 
-        <h1>PDF.js 'Hello, world!' example</h1>
+        <h1>Certificate</h1>
+        <pre id="text-size"></pre>
 
         <div id = "canvas_container">
             <canvas id = "pdf_renderer"> </canvas>
@@ -54,9 +55,11 @@ function certificates_page_callback() {
 
                 // RENDER PDF DOCUMENT
                 function render() {
-                    defaultState.pdf.getPage(defaultState.currentPage).then((page) => {
+                    var clicks = []
+                    var canvas = document.getElementById("pdf_renderer");
+                    let pdfPage = null
 
-                        var canvas = document.getElementById("pdf_renderer");
+                    defaultState.pdf.getPage(defaultState.currentPage).then((page) => {
                         var ctx = canvas.getContext('2d');
 
                         var viewport = page.getViewport(defaultState.zoom);
@@ -64,19 +67,83 @@ function certificates_page_callback() {
                         canvas.width = viewport.width;
                         canvas.height = viewport.height;
 
-                        page.render({
+                        var renderTask = page.render({
                             canvasContext: ctx,
                             viewport: viewport
                         })
 
-                        ctx.strokeStyle = 'red';
-                        ctx.strokeRect(10, 10, 50, 20);
+                        renderTask.promise.then(function () {
+                            // console.log('Page rendered');
+                            // ctx.strokeStyle = 'red';
+                            // ctx.strokeRect(10, 10, 50, 20);
+                            pdfPage = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+                            var mousedown = false;
+                            canvas.addEventListener('mousedown', function (e) {
+                                clicks[0] = {
+                                x: e.offsetX,
+                                y: e.offsetY
+                                };
+                                mousedown = true;
+                            })
+                            canvas.addEventListener('mousemove', function (e) {
+                                if (mousedown) {
+                                clicks[1] = {
+                                    x: e.offsetX,
+                                    y: e.offsetY
+                                };
+                                redraw(ctx);
+                                }
+                            })
+                            canvas.addEventListener('mouseup', function (e) {
+                                mousedown = false;
+                                clicks[1] = {
+                                x: e.offsetX,
+                                y: e.offsetY
+                                };
+                            })
+                            canvas.addEventListener('mouseleave', function (event) {
+                                mousedown = false;
+                            });
+                        });
+
                     });
 
-                    function drawRectangle(x, y, w, h) {
-                        ctx.strokeStyle = color;
-                        ctx.strokeRect(x, y, w, h);
-                    }
+                    function drawRectangle(ctx){
+                        ctx.beginPath();
+                        ctx.rect(clicks[0].x, clicks[0].y, clicks[1].x-clicks[0].x, clicks[1].y-clicks[0].y);
+                        ctx.fillStyle = 'rgba(100,100,100,0.5)';
+                        ctx.fill();
+                        ctx.strokeStyle = "#df4b26";
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+
+                        document.getElementById('text-size').innerHTML = `x: ${clicks[0].x}\ny: ${clicks[0].y}\nw: ${clicks[1].x-clicks[0].x}\nh: ${clicks[1].y-clicks[0].y}`
+                    };
+
+                    function drawPoints(ctx){
+                        ctx.strokeStyle = "#df4b26"; 
+                        ctx.lineJoin = "round"; 
+                        ctx.lineWidth = 5; 
+                                    
+                        for(var i=0; i < clicks.length; i++){ 
+                            ctx.beginPath(); 
+                            ctx.arc(clicks[i].x, clicks[i].y, 3, 0, 2 * Math.PI, false); 
+                            ctx.fillStyle = '#ffffff'; 
+                            ctx.fill(); 
+                            ctx.lineWidth = 5; 
+                            ctx.stroke(); 
+                        }
+                    };
+                        
+                    function redraw(ctx){ 
+                        canvas.width = canvas.width; // Clears the canvas 
+                        ctx.putImageData(pdfPage,0,0); 
+
+                            
+                        drawRectangle(ctx);
+                        drawPoints(ctx);
+                    };
                 }
             })
         </script>
