@@ -118,7 +118,28 @@ function certificates_page_callback() {
                         ctx.lineWidth = 1;
                         ctx.stroke();
 
-                        document.getElementById('text-size').innerHTML = `x: ${clicks[0].x}\ny: ${clicks[0].y}\nw: ${clicks[1].x-clicks[0].x}\nh: ${clicks[1].y-clicks[0].y}`
+                        var recData = {
+                            x: clicks[0].x,
+                            y: clicks[0].y,
+                            w: clicks[1].x-clicks[0].x,
+                            h: clicks[1].y-clicks[0].y,
+                        }
+
+                        recData.x = recData.w<0 ? recData.x + recData.w : recData.x
+                        recData.w = recData.w<0 ? - recData.w : recData.w
+                        recData.y = recData.h<0 ? recData.y + recData.h : recData.y
+                        recData.h = recData.h<0 ? - recData.h : recData.h
+
+                        document.getElementById('text-size').innerHTML = `
+                        x: ${recData.x}
+                        y: ${recData.y}
+                        w: ${recData.w}
+                        h: ${recData.h}
+                        
+                        x: ${recData.x/canvas.width}
+                        y: ${recData.x/canvas.height}
+                        $pdf->Text($templateSize["width"]*${recData.x/canvas.width}, $templateSize["height"]*${recData.x/canvas.height}, 'Muhammed Risal');
+                        `
                     };
 
                     function drawPoints(ctx){

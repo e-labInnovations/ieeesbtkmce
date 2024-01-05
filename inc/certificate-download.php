@@ -23,8 +23,8 @@ $pdf->addPage($templateSize["orientation"], $templateSize);
 $pdf->useImportedPage($pageId, 0, 0);
 
 $pdf->SetFont('Arial', 'B', 24);
-$pdf->Text(90, 60, 'Muhammed Risal');
-
+// $pdf->Text(90, 60, 'Muhammed Risal');
+$pdf->Text($templateSize["width"]*0.06444444444444444, $templateSize["height"]*0.11175337186897881, 'Muhammed Risal');
 
 // Insert a logo in the top-left corner at 300 dpi
 // $pdf->Image('logo.png', 10, 10, -300);
