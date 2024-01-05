@@ -13,3 +13,4 @@
   - [ ] Watch `201. Templates (Part 2)` and fix the template default images
   - [ ] `src/blocks/major-events/edit.js` fix child position and scrolling
 - [ ] SVG Sprites working in frontend but not in admin side (Block editor side)
+- [ ] Hide alumni testimonial from menu

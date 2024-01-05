@@ -1,5 +1,7 @@
 <?php
 
+define( 'IEEESBTKMCE_THEME_PATH', get_stylesheet_directory());
+define('IEEESBTKMCE_THEME_URL', get_stylesheet_directory_uri());
 function ieeesbtkmce_load_assets() {
   // The core GSAP library
   wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
@@ -137,18 +139,18 @@ function add_new_block_categories($categories) {
 add_filter('block_categories_all', 'add_new_block_categories');
 
 //Custom menu walker class
-require_once get_stylesheet_directory() . '/inc/walker.php';
+require_once IEEESBTKMCE_THEME_PATH . '/inc/walker.php';
 
 //Customizer
-require_once get_stylesheet_directory() . '/inc/customizer.php';
+require_once IEEESBTKMCE_THEME_PATH . '/inc/customizer.php';
 new IEEESBTKMCE_Customizer();
 
 /*** Custom Post Type **/
 //Events
-require_once get_stylesheet_directory() . '/inc/events.php';
+require_once IEEESBTKMCE_THEME_PATH . '/inc/events.php';
 
 //Alumni Testimonials
-require_once get_stylesheet_directory() . '/inc/alumni-testimonials.php';
+require_once IEEESBTKMCE_THEME_PATH . '/inc/alumni-testimonials.php';
 
 //Disable Gutenberg / block editor for certain post types
 add_filter('use_block_editor_for_post_type', 'ieeesbtkmce_disable_gutenberg', 10, 2);
@@ -156,3 +158,7 @@ function ieeesbtkmce_disable_gutenberg($current_status, $post_type) {
     if ($post_type === 'alumni_testimonials') return false;
     return $current_status;
 }
+
+//Certificates Page
+require_once IEEESBTKMCE_THEME_PATH . '/inc/fpdf/fpdf.php';
+require_once IEEESBTKMCE_THEME_PATH . '/inc/certificates.php';

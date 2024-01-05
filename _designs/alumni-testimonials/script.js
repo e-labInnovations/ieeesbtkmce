@@ -181,7 +181,7 @@ const generateChart = (data) => {
     return { ...item, score: generateRandomFloat(3, 10) };
   });
 
-  // for (let i = 0; i < 500; i++) {
+  // for (let i = 0; i < 50; i++) {
   //   let b = {
   //     id:
   //       Math.random().toString(36).substring(2) +
