@@ -22,13 +22,11 @@ $pdf->addPage($templateSize["orientation"], $templateSize);
 
 $pdf->useImportedPage($pageId, 0, 0);
 
-$pdf->SetFont('Arial', 'B', 24);
+// $pdf->SetFont('Arial', 'B', 24);
 // $pdf->Text(90, 60, 'Muhammed Risal');
-$pdf->Text($templateSize["width"]*0.06444444444444444, $templateSize["height"]*0.11175337186897881, 'Muhammed Risal');
+$pdf->SetFont('Arial', 'B', 32);
+$pdf->Text(91.72208209126347, 58.91379888169615, 'Muhammed Risal');
 
-// Insert a logo in the top-left corner at 300 dpi
-// $pdf->Image('logo.png', 10, 10, -300);
-// // Insert a dynamic image from a URL
 $pdf->Image('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example', 20, 150, 30, 0, 'PNG');
 
 // print_r($pdf->useImportedPage($pageId));
