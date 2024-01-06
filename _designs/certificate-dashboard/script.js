@@ -5,6 +5,7 @@ var pdfCanvas = document.getElementById("pdf-renderer");
 var drawableCanvas = document.getElementById("drawable-canvas");
 var pdfCtx = pdfCanvas.getContext("2d");
 var drawableCtx = drawableCanvas.getContext("2d");
+const canvas = new fabric.Canvas("drawable-canvas");
 
 var w = null;
 var h = null;
@@ -40,9 +41,10 @@ function render() {
 
     pdfCanvas.width = w;
     pdfCanvas.height = h;
-    drawableCanvas.width = w;
-    drawableCanvas.height = h;
-    drawableCanvas.style.zIndex = 1;
+    // drawableCanvas.width = w;
+    // drawableCanvas.height = h;
+    // drawableCanvas.style.zIndex = 1;
+    canvas.setDimensions({ width: w, height: h });
 
     var renderTask = page.render({
       canvasContext: pdfCtx,
@@ -51,12 +53,13 @@ function render() {
 
     renderTask.promise.then(function () {
       // drawBG(drawableCtx);
-      drawShapes(drawableCtx);
+      // drawShapes(drawableCtx);
     });
   });
 }
 
 //Functions
+/*
 let drawBG = (context) => {
   context.save();
 
@@ -219,4 +222,62 @@ drawableCanvas.addEventListener("mousemove", function (e) {
   // console.log(rect);
 });
 drawableCanvas.addEventListener("mouseleave", function (e) {});
+*/
+
+// Add text
+const text = new fabric.Text("Mohammed Ashad", {
+  left: 200,
+  top: 100,
+  fill: "green",
+  selectable: true,
+});
+
+// Add an image
+fabric.Image.fromURL(
+  "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example",
+  (img) => {
+    let qrImg = img.set({
+      left: 400,
+      top: 50,
+      width: 150,
+      height: 150,
+      selectable: true,
+    });
+    canvas.add(img);
+    qrImg.setControlsVisibility({
+      mtr: false,
+      mtr: false,
+      mt: false,
+      mb: false,
+      mr: false,
+      ml: false,
+    });
+  },
+);
+
+// Add objects to canvas
+canvas.add(text);
+
+// text.controls = {
+//   ...fabric.Text.prototype.controls,
+//   mtr: new fabric.Control({ visible: false }),
+//   mr: new fabric.Control({ visible: false }),
+//   ml: new fabric.Control({ visible: false }),
+//   mt: new fabric.Control({ visible: false }),
+//   mb: new fabric.Control({ visible: false }),
+// };
+
+text.setControlsVisibility({
+  mtr: false,
+  mtr: false,
+  mt: false,
+  mb: false,
+  mr: false,
+  ml: false,
+});
+
+// Listen for object selection and log details
+canvas.on("selection:created", (event) => {
+  console.log("Selected Object:", event.target);
+});
 // });
