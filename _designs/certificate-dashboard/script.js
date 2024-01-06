@@ -23,7 +23,9 @@ const objectsArray = [
     scaleY: 0.3,
     type: "image",
     imgUrl:
-      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example",
+      // "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8",
+      // "http://chart.apis.google.com/chart?cht=qr&chs=150x150&chld=L|0&chl=http://localhost/wp-sandbox/?p=6164",
+      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://elabins.com",
   },
 ];
 
@@ -89,6 +91,9 @@ function createObjectsFromArray(objectsArray) {
         mr: false,
         ml: false,
       });
+      fabricObj.borderColor = "#df4b26";
+      fabricObj.cornerColor = "#df4b26";
+      fabricObj.cornerStrokeColor = "#df4b26";
     } else if (obj.type === "image") {
       fabric.Image.fromURL(obj.imgUrl, (img) => {
         fabricObj = img.set({
@@ -109,6 +114,11 @@ function createObjectsFromArray(objectsArray) {
           mr: false,
           ml: false,
         });
+
+        fabricObj.borderColor = "#df4b26";
+        fabricObj.cornerColor = "#df4b26";
+        fabricObj.cornerStrokeColor = "#df4b26";
+        fabricObj.cornerStyle2 = "circle";
 
         canvas.add(img);
       });

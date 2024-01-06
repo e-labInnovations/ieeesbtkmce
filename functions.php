@@ -160,5 +160,4 @@ function ieeesbtkmce_disable_gutenberg($current_status, $post_type) {
 }
 
 //Certificates Page
-require_once IEEESBTKMCE_THEME_PATH . '/inc/fpdf/fpdf.php';
 require_once IEEESBTKMCE_THEME_PATH . '/inc/certificates.php';
