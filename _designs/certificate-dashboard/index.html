@@ -34,16 +34,62 @@
   <body>
     <div class="h-20"></div>
     <section class="">
-      <pre id="text-size"></pre>
-      <div id="canvas_container" style="position: relative">
-        <canvas
-          id="pdf-renderer"
-          style="border: 1px solid red; position: absolute; top: 0; left: 0"
+      <div class="p-6">
+        <pre id="php-code"></pre>
+        <button
+          id="export-button"
+          class="rounded border border-blue-500 bg-transparent px-4 py-2 font-semibold text-blue-700 hover:border-transparent hover:bg-blue-500 hover:text-white"
         >
+          Export
+        </button>
+      </div>
+
+      <div
+        class="flex items-center justify-between gap-3 rounded-lg bg-gray-200 p-4"
+      >
+        <div class="flex items-center">
+          <label for="fontColor" class="mr-4">Font Color:</label>
+          <input
+            type="color"
+            id="fontColor"
+            class="h-8 w-40 rounded-md border border-gray-400"
+          />
+        </div>
+
+        <div class="flex items-center">
+          <label for="fontSize" class="mr-4">Font Size:</label>
+          <input
+            type="number"
+            id="fontSize"
+            class="w-40 rounded-md border border-gray-400 p-2"
+          />
+        </div>
+
+        <input
+          type="text"
+          placeholder="Text"
+          class="w-full rounded-md border border-gray-400 p-2"
+        />
+
+        <button
+          class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600"
+        >
+          Bold
+        </button>
+
+        <button
+          class="rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-600"
+        >
+          Export
+        </button>
+      </div>
+
+      <div id="canvas_container" style="position: relative">
+        <canvas id="pdf-renderer" style="position: absolute; top: 0; left: 0">
         </canvas>
         <canvas
           id="drawable-canvas"
-          style="border: 2px solid black; position: absolute; top: 0; left: 0"
+          style="position: absolute; top: 0; left: 0"
         ></canvas>
       </div>
     </section>

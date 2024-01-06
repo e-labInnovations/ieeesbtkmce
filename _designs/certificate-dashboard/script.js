@@ -2,23 +2,33 @@
 var url = "./template_1.pdf";
 
 var pdfCanvas = document.getElementById("pdf-renderer");
-var drawableCanvas = document.getElementById("drawable-canvas");
 var pdfCtx = pdfCanvas.getContext("2d");
-var drawableCtx = drawableCanvas.getContext("2d");
 const canvas = new fabric.Canvas("drawable-canvas");
+
+const objectsArray = [
+  {
+    x: 200,
+    y: 100,
+    text: "Hello Fabric.js!",
+    type: "text",
+    fill: "#0ff000",
+    fontWeight: "bold",
+  },
+  {
+    x: 100,
+    y: 300,
+    width: 150,
+    height: 150,
+    scaleX: 0.3,
+    scaleY: 0.3,
+    type: "image",
+    imgUrl:
+      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example",
+  },
+];
 
 var w = null;
 var h = null;
-
-let shapes = [];
-let currentShapeIndex = null;
-let currentShapeHoverIndex = null;
-let isDragging = false;
-let startX = null;
-let startY = null;
-
-shapes.push({ x: 200, y: 100, width: 50, height: 50, color: "red" });
-shapes.push({ x: 100, y: 100, width: 50, height: 50, color: "blue" });
 
 var defaultState = {
   pdf: null,
@@ -41,9 +51,7 @@ function render() {
 
     pdfCanvas.width = w;
     pdfCanvas.height = h;
-    // drawableCanvas.width = w;
-    // drawableCanvas.height = h;
-    // drawableCanvas.style.zIndex = 1;
+
     canvas.setDimensions({ width: w, height: h });
 
     var renderTask = page.render({
@@ -51,233 +59,202 @@ function render() {
       viewport: viewport,
     });
 
-    renderTask.promise.then(function () {
-      // drawBG(drawableCtx);
-      // drawShapes(drawableCtx);
-    });
+    renderTask.promise.then(function () {});
   });
 }
 
 //Functions
-/*
-let drawBG = (context) => {
-  context.save();
 
-  context.fillStyle = "white";
-  // context.fillRect(0, 0, w, h);
-  context.lineWidth = 0.3;
-  context.strokeStyle = "lightgray";
-  context.fillStyle = "black";
+// Function to create Fabric.js objects from the array
+function createObjectsFromArray(objectsArray) {
+  objectsArray.forEach((obj) => {
+    let fabricObj;
 
-  for (let i = 1; i < w; i++) {
-    context.beginPath();
-    if (i % 10 === 0) {
-      context.moveTo(i, 0);
-      context.lineTo(i, h);
-      context.moveTo(i, 0);
+    if (obj.type === "text") {
+      fabricObj = new fabric.Text(obj.text, {
+        left: obj.x,
+        top: obj.y,
+        fill: obj.fill,
+        fontFamily: obj.fontFamily || "Arial", // Default to Arial if not provided
+        fontSize: obj.fontSize || 16, // Default to font size 16 if not provided
+        fontWeight: obj.fontWeight || "normal",
+        selectable: true,
+      });
+
+      fabricObj.setControlsVisibility({
+        mtr: false,
+        mtr: false,
+        mt: false,
+        mb: false,
+        mr: false,
+        ml: false,
+      });
+    } else if (obj.type === "image") {
+      fabric.Image.fromURL(obj.imgUrl, (img) => {
+        fabricObj = img.set({
+          left: obj.x,
+          top: obj.y,
+          width: obj.width,
+          height: obj.height,
+          scaleX: obj.scaleX,
+          scaleY: obj.scaleY,
+          selectable: true,
+        });
+
+        fabricObj.setControlsVisibility({
+          mtr: false,
+          mtr: false,
+          mt: false,
+          mb: false,
+          mr: false,
+          ml: false,
+        });
+
+        canvas.add(img);
+      });
+      return; // Skip adding image here as it's handled separately
     }
-    context.closePath();
-    context.stroke();
-  }
 
-  for (let i = 1; i < h; i++) {
-    context.beginPath();
-    if (i % 10 === 0) {
-      context.moveTo(0, i);
-      context.lineTo(w, i);
-      context.moveTo(0, i);
-    }
-    context.closePath();
-    context.stroke();
-  }
-
-  context.lineWidth = 1;
-  context.strokeStyle = "gray";
-
-  context.beginPath();
-  for (let i = 50; i < w; i += 10) {
-    if (i % 50 === 0) {
-      context.moveTo(i, 0);
-      context.lineTo(i, 30);
-      context.fillText(` ${i}`, i, 30);
-    } else {
-      context.moveTo(i, 0);
-      context.lineTo(i, 10);
-    }
-  }
-  context.closePath();
-  context.stroke();
-
-  context.beginPath();
-  for (let i = 50; i < h; i += 10) {
-    if (i % 50 === 0) {
-      context.moveTo(0, i);
-      context.lineTo(30, i);
-      context.fillText(` ${i}`, 30, i);
-    } else {
-      context.moveTo(0, i);
-      context.lineTo(10, i);
-    }
-  }
-  context.closePath();
-  context.stroke();
-
-  context.restore();
-};
-
-let drawShapes = (ctx) => {
-  ctx.clearRect(0, 0, drawableCanvas.width, drawableCanvas.height);
-
-  shapes.forEach((shape, index) => {
-    ctx.fillStyle = shape.color;
-    ctx.fillRect(shape.x, shape.y, shape.width, shape.height);
-    if (currentShapeHoverIndex == index) {
-      ctx.setLineDash([10, 5, 30, 5]);
-      ctx.beginPath();
-      ctx.moveTo(shape.x, shape.y);
-      ctx.lineTo(0, shape.y);
-      ctx.moveTo(shape.x, shape.y);
-      ctx.lineTo(shape.x, 0);
-      ctx.moveTo(shape.x, shape.y);
-      ctx.closePath();
-      ctx.lineWidth = 0.5;
-      ctx.strokeStyle = shape.color;
-      ctx.stroke();
-    }
+    // Add the object to the canvas
+    canvas.add(fabricObj);
   });
-};
-
-let isMouseInShape = (x, y, shape) => {
-  let shapeL = shape.x;
-  let shapeR = shape.x + shape.width;
-  let shapeT = shape.y;
-  let shapeB = shape.y + shape.height;
-
-  return x > shapeL && x < shapeR && y > shapeT && y < shapeB;
-};
-
-drawableCanvas.addEventListener("mousedown", function (e) {
-  // console.log(e);
-  e.preventDefault();
-
-  startX = e.offsetX;
-  startY = e.offsetY;
-
-  shapes.forEach((shape, index) => {
-    if (isMouseInShape(startX, startY, shape)) {
-      currentShapeIndex = index;
-      isDragging = true;
-      return;
-    }
-  });
-});
-
-drawableCanvas.addEventListener("mouseup", function (e) {
-  if (!isDragging) {
-    return;
-  }
-
-  e.preventDefault();
-  isDragging = false;
-});
-
-drawableCanvas.addEventListener("mouseout", function (e) {
-  if (!isDragging) {
-    return;
-  }
-
-  e.preventDefault();
-  isDragging = false;
-});
-
-drawableCanvas.addEventListener("mousemove", function (e) {
-  e.preventDefault();
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-
-  if (isDragging) {
-    let dx = mouseX - startX;
-    let dy = mouseY - startY;
-
-    shapes[currentShapeIndex].x += dx;
-    shapes[currentShapeIndex].y += dy;
-
-    drawShapes(drawableCtx);
-    startX = mouseX;
-    startY = mouseY;
-  }
-
-  let newCurrentShapeHoverIndex = null;
-  shapes.forEach((shape, index) => {
-    if (isMouseInShape(mouseX, mouseY, shape)) {
-      newCurrentShapeHoverIndex = index;
-    }
-  });
-
-  if (currentShapeHoverIndex != newCurrentShapeHoverIndex) {
-    currentShapeHoverIndex = newCurrentShapeHoverIndex;
-    drawShapes(drawableCtx);
-  }
-
-  // console.log(rect);
-});
-drawableCanvas.addEventListener("mouseleave", function (e) {});
-*/
-
-// Add text
-const text = new fabric.Text("Mohammed Ashad", {
-  left: 200,
-  top: 100,
-  fill: "green",
-  selectable: true,
-});
-
-// Add an image
-fabric.Image.fromURL(
-  "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example",
-  (img) => {
-    let qrImg = img.set({
-      left: 400,
-      top: 50,
-      width: 150,
-      height: 150,
-      selectable: true,
-    });
-    canvas.add(img);
-    qrImg.setControlsVisibility({
-      mtr: false,
-      mtr: false,
-      mt: false,
-      mb: false,
-      mr: false,
-      ml: false,
-    });
-  },
-);
+}
 
 // Add objects to canvas
-canvas.add(text);
+createObjectsFromArray(objectsArray);
 
-// text.controls = {
-//   ...fabric.Text.prototype.controls,
-//   mtr: new fabric.Control({ visible: false }),
-//   mr: new fabric.Control({ visible: false }),
-//   ml: new fabric.Control({ visible: false }),
-//   mt: new fabric.Control({ visible: false }),
-//   mb: new fabric.Control({ visible: false }),
-// };
+// Function to update the objectsArray with the latest canvas objects
+function updateObjectsArray() {
+  objectsArray.length = 0; // Clear the existing array
 
-text.setControlsVisibility({
-  mtr: false,
-  mtr: false,
-  mt: false,
-  mb: false,
-  mr: false,
-  ml: false,
+  canvas.forEachObject((fabricObj) => {
+    let obj;
+    if (fabricObj.type === "text") {
+      obj = {
+        x: fabricObj.left,
+        y: fabricObj.top,
+        text: fabricObj.text,
+        type: "text",
+        fill: fabricObj.fill,
+        fontFamily: fabricObj.fontFamily,
+        fontSize: fabricObj.fontSize * fabricObj.scaleX,
+      };
+    } else if (fabricObj.type === "image") {
+      obj = {
+        x: fabricObj.left,
+        y: fabricObj.top,
+        width: fabricObj.width,
+        height: fabricObj.height,
+        type: "image",
+        imgUrl: fabricObj.getSrc(),
+      };
+    }
+
+    if (obj) {
+      objectsArray.push(obj);
+    }
+  });
+
+  console.log("Updated objectsArray:", objectsArray);
+}
+
+// Function to export the current state of the canvas to PHP code
+function exportObjectsToPHP() {
+  const phpCodeArray = [];
+  canvas.getObjects().forEach((obj) => {
+    const phpCode = [];
+
+    if (obj.type === "text") {
+      phpCode.push(
+        `$pdf->SetFont('${obj.fontFamily || "Arial"}', 'B', ${
+          obj.fontSize || 16
+        });`,
+      );
+      phpCode.push(`$pdf->SetTextColor(${hexToRgb(obj.fill)});`);
+      phpCode.push(
+        `$pdf->Text(${px2mm(obj.left)}, ${px2mm(
+          obj.top + obj.height,
+        )}, '${obj.text.replace("'", "\\'")}');`,
+      );
+    } else if (obj.type === "image") {
+      phpCode.push(
+        `$pdf->Image('${obj._originalElement.src}', ${px2mm(obj.left)}, ${px2mm(
+          obj.top,
+        )}, ${px2mm(obj.width * obj.scaleX)}, ${px2mm(
+          obj.height * obj.scaleY,
+        )}, 'PNG');`,
+      );
+    }
+
+    phpCodeArray.push(phpCode.join("\n"));
+  });
+
+  const finalPHPCode = phpCodeArray.join("\n\n");
+  // console.log("Exported PHP Code:\n", finalPHPCode);
+  document.getElementById("php-code").innerHTML = finalPHPCode;
+}
+
+var px2mm = function (px) {
+  return px * 0.3528;
+};
+
+function hexToRgb(
+  hex,
+  result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex),
+) {
+  return result ? result.map((i) => parseInt(i, 16)).slice(1) : null;
+  //returns [23, 14, 45] -> reformat if needed
+}
+
+// Example of how to use the updateObjectsArray function
+document.getElementById("export-button").addEventListener("click", () => {
+  updateObjectsArray();
+  exportObjectsToPHP();
 });
 
-// Listen for object selection and log details
-canvas.on("selection:created", (event) => {
-  console.log("Selected Object:", event.target);
+canvas.on("object:scaling", function (event) {
+  if (event.target) {
+    if (event.target.type == "text") {
+      let newFontSize = event.target.fontSize * event.target.scaleX;
+      let activeObject = canvas.getActiveObject();
+
+      document.getElementById("fontColor").value = event.target.fill;
+      document.getElementById("fontSize").value = newFontSize.toFixed(0);
+      activeObject.fontSize = newFontSize;
+      activeObject.scaleX = 1;
+      activeObject.scaleY = 1;
+      canvas.renderAll();
+    }
+  }
 });
+
+canvas.on("object:selected", function (event) {
+  console.log("Selected", event);
+});
+
+document.getElementById("fontSize").addEventListener("change", (e) => {
+  let activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type == "text") {
+    activeObject.fontSize = e.target.value;
+    canvas.renderAll();
+  }
+});
+
+document.getElementById("fontColor").addEventListener("change", (e) => {
+  let activeObject = canvas.getActiveObject();
+  if (activeObject && activeObject.type == "text") {
+    activeObject.fill = e.target.value;
+    canvas.renderAll();
+  }
+});
+
+// canvas.on("selection:cleared", function (e) {
+//   console.log(e);
+// });
+// // Listen for object selection and log details
+// canvas.on("selection:created", (event) => {
+//   console.log("Selected Object:", event.selected[0]);
+// });
+
+// console.log(JSON.stringify(canvas));
 // });
