@@ -31,7 +31,8 @@ function register_certificates_post_type() {
         'hierarchical'       => false,
         'menu_position'      => null,
         'supports'           => array( 'title'),
-        'menu_icon'          => 'dashicons-awards'
+        'menu_icon'          => 'dashicons-awards',
+        'publicly_queryable' => false
     );
 
     register_post_type( 'certificates', $args );
@@ -42,38 +43,53 @@ add_action('init', 'register_certificates_post_type');
 // Add custom HTML below the post editor on the edit post screen
 function add_custom_html_below_editor($post) {
     if ($post->post_type === 'certificates') {
+        $certificate_template_url = get_post_meta($post->ID, 'certificate_template', true);
         ?>
-        <div class="custom-html-container">
-            <p>This is your custom HTML content below the post editor.</p>
-            <!-- Add your custom HTML here -->
+
+        <div class="p-4 w-full bg-white rounded shadow-md">
+            <label for="fileInput" class="block text-sm font-medium text-gray-700">Select a file:</label>
+            
+            <div class="mt-1 flex items-center" id="plupload-browse-button" >
+                <input type="button"name="fileInput" class="hidden">
+                <div class="flex-1">
+                    <div class="relative">
+                        <button type="button" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                            Choose Certificate Template (PDF)
+                        </button>
+                        <input type="text" id="certificate_template" name="certificate_template" value="<?php echo esc_url($certificate_template_url); ?>" readonly class="absolute inset-0 w-full h-full opacity-0" aria-hidden="true">
+                    </div>
+                </div>
+            </div>
         </div>
+
         <?php
     }
 }
-
 add_action('edit_form_after_editor', 'add_custom_html_below_editor');
 
+// function save_certificate_template_meta_box($post_id) {
+//     if (isset($_POST['certificate_template'])) {
+//         update_post_meta($post_id, 'certificate_template', esc_url($_POST['certificate_template']));
+//     }
+// }
+// add_action('save_post', 'save_certificate_template_meta_box');
 
-function hide_certificate_editor_meta_boxes() {
-    global $post;
 
-    // Replace 'certificates' with the slug of your certificate custom post type
-    if ($post->post_type === 'certificates') {
-        // Remove "Preview Changes" metabox
-        // remove_meta_box('submitdiv', 'certificates', 'side');
 
-        // Remove "Status" metabox
-        // remove_meta_box('poststat', 'certificates', 'normal');
-
-        // Remove "Visibility" metabox
-        // remove_meta_box('submitdiv', 'certificates', 'side');
-
-        // Remove "Published on" metabox
-        // remove_meta_box('timestampdiv', 'certificates', 'normal');
+function enqueue_custom_script() {
+    // Enqueue script only on the certificate edit page
+    global $pagenow;
+    if (($pagenow === 'post.php' || $pagenow === 'post-new.php') && get_post_type() === 'certificates') {
+        wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
+        
+        wp_enqueue_media();
+        // wp_enqueue_script('plupload-all');
+        wp_enqueue_script('pdfjs', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js', array(), null, true);
+        wp_enqueue_script('certificate-script', get_template_directory_uri() . '/assets/js/certificates-admin.js', array('jquery', 'pdfjs'), null, true);
     }
 }
 
-add_action('add_meta_boxes', 'hide_certificate_editor_meta_boxes', 20);
+add_action('admin_enqueue_scripts', 'enqueue_custom_script');
 
 
 
@@ -100,13 +116,3 @@ add_action('template_include', function( $template ) {
     return IEEESBTKMCE_THEME_PATH . '/inc/certificate-download.php';
 
 } );
-
-// function enqueue_pdfjs_script() {
-//     // Check if it's the specific admin page you want to load the script on
-//     if (is_admin() && isset($_GET['page']) && $_GET['page'] === 'certificates_page') {
-//         // Enqueue the PDF.js script
-//         wp_enqueue_script('pdfjs', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js', array(), null, true);
-//     }
-// }
-
-// add_action('admin_enqueue_scripts', 'enqueue_pdfjs_script');
