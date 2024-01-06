@@ -62,6 +62,65 @@ function add_custom_html_below_editor($post) {
             </div>
         </div>
 
+        <div class="p-6">
+        <pre id="php-code"></pre>
+        <button
+          id="export-button"
+          class="rounded border border-blue-500 bg-transparent px-4 py-2 font-semibold text-blue-700 hover:border-transparent hover:bg-blue-500 hover:text-white"
+        >
+          Export
+        </button>
+      </div>
+
+      <div
+        class="flex items-center justify-between gap-3 rounded-lg bg-gray-200 p-4"
+      >
+        <div class="flex items-center">
+          <label for="fontColor" class="mr-4">Font Color:</label>
+          <input
+            type="color"
+            id="fontColor"
+            class="h-8 w-40 rounded-md border border-gray-400"
+          />
+        </div>
+
+        <div class="flex items-center">
+          <label for="fontSize" class="mr-4">Font Size:</label>
+          <input
+            type="number"
+            id="fontSize"
+            class="w-40 rounded-md border border-gray-400 p-2"
+          />
+        </div>
+
+        <input
+          type="text"
+          placeholder="Text"
+          class="w-full rounded-md border border-gray-400 p-2"
+        />
+
+        <button
+          class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600"
+        >
+          Bold
+        </button>
+
+        <button
+          class="rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-600"
+        >
+          Export
+        </button>
+      </div>
+
+      <div id="canvas_container" style="position: relative">
+        <canvas id="pdf-renderer" style="position: absolute; top: 0; left: 0; border-color: red; border-width: 2px;">
+        </canvas>
+        <canvas
+          id="drawable-canvas"
+          style="position: absolute; top: 0; left: 0; border-color: blue; border-width: 1px;"
+        ></canvas>
+      </div>
+
         <?php
     }
 }
@@ -85,7 +144,8 @@ function enqueue_custom_script() {
         wp_enqueue_media();
         // wp_enqueue_script('plupload-all');
         wp_enqueue_script('pdfjs', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js', array(), null, true);
-        wp_enqueue_script('certificate-script', get_template_directory_uri() . '/assets/js/certificates-admin.js', array('jquery', 'pdfjs'), null, true);
+        wp_enqueue_script('fabricjs', 'https://unpkg.com/fabric@5.3.0/dist/fabric.min.js', array(), null, true);
+        wp_enqueue_script('certificate-script', get_template_directory_uri() . '/assets/js/certificates-admin.js', array('jquery', 'pdfjs', 'fabricjs'), null, true);
     }
 }
 
