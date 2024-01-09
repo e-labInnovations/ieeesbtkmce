@@ -268,3 +268,37 @@ document.getElementById("fontColor").addEventListener("change", (e) => {
 
 // console.log(JSON.stringify(canvas));
 // });
+
+const elem = document.getElementById("canvas_container");
+const panzoom = Panzoom(elem, {
+  maxScale: 5,
+  disablePan: true,
+});
+panzoom.pan(10, 10);
+panzoom.zoom(1, { animate: true });
+
+let zoom = 1;
+
+let ctrlKeyActive = false;
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Control") {
+    ctrlKeyActive = true;
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  if (event.key === "Control") {
+    ctrlKeyActive = false;
+  }
+});
+
+elem.addEventListener("wheel", (event) => {
+  if (ctrlKeyActive) {
+    event.preventDefault();
+    const del = 0.1;
+    if (event.deltaY < 0) zoom += del;
+    else zoom -= del;
+    panzoom.zoom(zoom);
+  }
+});
