@@ -197,6 +197,41 @@ const setSelectedQuestion = (faqBlock, qBlock) => {
   qBlock.querySelector("div").innerHTML = selectedSvg;
 
   answerOutP.innerText = answerInP.innerText;
+
+  //Mobile
+  if (window.screen.width < 640) {
+    faqBlock.querySelectorAll('[id^="faq-item-a-"]').forEach((ansDiv) => {
+      ansDiv.classList.remove("flex");
+      ansDiv.classList.add("hidden");
+
+      gsap.fromTo(
+        ansDiv.querySelector("p"),
+        { opacity: 1 },
+        { opacity: 0, duration: 0.3, delay: 0.1 },
+      );
+
+      gsap.fromTo(
+        ansDiv,
+        { height: "auto" },
+        { height: 0, duration: 0.3, ease: "ease-out" },
+      );
+    });
+
+    answerInP.classList.remove("hidden");
+    answerInP.classList.add("flex");
+
+    gsap.fromTo(
+      answerInP,
+      { height: 0 },
+      { height: "auto", duration: 0.3, ease: "ease-out" },
+    );
+
+    gsap.fromTo(
+      answerInP.querySelector("p"),
+      { opacity: 0 },
+      { opacity: 1, duration: 0.3, delay: 0.1 },
+    );
+  }
 };
 
 document.querySelectorAll(".faq").forEach((faqBlock) => {
