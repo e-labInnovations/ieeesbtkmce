@@ -35,7 +35,7 @@ var h = null;
 var defaultState = {
   pdf: null,
   currentPage: 1,
-  zoom: 1,
+  zoom: 0.4,
 };
 
 // GET OUR PDF FILE
@@ -48,8 +48,15 @@ pdfjsLib.getDocument(url).then((pdf) => {
 function render() {
   defaultState.pdf.getPage(defaultState.currentPage).then((page) => {
     var viewport = page.getViewport(defaultState.zoom);
+    var originalViewPort = page.getViewport(1);
+    console.log(`Original
+Width : ${(originalViewPort.width / 72) * 25.4}mm
+Height: ${(originalViewPort.height / 72) * 25.4}mm`);
     w = viewport.width;
     h = viewport.height;
+    console.log(`Scaled
+Width : ${(viewport.width / 72) * 25.4}mm
+Height: ${(viewport.height / 72) * 25.4}mm`);
 
     pdfCanvas.width = w;
     pdfCanvas.height = h;
@@ -269,16 +276,6 @@ document.getElementById("fontColor").addEventListener("change", (e) => {
 // console.log(JSON.stringify(canvas));
 // });
 
-const elem = document.getElementById("canvas_container");
-const panzoom = Panzoom(elem, {
-  maxScale: 5,
-  disablePan: true,
-});
-panzoom.pan(10, 10);
-panzoom.zoom(1, { animate: true });
-
-let zoom = 1;
-
 let ctrlKeyActive = false;
 
 document.addEventListener("keydown", (event) => {
@@ -293,12 +290,15 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
-elem.addEventListener("wheel", (event) => {
+canvas.on("mouse:wheel", function (opt) {
   if (ctrlKeyActive) {
-    event.preventDefault();
-    const del = 0.1;
-    if (event.deltaY < 0) zoom += del;
-    else zoom -= del;
-    panzoom.zoom(zoom);
+    var delta = opt.e.deltaY;
+    var zoom = canvas.getZoom();
+    zoom *= 0.999 ** delta;
+    if (zoom > 20) zoom = 20;
+    if (zoom < 0.01) zoom = 0.01;
+    canvas.setZoom(zoom);
+    opt.e.preventDefault();
+    opt.e.stopPropagation();
   }
 });

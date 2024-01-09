@@ -34,16 +34,6 @@
   <body>
     <div class="h-20"></div>
     <section class="">
-      <div class="p-6">
-        <pre id="php-code"></pre>
-        <button
-          id="export-button"
-          class="rounded border border-blue-500 bg-transparent px-4 py-2 font-semibold text-blue-700 hover:border-transparent hover:bg-blue-500 hover:text-white"
-        >
-          Export
-        </button>
-      </div>
-
       <div class="flex h-screen flex-col">
         <!-- Div above with a height of 20rem -->
         <div
@@ -80,51 +70,38 @@
           </button>
 
           <button
+            id="export-button"
             class="rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-600"
           >
             Export
           </button>
         </div>
         <!-- Main div taking the remaining height -->
-        <div id="mainContainer" class="flex-1 bg-blue-500">
-          <!-- Your content here -->
-          <div id="zoomContainer" class="bg-red-400">
-            <div id="canvas_container" style="position: relative">
-              <canvas
-                id="pdf-renderer"
-                style="position: absolute; top: 0; left: 0"
-              >
-              </canvas>
-              <canvas
-                id="drawable-canvas"
-                style="position: absolute; top: 0; left: 0"
-              ></canvas>
-            </div>
+        <div id="mainContainer" class="flex-1 overflow-auto bg-blue-500">
+          <div id="canvas_container" style="position: relative">
+            <canvas
+              id="pdf-renderer"
+              style="position: absolute; top: 0; left: 0"
+            >
+            </canvas>
+            <canvas
+              id="drawable-canvas"
+              style="position: absolute; top: 0; left: 0"
+            ></canvas>
           </div>
         </div>
       </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var mainContainer = document.getElementById("mainContainer");
-          var scrollThreshold = 20; // You can adjust this threshold as needed
-
-          window.addEventListener("scroll", function () {
-            if (window.scrollY > scrollThreshold) {
-              mainContainer.classList.remove("fixed-scroll");
-            } else {
-              mainContainer.classList.add("fixed-scroll");
-            }
-          });
-        });
-      </script>
+      <div class="p-6">
+        <pre id="php-code"></pre>
+      </div>
     </section>
     <div class="h-20"></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"
+      id="pdfjs-js"
+    ></script>
+    <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
+    <script src="./script.js"></script>
   </body>
-  <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"
-    id="pdfjs-js"
-  ></script>
-  <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
-  <script src="./script.js"></script>
 </html>

@@ -14,3 +14,4 @@
   - [ ] `src/blocks/major-events/edit.js` fix child position and scrolling
 - [ ] SVG Sprites working in frontend but not in admin side (Block editor side)
 - [ ] Hide alumni testimonial from menu
+- [ ] use hammer.js for iOS scroll for major events (Mobile)
