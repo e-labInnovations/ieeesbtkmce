@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         activeImg.parentElement.style.height =
           (imagesDivWidth / 1.675) * 1.1764705882352942 + "px";
       };
+      lnInit();
 
       window.addEventListener("resize", () => {
         lnInit();
