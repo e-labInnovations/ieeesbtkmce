@@ -9,6 +9,80 @@ document.querySelectorAll("nav").forEach((nav) => {
 });
 /** Navbar End **/
 
+/** Latest Events Start **/
+document.addEventListener("DOMContentLoaded", function (event) {
+  document
+    .querySelectorAll("#latest-news-section")
+    .forEach((latestNewsSection) => {
+      const nextButton = latestNewsSection.querySelector("#news-next");
+      const prevButton = latestNewsSection.querySelector("#news-prev");
+
+      const activeImg = latestNewsSection.querySelector(".news-front-img");
+
+      const imagesDiv = activeImg.parentElement;
+      const imagesDivWidth = imagesDiv.offsetWidth - 2;
+      activeImg.parentElement.style.height =
+        (imagesDivWidth / 1.675) * 1.1764705882352942 + "px";
+
+      const doNext = () => {
+        const activeImg = latestNewsSection.querySelector(".news-front-img");
+        const nextImg = latestNewsSection.querySelector(".news-back-img");
+        const hiddenBackImg = latestNewsSection.querySelector(
+          ".news-hidden-back-img",
+        );
+        const hiddenFrontImg = latestNewsSection.querySelector(
+          ".news-hidden-front-img",
+        );
+
+        activeImg.classList.replace("news-front-img", "news-hidden-front-img");
+        nextImg.classList.replace("news-back-img", "news-front-img");
+        hiddenBackImg.classList.replace(
+          "news-hidden-back-img",
+          "news-back-img",
+        );
+        hiddenFrontImg.classList.replace(
+          "news-hidden-front-img",
+          "news-hidden-back-img",
+        );
+      };
+
+      const doPrev = () => {
+        const activeImg = latestNewsSection.querySelector(".news-front-img");
+        const nextImg = latestNewsSection.querySelector(".news-back-img");
+        const hiddenBackImg = latestNewsSection.querySelector(
+          ".news-hidden-back-img",
+        );
+        const hiddenFrontImg = latestNewsSection.querySelector(
+          ".news-hidden-front-img",
+        );
+
+        activeImg.classList.replace("news-front-img", "news-back-img");
+        nextImg.classList.replace("news-back-img", "news-hidden-back-img");
+        hiddenBackImg.classList.replace(
+          "news-hidden-back-img",
+          "news-hidden-front-img",
+        );
+        hiddenFrontImg.classList.replace(
+          "news-hidden-front-img",
+          "news-front-img",
+        );
+      };
+
+      var mc = new Hammer(imagesDiv);
+      mc.on("swipeleft swiperight", function (ev) {
+        if (ev.type == "swipeleft") {
+          doNext();
+        } else if (ev.type == "swiperight") {
+          doPrev();
+        }
+      });
+
+      nextButton.addEventListener("click", doNext);
+      prevButton.addEventListener("click", doPrev);
+    });
+});
+/** Latest Events End **/
+
 /** Counter Start **/
 document.addEventListener("DOMContentLoaded", function (event) {
   gsap.registerPlugin(ScrollTrigger);
