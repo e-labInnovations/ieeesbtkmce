@@ -240,8 +240,8 @@ document.querySelectorAll(".major-events-hosted").forEach((mef) => {
 
 /** Alumni Testimonials Start **/
 document.querySelectorAll(".alumni-testimonials").forEach((atSection) => {
-  const file =
-    "http://ieeesbtkmce.localhost/wp-json/alumni_testimonials/v1/all";
+  // const file = "http://ieeesbtkmce.localhost/wp-json/alumni_testimonials/v1/all";
+  const file = "./alumni-testimonials.json";
   const contentEle = atSection.querySelector("#at-content");
   const nameEle = atSection.querySelector("#at-name");
   const batchEle = atSection.querySelector("#at-batch");

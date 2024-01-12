@@ -1,0 +1,74 @@
+[
+  {
+    "id": 226,
+    "name": "Shamil C",
+    "content": "Let us make one point, that we meet each other with a smile, when it is difficult to smile. Smile at each other, make time for each other in your family.",
+    "batch": "Batch 2020-24",
+    "current_position": "CEO of Andi Company",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2024/01/IMG_20230201_203103-400x400.jpg"
+  },
+  {
+    "id": 222,
+    "name": "Elon Musk",
+    "content": "Rockets to red planets, electric dreams on city streets. I push boundaries, bend realities, some call me crazy, I call it innovation. One giant leap for humankind, one tweet at a time. Buckle up, Earth, the future's a wild ride.",
+    "batch": "Batch 2005-09",
+    "current_position": "",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/Elon-Musk-400x400.jpg"
+  },
+  {
+    "id": 220,
+    "name": "Jay Gatsby",
+    "content": "A green light at the end of the dock\u2014that's my beacon. Every champagne flute, every gilded party, chasing a past I can't touch. They call me Gatsby, the enigma, the bootlegger with dreams taller than skyscrapers. But beneath the glitz, there's a moth chasing a star, longing for a love long gone.",
+    "batch": "Batch 2012-16",
+    "current_position": "Master of West Egg revelry",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/Jay-Gatsby-400x400.jpg"
+  },
+  {
+    "id": 218,
+    "name": "Tony Stark",
+    "content": "I built a metal suit in a cave with scraps. Flew into a wormhole, saving the universe. Normalcy's overrated. Embrace the tech, own the chaos, and leave the world breathless. That's the Stark way.",
+    "batch": "Batch 2016-20",
+    "current_position": "CEO of Stark Industries",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/Tony-400x400.png"
+  },
+  {
+    "id": 216,
+    "name": "Bruce Wayne",
+    "content": "Gotham's a canvas of corruption, and I'm the vigilante brushstroke. No capes, no quips, just shadows and justice. One by one, the darkness falls, and dawn breaks on a safer city. That's the Batman promise.",
+    "batch": "Batch 2015-19",
+    "current_position": "CEO of Wayne Enterprises",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/bruce-393x400.jpg"
+  },
+  {
+    "id": 214,
+    "name": "Joker",
+    "content": "Batsy and his brooding? Pass\u00e9. Let's paint Gotham with chaos and laughter! Join the party, or be the punchline.",
+    "batch": "Batch 2021-24",
+    "current_position": "Director of Gotham's Grand Guignol",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/8302.gif"
+  },
+  {
+    "id": 212,
+    "name": "Muhammed Risal",
+    "content": "'chairman' is traditionally used to refer to a man, whereas 'chairperson' is a gender-neutral term that can refer to either a man or a woman in such a position.",
+    "batch": "Batch 2022-25",
+    "current_position": "",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-03-at-11.16.44-PM-400x400.jpeg"
+  },
+  {
+    "id": 209,
+    "name": "Sufail Muhammed",
+    "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi non incidunt suscipit, laboriosam ab voluptatibus repellat consequatur, optio quaerat, ut harum? Assumenda labore mollitia, libero voluptatibus dignissimos quos iusto amet!",
+    "batch": "Batch 2022-24",
+    "current_position": "CEO of DSign",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/file-400x400.png"
+  },
+  {
+    "id": 205,
+    "name": "Mohammed Ashad MM",
+    "content": "Lorem ipsum dolor sit amet consectetur. Sapien suspendisse cursus vestibulum cursus eget ultricies habitasse. Mi enim mauris aliquam potenti amet pharetra consequat adipiscing.",
+    "batch": "Batch 2021-24",
+    "current_position": "CEO of e-lab innovations",
+    "img": "http://ieeesbtkmce.localhost/wp-content/uploads/2023/12/profile_circle-300x300-1.png"
+  }
+]
