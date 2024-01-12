@@ -238,8 +238,40 @@ document.querySelectorAll(".major-events-hosted").forEach((mef) => {
 });
 /** Major Events End **/
 
-/** FAQ Start **/
+/** Alumni Testimonials Start **/
+document.querySelectorAll(".alumni-testimonials").forEach((atSection) => {
+  const file =
+    "http://ieeesbtkmce.localhost/wp-json/alumni_testimonials/v1/all";
+  const contentEle = atSection.querySelector("#at-content");
+  const nameEle = atSection.querySelector("#at-name");
+  const batchEle = atSection.querySelector("#at-batch");
+  const svgEle = atSection.querySelector("svg");
+  let paths = [];
+  svgEle.querySelectorAll("path").forEach((path) => {
+    const pathBox = path.getBBox();
+    const centerX = Math.round(pathBox.x + pathBox.width / 2);
+    const centerY = Math.round(pathBox.y + pathBox.height / 2);
+    const width = Math.round(pathBox.width);
 
+    path.addEventListener("click", () => {
+      console.log({
+        centerX,
+        centerY,
+        width,
+      });
+    });
+
+    paths.push(`
+    <circle cx="${centerX}" cy="${centerY}" r="${
+      width / 2
+    }" fill="${path.getAttribute("fill")}" />
+    `);
+  });
+  console.log(paths.join(""));
+});
+/** Alumni Testimonials End **/
+
+/** FAQ Start **/
 document.querySelectorAll(".faq").forEach((faqBlock) => {
   const setSelectedQuestion = (faqBlock, qBlock) => {
     const answerOutP = faqBlock.querySelector("#faq-answer");
