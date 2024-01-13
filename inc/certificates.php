@@ -112,13 +112,9 @@ function add_custom_html_below_editor($post) {
         </button>
       </div>
 
-      <div id="canvas_container" style="position: relative">
-        <canvas id="pdf-renderer" style="position: absolute; top: 0; left: 0; border-color: red; border-width: 2px;">
-        </canvas>
-        <canvas
-          id="drawable-canvas"
-          style="position: absolute; top: 0; left: 0; border-color: blue; border-width: 1px;"
-        ></canvas>
+      <div id="canvas_container" class="w-full relative">
+        <canvas id="pdf-renderer" class="w-full  absolute top-0 left-0 border-red-700 border-2"></canvas>
+        <canvas id="drawable-canvas" class="w-full  absolute top-0 left-0 border-blue-700 border-2"></canvas>
       </div>
 
         <?php

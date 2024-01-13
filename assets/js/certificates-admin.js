@@ -22,10 +22,6 @@ jQuery(document).ready(function ($) {
 
     frame.on("select", function () {
       var attachment = frame.state().get("selection").first().toJSON();
-      console.log(
-        "🚀 ~ file: certificates-admin.js:25 ~ attachment:",
-        attachment,
-      );
 
       if (attachment.mime != "application/pdf") {
         // Set error message
@@ -83,8 +79,8 @@ function doPDF(url) {
       fontWeight: "bold",
     },
     {
-      x: 100,
-      y: 300,
+      x: 10,
+      y: 30,
       width: 150,
       height: 150,
       scaleX: 0.3,
@@ -116,8 +112,14 @@ function doPDF(url) {
   function render() {
     defaultState.pdf.getPage(defaultState.currentPage).then((page) => {
       var viewport = page.getViewport(defaultState.zoom);
-      w = viewport.width;
-      h = viewport.height;
+      var desiredWidth = parseFloat(
+        document.getElementById("canvas_container").offsetWidth,
+      );
+      defaultState.zoom = desiredWidth / viewport.width;
+      var scaledViewport = page.getViewport(defaultState.zoom);
+
+      w = scaledViewport.width;
+      h = scaledViewport.height;
 
       pdfCanvas.width = w;
       pdfCanvas.height = h;
@@ -126,7 +128,7 @@ function doPDF(url) {
 
       var renderTask = page.render({
         canvasContext: pdfCtx,
-        viewport: viewport,
+        viewport: scaledViewport,
       });
 
       renderTask.promise.then(function () {});
@@ -309,6 +311,42 @@ function doPDF(url) {
 
   canvas.on("object:selected", function (event) {
     console.log("Selected", event);
+  });
+
+  canvas.on("object:moving", function (event) {
+    const activeObject = event.target;
+    const activeObjectDetails = {
+      top: activeObject.top,
+      left: activeObject.left,
+      right: activeObject.left + activeObject.width * activeObject.scaleX,
+      bottom: activeObject.top + activeObject.height * activeObject.scaleY,
+      width: activeObject.width * activeObject.scaleX,
+      height: activeObject.height * activeObject.scaleY,
+    };
+    // right
+    if (activeObjectDetails.right >= canvas.width) {
+      activeObject.set({
+        left: canvas.width - activeObjectDetails.width,
+      });
+    }
+    // left
+    if (activeObjectDetails.left <= 0) {
+      activeObject.set({
+        left: 0,
+      });
+    }
+    // bottom
+    if (activeObjectDetails.bottom >= canvas.height) {
+      activeObject.set({
+        top: canvas.height - activeObjectDetails.height,
+      });
+    }
+    // Top
+    if (activeObjectDetails.top <= 0) {
+      activeObject.set({
+        top: 0,
+      });
+    }
   });
 
   document.getElementById("fontSize").addEventListener("change", (e) => {
