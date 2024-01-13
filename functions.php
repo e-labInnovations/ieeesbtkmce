@@ -3,27 +3,21 @@
 define( 'IEEESBTKMCE_THEME_PATH', get_stylesheet_directory());
 define('IEEESBTKMCE_THEME_URL', get_stylesheet_directory_uri());
 function ieeesbtkmce_load_assets() {
-  // The core GSAP library
   wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
-  // ScrollTrigger - with gsap.js passed as a dependency
   wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js', array('gsap-js'), false, true);
   // wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
 
   wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0', 'all');
-  wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css', array(), '1.0', 'all');
   wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
 }
 add_action('wp_enqueue_scripts', 'ieeesbtkmce_load_assets');
 
 function load_editor_assets() {
-  // The core GSAP library
   wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
-  // ScrollTrigger - with gsap.js passed as a dependency
   wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js', array('gsap-js'), false, true);
   // wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
 
   wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0', 'all');
-  wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css', array(), '1.0', 'all');
   // wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
 }
 add_action('enqueue_block_assets', 'load_editor_assets');
@@ -36,41 +30,6 @@ add_action('enqueue_block_editor_assets', function() {
 		filemtime(dirname(__FILE__) . '/build/index.css')
 	);
 });
-
-//Load SVG Icons file
-function echoSVGSpriteFile () {
-  $svg_path = get_template_directory() . '/build/icons/base-icons.svg';
-
-  if (file_exists($svg_path)) {
-      $svg_content = file_get_contents($svg_path);
-      echo '<div style="display: none;">' . $svg_content . '</div>';
-  }
-}
-
-add_action('wp_body_open', 'echoSVGSpriteFile');
-
-
-// Load SVG Icons file in the admin panel
-function echoAdminSVGSpriteFile() {
-  $svg_path = get_template_directory() . '/build/icons/base-icons.svg';
-
-  if (file_exists($svg_path)) {
-      $svg_content = file_get_contents($svg_path);
-      ?>
-      <script type="text/javascript">
-          jQuery(document).ready(function($) {
-              const div = document.createElement('div');
-              div.style.display = 'none';
-              div.innerHTML = `<?php echo $svg_content; ?>`;
-              document.body.insertBefore(div, document.body.firstChild);
-          });
-      </script>
-      <?php
-  }
-}
-
-add_action('admin_footer', 'echoAdminSVGSpriteFile');
-
 
 function ieeesbtkmce_add_support() {
   add_theme_support('title-tag');
