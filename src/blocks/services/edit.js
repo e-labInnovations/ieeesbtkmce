@@ -11,12 +11,12 @@ import { __ } from "@wordpress/i18n";
 export default function Edit({ attributes, setAttributes }) {
   const { title } = attributes;
   const blockProps = useBlockProps({
-    className: "flex flex-col px-12 sm:px-12 md:px-24 xl:px-48",
+    className: "container mx-auto my-8 flex flex-col gap-6 px-4 xl:px-28",
   });
 
   const blockProps2 = useBlockProps({
     className:
-      "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4",
+      "grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
   });
 
   const innerBlocksProps = useInnerBlocksProps(blockProps2, {
@@ -24,10 +24,10 @@ export default function Edit({ attributes, setAttributes }) {
   });
 
   return (
-    <Fragment>
+    <section>
       <div {...blockProps}>
         <RichText
-          className="my-5 font-poppins text-3xl text-primary-800 sm:mb-6"
+          className="my-5 font-poppins text-3xl text-primary-800"
           tagName="h2"
           value={title}
           allowedFormats={[]}
@@ -36,6 +36,6 @@ export default function Edit({ attributes, setAttributes }) {
         />
         <div {...innerBlocksProps}></div>
       </div>
-    </Fragment>
+    </section>
   );
 }
