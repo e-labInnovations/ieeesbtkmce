@@ -5,25 +5,4 @@ document.querySelectorAll("nav").forEach((nav) => {
   hamburgerMenuButton.addEventListener("click", () => {
     menuContainer.classList.toggle("hidden");
   });
-
-  nav.querySelectorAll("#dropdownNavbarLink").forEach((dropdownNavbarLink) => {
-    const linkParent = dropdownNavbarLink.parentElement;
-    const currentDropdownNavbar = linkParent.querySelector("#dropdownNavbar");
-    dropdownNavbarLink.addEventListener("mouseover", () => {
-      if (currentDropdownNavbar.classList.contains("hidden")) {
-        nav.querySelectorAll("#dropdownNavbar").forEach((dropdownNavbar) => {
-          if (!dropdownNavbar.classList.contains("hidden")) {
-            dropdownNavbar.classList.add("hidden");
-          }
-        });
-        currentDropdownNavbar.classList.remove("hidden");
-      } else {
-        currentDropdownNavbar.classList.add("hidden");
-      }
-    });
-
-    currentDropdownNavbar.addEventListener("mouseleave", () => {
-      currentDropdownNavbar.classList.add("hidden");
-    });
-  });
 });

@@ -39,7 +39,7 @@ class Header_Menu_Walker extends Walker {
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		// $output .= '<pre>' . json_encode($data_object->object_id) . '</pre>';
 		// $output .= '<pre>' . json_encode($args) . '</pre>';
-		$output .= '<div id="dropdownNavbar" class="md:z-10 hidden font-normal md:bg-white divide-y divide-gray-100 rounded-lg md:shadow w-full md:w-44 md:absolute md:right-0">';
+		$output .= '<div class="md:z-10 hidden  group-hover:block font-normal md:bg-white divide-y divide-gray-100 rounded-lg md:shadow w-full md:w-44 md:absolute md:right-0">';
 		$output .= '<ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">';
 	}
 
@@ -79,7 +79,7 @@ class Header_Menu_Walker extends Walker {
 		// $output .= '<pre>' . json_encode($data_object->object_id) . '</pre>';
 		if($depth == 0) {
 			if($args->walker->has_children) {
-				$output .= "<li class='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:relative'>";
+				$output .= "<li class='block group py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:relative'>";
 			} else {
 				$output .= "<li class='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0'>";
 			}
@@ -107,7 +107,7 @@ class Header_Menu_Walker extends Walker {
 			}
 		} else {
 			// $output .= '<code>' . json_encode($args) . '</code>';
-			$output .= '<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 font-normal font-poppins text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:w-auto">';
+			$output .= '<button class="flex items-center justify-between w-full py-2 px-3 font-normal font-poppins text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-800 md:p-0 md:w-auto">';
 		}
 		
 		$output .= $data_object->title;
