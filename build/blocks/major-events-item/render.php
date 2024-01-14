@@ -11,7 +11,7 @@ if (isset($attributes['eventId']) && !($attributes['eventId'] == 'undefined')) {
 ?>
 <div
     class="slide flex flex-col first:pl-0 last:pr-0 sm:px-2"
-    style="width: 290.667px"
+    style="width: 100%"
 >
     <a href="<?php the_permalink() ?>">
         <?php if(has_post_thumbnail()) { ?>

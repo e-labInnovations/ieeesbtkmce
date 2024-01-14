@@ -15,7 +15,9 @@ export default function Edit({ attributes, setAttributes }) {
         path: `/majorEvent/v1/getHTML?eventId=${eventId}`,
         method: "GET",
       });
-      setThePreview(response);
+      const responseWithoutHref = response.replace(/href="[^"]*"/g, "");
+
+      setThePreview(responseWithoutHref);
       if (response == "") {
         setThePreview(`<div class="bg-gray-200 p-4 text-center">
 			<p class="text-base font-semibold text-gray-800">Select an event</p>
