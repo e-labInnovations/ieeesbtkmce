@@ -12,14 +12,13 @@ export default function Edit({ attributes, setAttributes }) {
 
   useEffect(() => {
     if (selectedBlock && selectedBlock.name == "ieeesbtkmce/faq-item") {
-    } else {
-      setAnswer("");
+      setAnswer(
+        selectedBlock.attributes.answer ? selectedBlock.attributes.answer : "",
+      );
     }
   }, [selectedBlock]);
 
-  const blockProps = useBlockProps({
-    className: "w-full px-12 text-center lg:px-48 my-6 lg:my-12",
-  });
+  const blockProps = useBlockProps();
 
   const blockProps2 = useBlockProps({
     className: "flex w-full flex-col gap-4",
@@ -30,24 +29,27 @@ export default function Edit({ attributes, setAttributes }) {
   });
 
   return (
-    <div {...blockProps}>
-      <h2 className="py-8 font-poppins text-4xl font-normal text-primary-800">
-        Frequently Asked Questions
-      </h2>
-      <div className="flex flex-col sm:flex-row">
-        <div className="m-2 w-full sm:w-2/3">
-          <div {...innerBlocksProps}></div>
-        </div>
-        <div className="m-2 flex w-full items-center sm:w-1/3">
-          <div className="flex w-full items-center justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6">
-            <p className="font-poppins text-base font-light text-black">
-              {answer
-                ? answer
-                : "Lorem ipsum dolor sit amet consectetur. Aenean nisi arcu ac at vulputate mauris ullamcorper. Eu cursus nec etiam lacus egestas lacus phasellus praesent. Convallis facilisis aliquam massa cursus. Diam in aliquam euismod orci gravida eu ridiculus a venenatis. Amet faucibus tempor nisl ligula."}
-            </p>
+    <section {...blockProps}>
+      <div className="faq container mx-auto my-8 flex flex-col px-4 text-center xl:px-28">
+        <h2 className="py-8 font-poppins text-4xl font-normal text-primary-800">
+          Frequently Asked Questions
+        </h2>
+        <div className="flex flex-col sm:flex-row">
+          <div className="w-full sm:m-2 sm:w-2/3">
+            <div {...innerBlocksProps}></div>
+          </div>
+          <div className="hidden w-full sm:m-2 sm:block sm:w-1/3">
+            <div className="flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6">
+              <p
+                id="faq-answer"
+                className="font-poppins text-base font-light text-black"
+              >
+                {answer}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

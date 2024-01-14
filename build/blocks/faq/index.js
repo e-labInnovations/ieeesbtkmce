@@ -33,36 +33,37 @@ function Edit({
   const selectedBlock = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => select("core/block-editor").getSelectedBlock());
   const [answer, setAnswer] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)("");
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
-    if (selectedBlock && selectedBlock.name == "ieeesbtkmce/faq-item") {} else {
-      setAnswer("");
+    if (selectedBlock && selectedBlock.name == "ieeesbtkmce/faq-item") {
+      setAnswer(selectedBlock.attributes.answer ? selectedBlock.attributes.answer : "");
     }
   }, [selectedBlock]);
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "w-full px-12 text-center lg:px-48 my-6 lg:my-12"
-  });
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   const blockProps2 = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "flex w-full flex-col gap-4"
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps2, {
     allowedBlocks: ["ieeesbtkmce/faq-item"]
   });
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     ...blockProps
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "faq container mx-auto my-8 flex flex-col px-4 text-center xl:px-28"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "py-8 font-poppins text-4xl font-normal text-primary-800"
   }, "Frequently Asked Questions"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-col sm:flex-row"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "m-2 w-full sm:w-2/3"
+    className: "w-full sm:m-2 sm:w-2/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...innerBlocksProps
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "m-2 flex w-full items-center sm:w-1/3"
+    className: "hidden w-full sm:m-2 sm:block sm:w-1/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex w-full items-center justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6"
+    className: "flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    id: "faq-answer",
     className: "font-poppins text-base font-light text-black"
-  }, answer ? answer : "Lorem ipsum dolor sit amet consectetur. Aenean nisi arcu ac at vulputate mauris ullamcorper. Eu cursus nec etiam lacus egestas lacus phasellus praesent. Convallis facilisis aliquam massa cursus. Diam in aliquam euismod orci gravida eu ridiculus a venenatis. Amet faucibus tempor nisl ligula.")))));
+  }, answer))))));
 }
 
 /***/ }),
@@ -128,24 +129,24 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "faq my-6 w-full px-12 text-center lg:my-12 lg:px-48"
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "faq container mx-auto my-8 flex flex-col px-4 text-center xl:px-28"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "py-8 font-poppins text-4xl font-normal text-primary-800"
   }, "Frequently Asked Questions"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-col sm:flex-row"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "m-2 w-full sm:w-2/3"
+    className: "w-full sm:m-2 sm:w-2/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex w-full flex-col gap-4"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "m-2 w-full sm:w-1/3"
+    className: "hidden w-full sm:m-2 sm:block sm:w-1/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     id: "faq-answer",
     className: "font-poppins text-base font-light text-black"
-  }, "Lorem ipsum dolor sit amet consectetur. Aenean nisi arcu ac at vulputate mauris ullamcorper. Eu cursus nec etiam lacus egestas lacus phasellus praesent. Convallis facilisis aliquam massa cursus. Diam in aliquam euismod orci gravida eu ridiculus a venenatis. Amet faucibus tempor nisl ligula.")))));
+  }, "1. Vestibulum arcu velit facilisis. Nulla facilisi. Suspendisse euismod tortor in, etiam lacus egestas lacus phasellus praesent. Convallis facilisis aliquam massa cursus. Diam in aliquam euismod orci gravida eu ridiculus a venenatis. Amet faucibus tempor nisl ligula."))))));
 }
 
 /***/ }),
