@@ -6,12 +6,12 @@ var __webpack_exports__ = {};
 document.querySelectorAll(".major-events-hosted").forEach(mef => {
   let nextBtn = mef.querySelector("#meh-next");
   let prevBtn = mef.querySelector("#meh-prev");
-  let sliderContiner = mef.querySelector("#meh-slider-container");
+  let sliderContainer = mef.querySelector("#meh-slider-container");
   let slider = mef.querySelector("#meh-slider");
   let slides = slider.querySelectorAll(".slide");
   let elementsToShow = 3;
-  let sliderContinerWidth = sliderContiner.clientWidth;
-  let slideWidth = sliderContinerWidth / elementsToShow;
+  let sliderContainerWidth = sliderContainer.clientWidth;
+  let slideWidth = sliderContainerWidth / elementsToShow;
   const changeButtons = () => {
     let sliderMargin = Math.round(+slider.style.marginLeft.slice(0, -2));
     const enableButton = (btn, enable) => {
@@ -53,14 +53,14 @@ document.querySelectorAll(".major-events-hosted").forEach(mef => {
     } else {
       elementsToShow = 1;
     }
-    sliderContinerWidth = sliderContiner.clientWidth;
-    slideWidth = sliderContinerWidth / elementsToShow;
+    sliderContainerWidth = sliderContainer.clientWidth;
+    slideWidth = sliderContainerWidth / elementsToShow;
     slider.style.width = slides.length * slideWidth + "px";
     slider.style.transition = "margin";
     slider.style.transitionDuration = "700ms";
     slider.style.transitionTimingFunction = "cubic-bezier(0.42, 0, 0.58, 1.0)";
-    slides.forEach(silde => {
-      silde.style.width = slideWidth + "px";
+    slides.forEach(slide => {
+      slide.style.width = slideWidth + "px";
     });
     changeButtons();
   };
@@ -68,17 +68,29 @@ document.querySelectorAll(".major-events-hosted").forEach(mef => {
   window.addEventListener("resize", () => {
     mehInit();
   });
-  prevBtn.addEventListener("click", () => {
+  const goPrev = () => {
     if (Math.round(+slider.style.marginLeft.slice(0, -2)) != 0 && slides.length > elementsToShow) {
       slider.style.marginLeft = +slider.style.marginLeft.slice(0, -2) + slideWidth + "px";
     }
     changeButtons();
-  });
-  nextBtn.addEventListener("click", () => {
+  };
+  const goNext = () => {
     if (Math.round(+slider.style.marginLeft.slice(0, -2)) != Math.round(-slideWidth * (slides.length - elementsToShow)) && slides.length > elementsToShow) {
       slider.style.marginLeft = +slider.style.marginLeft.slice(0, -2) - slideWidth + "px";
     }
     changeButtons();
+  };
+  prevBtn.addEventListener("click", goPrev);
+  nextBtn.addEventListener("click", goNext);
+
+  //Mobile Swipe
+  var mc = new Hammer(sliderContainer);
+  mc.on("swipeleft swiperight", function (ev) {
+    if (ev.type == "swipeleft") {
+      goNext();
+    } else if (ev.type == "swiperight") {
+      goPrev();
+    }
   });
 });
 /******/ })()

@@ -61,7 +61,7 @@ function Edit({
     });
   });
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "flex flex-col slide mx-3 w-1/3 h-max"
+    className: "flex flex-col slide mx-3 w-full h-max"
   });
   if (allEvents == null) {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Loading..."));

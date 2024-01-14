@@ -2,14 +2,14 @@ import { InnerBlocks } from "@wordpress/block-editor";
 export default function save({ attributes }) {
   return (
     <section className="major-events-hosted">
-      <div className="px-8 sm:px-14 md:px-20 lg:px-28 xl:px-48">
-        <div className="mb-5 flex w-full items-center justify-between p-2">
-          <h2 className="font-poppins text-lg font-normal text-primary-800 sm:text-3xl">
+      <div className="container mx-auto my-8 flex flex-col gap-6 px-4 xl:px-28">
+        <div className="flex w-full items-center justify-between py-2">
+          <h2 className="font-poppins text-3xl font-normal text-primary-800">
             Major Events Hosted
           </h2>
           <div className="flex gap-2">
             <div
-              className="rounded-full border border-gray-400 bg-white p-3"
+              className="cursor-pointer rounded-full border border-gray-400 bg-white p-3"
               id="meh-prev"
             >
               <svg
@@ -26,7 +26,7 @@ export default function save({ attributes }) {
               </svg>
             </div>
             <div
-              className="rounded-full border border-primary-800 bg-white p-3"
+              className="cursor-pointer rounded-full border border-gray-400 bg-white p-3"
               id="meh-next"
             >
               <svg

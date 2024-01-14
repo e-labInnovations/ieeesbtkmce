@@ -32,7 +32,7 @@ export default function Edit({ attributes, setAttributes }) {
   });
 
   const blockProps = useBlockProps({
-    className: "flex flex-col slide mx-3 w-1/3 h-max",
+    className: "flex flex-col slide mx-3 w-full h-max",
   });
 
   if (allEvents == null) {
