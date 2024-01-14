@@ -28,9 +28,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const {
-  Fragment
-} = wp.element;
 
 function Edit({
   attributes,
@@ -44,15 +41,22 @@ function Edit({
   } = attributes;
   const [isLinkPickerVisible, setIsLinkPickerVisible] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(false);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48"
+    className: "container mx-auto my-8 flex flex-col gap-6 px-4 sm:flex-row xl:px-28"
   });
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex w-full justify-center p-3 sm:w-1/2 sm:px-8 md:px-10"
+    className: "flex w-full flex-col gap-6 sm:w-1/2"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "my-5 font-sans text-3xl text-primary-800 sm:mb-6 sm:hidden"
+  }, "About Us"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex w-full justify-center px-16 sm:px-0"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "xl:p-18 h- group flex bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16"
-  }, image && image.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+    className: "flex bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16",
+    style: {
+      backgroundImage: `url('${themeData.theme_url + "/assets/images/about-bg.png"}')`
+    }
+  }, image && image.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
     onSelect: media => setAttributes({
       image: {
         id: media.id,
@@ -87,10 +91,10 @@ function Edit({
     labels: {
       title: "About Us Image"
     }
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex w-full flex-col justify-center p-3 sm:w-1/2"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex w-full flex-col justify-center sm:w-1/2 sm:p-3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "my-5 font-sans text-3xl text-primary-800 sm:mb-6"
+    className: "my-5 hidden font-sans text-3xl text-primary-800 sm:mb-6 sm:block"
   }, "About Us"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     className: "mb-1 text-xl sm:mb-2 md:mb-2",
     tagName: "h3",
@@ -208,24 +212,31 @@ function save({
     image,
     linkObject
   } = attributes;
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48 "
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container mx-auto my-8 flex flex-col gap-6 px-4 sm:flex-row xl:px-28"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex w-full justify-center p-3 sm:w-1/2 sm:px-8 md:px-10"
+    className: "flex w-full flex-col gap-6 sm:w-1/2"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "my-5 font-sans text-3xl text-primary-800 sm:mb-6 sm:hidden"
+  }, "About Us"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex w-full justify-center px-16 sm:px-0"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16"
+    className: "flex bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16",
+    style: {
+      backgroundImage: `url('${themeData.theme_url + "/assets/images/about-bg.png"}')`
+    }
   }, image && image.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: image.url,
     className: "my-auto aspect-square w-full rounded-full object-cover shadow-inner",
     alt: image.alt
   }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: "https://picsum.photos/600/600",
+    src: themeData.theme_url + "/assets/images/about-1.jpg",
     className: "my-auto aspect-square w-full rounded-full object-cover shadow-inner",
     alt: "About Us Image"
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex w-full flex-col justify-center p-3 sm:w-1/2"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex w-full flex-col justify-center sm:w-1/2 sm:p-3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "my-5 font-sans text-3xl text-primary-800 sm:mb-6"
+    className: "my-5 hidden font-sans text-3xl text-primary-800 sm:mb-6 sm:block"
   }, "About Us"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "h3",
     value: subTitle,
@@ -239,7 +250,7 @@ function save({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: linkObject ? linkObject.url : "#",
     className: "rounded p-2 px-5 text-center text-primary-800 no-underline outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400"
-  }, "More Details"))));
+  }, "More Details")))));
 }
 
 /***/ }),

@@ -9,72 +9,85 @@ import {
 import { Popover, Button } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
-const { Fragment } = wp.element;
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
   const { subTitle, content, image, linkObject } = attributes;
   const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
   const blockProps = useBlockProps({
-    className: "flex flex-col px-12 sm:flex-row sm:px-12 md:px-24 xl:px-48",
+    className:
+      "container mx-auto my-8 flex flex-col gap-6 px-4 sm:flex-row xl:px-28",
   });
 
   return (
-    <Fragment>
+    <section>
       <div {...blockProps}>
-        <div className="flex w-full justify-center p-3 sm:w-1/2 sm:px-8 md:px-10">
-          <div className="xl:p-18 h- group flex bg-[url('https://gcdnb.pbrd.co/images/PkifbtJpKNDA.png?o=1')] bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16">
-            {image && image.url ? (
-              <>
-                <MediaUploadCheck>
-                  <MediaUpload
-                    onSelect={(media) =>
-                      setAttributes({
-                        image: {
-                          id: media.id,
-                          alt: media.alt || "About Us Image",
-                          url: media.url,
-                        },
-                      })
-                    }
-                    allowedTypes={["image"]}
-                    value={image.id}
-                    render={({ open }) => (
-                      <img
-                        src={image.url}
-                        onClick={open}
-                        className="my-auto hidden aspect-square w-full cursor-edit rounded-full object-cover shadow-inner group-hover:block"
-                        alt={image.alt}
-                      />
-                    )}
+        <div className="flex w-full flex-col gap-6 sm:w-1/2">
+          <h2 className="my-5 font-sans text-3xl text-primary-800 sm:mb-6 sm:hidden">
+            About Us
+          </h2>
+          <div className="flex w-full justify-center px-16 sm:px-0">
+            <div
+              className="flex bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16"
+              style={{
+                backgroundImage: `url('${
+                  themeData.theme_url + "/assets/images/about-bg.png"
+                }')`,
+              }}
+            >
+              {image && image.url ? (
+                <>
+                  <MediaUploadCheck>
+                    <MediaUpload
+                      onSelect={(media) =>
+                        setAttributes({
+                          image: {
+                            id: media.id,
+                            alt: media.alt || "About Us Image",
+                            url: media.url,
+                          },
+                        })
+                      }
+                      allowedTypes={["image"]}
+                      value={image.id}
+                      render={({ open }) => (
+                        <img
+                          src={image.url}
+                          onClick={open}
+                          className="my-auto hidden aspect-square w-full cursor-edit rounded-full object-cover shadow-inner group-hover:block"
+                          alt={image.alt}
+                        />
+                      )}
+                    />
+                  </MediaUploadCheck>
+                  <img
+                    src={image.url}
+                    className="my-auto block aspect-square w-full rounded-full object-cover shadow-inner group-hover:hidden"
+                    alt={image.alt}
                   />
-                </MediaUploadCheck>
-                <img
-                  src={image.url}
-                  className="my-auto block aspect-square w-full rounded-full object-cover shadow-inner group-hover:hidden"
-                  alt={image.alt}
+                </>
+              ) : (
+                <MediaPlaceholder
+                  onSelect={(media) =>
+                    setAttributes({
+                      image: {
+                        id: media.id,
+                        alt: media.alt || "About Us Image",
+                        url: media.url,
+                      },
+                    })
+                  }
+                  allowedTypes={["image"]}
+                  multiple={false}
+                  labels={{ title: "About Us Image" }}
                 />
-              </>
-            ) : (
-              <MediaPlaceholder
-                onSelect={(media) =>
-                  setAttributes({
-                    image: {
-                      id: media.id,
-                      alt: media.alt || "About Us Image",
-                      url: media.url,
-                    },
-                  })
-                }
-                allowedTypes={["image"]}
-                multiple={false}
-                labels={{ title: "About Us Image" }}
-              />
-            )}
+              )}
+            </div>
           </div>
         </div>
-        <div className="flex w-full flex-col justify-center p-3 sm:w-1/2">
-          <h2 className="my-5 font-sans text-3xl text-primary-800 sm:mb-6">
+
+        <div className="flex w-full flex-col justify-center sm:w-1/2 sm:p-3">
+          <h2 className="my-5 hidden font-sans text-3xl text-primary-800 sm:mb-6 sm:block">
             About Us
           </h2>
           <RichText
@@ -124,6 +137,6 @@ export default function Edit({ attributes, setAttributes }) {
           )}
         </div>
       </div>
-    </Fragment>
+    </section>
   );
 }

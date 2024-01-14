@@ -18,6 +18,10 @@ function load_editor_assets() {
 
   wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0', 'all');
   // wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
+
+  wp_localize_script( 'gsap-js', 'themeData', array(
+    'theme_url' => IEEESBTKMCE_THEME_URL,
+  ));
 }
 add_action('enqueue_block_assets', 'load_editor_assets');
 
