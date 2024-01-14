@@ -5,7 +5,7 @@ define('IEEESBTKMCE_THEME_URL', get_stylesheet_directory_uri());
 function ieeesbtkmce_load_assets() {
   wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
   wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js', array('gsap-js'), false, true);
-  // wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
+  wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
 
   wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0', 'all');
   wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
@@ -15,7 +15,6 @@ add_action('wp_enqueue_scripts', 'ieeesbtkmce_load_assets');
 function load_editor_assets() {
   wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
   wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js', array('gsap-js'), false, true);
-  // wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element'), '1.0', true);
 
   wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0', 'all');
   // wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
@@ -30,6 +29,21 @@ add_action('enqueue_block_editor_assets', function() {
 		filemtime(dirname(__FILE__) . '/build/index.css')
 	);
 });
+function enqueue_custom_script() {
+  // Enqueue script only on the certificate edit page
+  global $pagenow;
+  if (($pagenow === 'post.php' || $pagenow === 'post-new.php') && get_post_type() === 'certificates') {
+    wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
+    
+    wp_enqueue_media();
+    wp_enqueue_script('pdfjs', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js', array(), null, true);
+    wp_enqueue_script('fabricjs', 'https://unpkg.com/fabric@5.3.0/dist/fabric.min.js', array(), null, true);
+    wp_enqueue_script('certificate-script', get_template_directory_uri() . '/assets/js/certificates-admin.js', array('jquery', 'pdfjs', 'fabricjs'), null, true);
+    wp_enqueue_script('ieeesbtkmce-mainjs', get_theme_file_uri('/build/index.js'), array('wp-element', 'wp-components', 'wp-block-editor'), '1.0', true);
+  }
+}
+add_action('admin_enqueue_scripts', 'enqueue_custom_script');
+
 
 function ieeesbtkmce_add_support() {
   add_theme_support('title-tag');

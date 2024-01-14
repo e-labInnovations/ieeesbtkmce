@@ -46,6 +46,8 @@ function add_custom_html_below_editor($post) {
         $certificate_template_url = get_post_meta($post->ID, 'certificate_template', true);
         ?>
 
+        <div id="ieeesbtkmce-admin-certificate-edit"></div>
+
         <div class="p-4 w-full bg-white rounded shadow-md">
             <label for="fileInput" class="block text-sm font-medium text-gray-700">Select a file:</label>
             
@@ -128,24 +130,6 @@ add_action('edit_form_after_editor', 'add_custom_html_below_editor');
 //     }
 // }
 // add_action('save_post', 'save_certificate_template_meta_box');
-
-
-
-function enqueue_custom_script() {
-    // Enqueue script only on the certificate edit page
-    global $pagenow;
-    if (($pagenow === 'post.php' || $pagenow === 'post-new.php') && get_post_type() === 'certificates') {
-        wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
-        
-        wp_enqueue_media();
-        // wp_enqueue_script('plupload-all');
-        wp_enqueue_script('pdfjs', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js', array(), null, true);
-        wp_enqueue_script('fabricjs', 'https://unpkg.com/fabric@5.3.0/dist/fabric.min.js', array(), null, true);
-        wp_enqueue_script('certificate-script', get_template_directory_uri() . '/assets/js/certificates-admin.js', array('jquery', 'pdfjs', 'fabricjs'), null, true);
-    }
-}
-
-add_action('admin_enqueue_scripts', 'enqueue_custom_script');
 
 
 
