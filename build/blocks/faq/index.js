@@ -62,7 +62,7 @@ function Edit({
     className: "flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     id: "faq-answer",
-    className: "font-poppins text-base font-light text-black"
+    className: "my-auto font-poppins text-base font-light text-black"
   }, answer))))));
 }
 
@@ -134,19 +134,19 @@ function save({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "py-8 font-poppins text-4xl font-normal text-primary-800"
   }, "Frequently Asked Questions"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex flex-col sm:flex-row"
+    className: "flex flex-col sm:flex-row sm:gap-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-full sm:m-2 sm:w-2/3"
+    className: "w-full sm:w-2/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex w-full flex-col gap-4"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "hidden w-full sm:m-2 sm:block sm:w-1/3"
+    className: "hidden w-full sm:block sm:w-1/3"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     id: "faq-answer",
-    className: "font-poppins text-base font-light text-black"
-  }, "1. Vestibulum arcu velit facilisis. Nulla facilisi. Suspendisse euismod tortor in, etiam lacus egestas lacus phasellus praesent. Convallis facilisis aliquam massa cursus. Diam in aliquam euismod orci gravida eu ridiculus a venenatis. Amet faucibus tempor nisl ligula."))))));
+    className: "my-auto font-poppins text-base font-light text-black"
+  }))))));
 }
 
 /***/ }),

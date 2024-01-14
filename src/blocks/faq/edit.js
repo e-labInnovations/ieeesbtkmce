@@ -42,7 +42,7 @@ export default function Edit({ attributes, setAttributes }) {
             <div className="flex h-full w-full justify-center rounded-[14px] border-[3px] border-primary-800 px-3 py-6">
               <p
                 id="faq-answer"
-                className="font-poppins text-base font-light text-black"
+                className="my-auto font-poppins text-base font-light text-black"
               >
                 {answer}
               </p>

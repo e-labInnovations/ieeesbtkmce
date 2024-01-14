@@ -282,7 +282,7 @@ module.exports = window["wp"]["element"];
   \*************************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/major-events-item","version":"0.1.0","title":"Major Events Item","category":"ieeesbtkmce","icon":"smiley","description":"Major event slide","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/major-events-item","version":"0.1.0","title":"Major Events Item","category":"ieeesbtkmce","icon":"smiley","description":"Major event slide","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","parent":["ieeesbtkmce/major-events"],"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ })
 
