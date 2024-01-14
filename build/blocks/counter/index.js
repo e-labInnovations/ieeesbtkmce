@@ -25,14 +25,16 @@ function Edit({
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "flex flex-wrap w-full counters bg-[#F9F9F9] shadow-[inset_0_10px_10px_0px_rgba(0,0,0,0.1)] justify-around py-10 sm:py-12 lg:py-14 xl:py-16 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10"
+    className: "counters container mx-auto flex w-full justify-between xl:px-28"
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps, {
     allowedBlocks: ["ieeesbtkmce/counter-item"]
   });
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w-full bg-[#F9F9F9] px-4 py-8 shadow-[inset_0_10px_10px_0px_rgba(0,0,0,0.1)]"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...innerBlocksProps
-  });
+  })));
 }
 
 /***/ }),
@@ -97,9 +99,11 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "counters flex w-full flex-wrap justify-around bg-[#F9F9F9] px-3 py-10 shadow-[inset_0_10px_10px_0px_rgba(0,0,0,0.1)] sm:px-4 sm:py-12 md:px-6 lg:px-8 lg:py-14 xl:px-10 xl:py-16"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "w-full bg-[#F9F9F9] px-4 py-8 shadow-[inset_0_10px_10px_0px_rgba(0,0,0,0.1)]"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "counters container mx-auto flex w-full justify-between xl:px-28"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null))));
 }
 
 /***/ }),
