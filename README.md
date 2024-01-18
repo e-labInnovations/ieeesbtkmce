@@ -16,3 +16,4 @@
 - [ ] Hide alumni testimonial from menu
 - [x] use hammer.js for iOS scroll for major events (Mobile)
 - [ ] add `transition ease-in-out hover:translate-x-1` classes footer link
+- [ ] Fix footer style

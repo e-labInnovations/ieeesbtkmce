@@ -91,6 +91,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 /** Latest Events End **/
 
+/** Front Gallery Start **/
+gsap.utils.toArray(".marquee").forEach((marquee) => {
+  if (marquee.parentElement.scrollHeight > marquee.parentElement.clientHeight) {
+    const tl = gsap.timeline({ repeat: -1 });
+    tl.to(marquee, { y: "-100%", duration: 8, ease: "linear" }).set(marquee, {
+      y: "100%",
+    });
+
+    marquee.addEventListener("mouseenter", () => {
+      tl.pause();
+    });
+
+    marquee.addEventListener("mouseleave", () => {
+      tl.play();
+    });
+  }
+});
+/** Front Gallery End **/
+
 /** Counter Start **/
 document.addEventListener("DOMContentLoaded", function (event) {
   gsap.registerPlugin(ScrollTrigger);
