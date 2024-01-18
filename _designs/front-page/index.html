@@ -43,6 +43,26 @@
           /* opacity: 0;
         transition: visibility 0s linear 500ms, opacity 500ms; */
         }
+
+        .mission {
+          list-style-type: none;
+          padding-left: 0;
+        }
+
+        .mission li {
+          padding-left: 20px;
+          position: relative;
+        }
+
+        .mission li::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 5px; /* Adjust the vertical positioning as needed */
+          width: 13px; /* Width of the SVG */
+          height: 13px; /* Height of the SVG */
+          background-image: url('data:image/svg+xml;utf8,<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.80123 6.74078L6.96697 5.67106C6.70481 5.51751 6.39395 5.4281 6.06055 5.4281C5.12878 5.4281 4.37073 6.12371 4.37073 6.97873C4.37073 7.83376 5.12878 8.52937 6.06055 8.52937C6.99232 8.52937 7.75038 7.83376 7.75038 6.97873C7.75038 6.67282 7.65294 6.38754 7.48561 6.14698L6.31987 7.21669L5.80123 6.74078Z" fill="%23006DA5"/><path d="M11.8636 6.9786C11.8636 6.06405 11.609 5.1697 11.1256 4.37822L9.68069 4.55991C10.2211 5.23907 10.5405 6.07518 10.5405 6.9786C10.5405 9.24537 8.53085 11.0895 6.06057 11.0895C3.5903 11.0895 1.58064 9.24537 1.58064 6.9786C1.58064 4.71182 3.59035 2.86768 6.0606 2.86768C7.04511 2.86768 7.95627 3.16083 8.6964 3.65669L8.8944 2.33076C8.03187 1.88719 7.05724 1.65356 6.0606 1.65356C4.51055 1.65356 3.05327 2.20747 1.95725 3.21324C0.861194 4.21899 0.257568 5.55623 0.257568 6.9786C0.257568 8.40096 0.861194 9.7382 1.95725 10.744C3.05327 11.7497 4.51053 12.3036 6.0606 12.3036C7.61066 12.3036 9.06792 11.7497 10.1639 10.744C11.26 9.7382 11.8636 8.40098 11.8636 6.9786Z" fill="%23006DA5"/><path d="M6.06054 3.54077C3.99474 3.54077 2.31409 5.08297 2.31409 6.97863C2.31409 8.87428 3.99472 10.4165 6.06054 10.4165C8.12636 10.4165 9.80699 8.87428 9.80699 6.97863C9.80699 6.15174 9.48713 5.39216 8.95509 4.79843L8.01296 5.66297C8.3088 6.03164 8.48389 6.48669 8.48389 6.97863C8.48389 8.20479 7.39679 9.20235 6.06056 9.20235C4.72434 9.20235 3.63723 8.20479 3.63723 6.97863C3.63723 5.75247 4.72434 4.75491 6.06056 4.75491C6.59666 4.75491 7.09253 4.91557 7.49432 5.18705L8.43646 4.32252C7.78941 3.83426 6.96165 3.54077 6.06054 3.54077Z" fill="%23006DA5"/><path d="M11.2677 0.816406L9.63755 2.31225L9.39801 3.91621L11.146 3.69641L12.7761 2.20056L11.6758 1.82608L11.2677 0.816406Z" fill="%23006DA5"/></svg>');
+        }
       }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -249,7 +269,7 @@
     <!-- Latest Events Start -->
     <section>
       <div
-        class="container mx-auto my-8 flex flex-col-reverse px-4 sm:flex-row xl:px-36"
+        class="container mx-auto my-8 flex flex-col-reverse px-4 sm:flex-row md:my-16 xl:px-28"
         id="latest-news-section"
       >
         <div
@@ -352,7 +372,7 @@
     <!-- About Section Start -->
     <section>
       <div
-        class="container mx-auto my-8 flex flex-col gap-6 px-4 sm:flex-row xl:px-28"
+        class="container mx-auto my-8 flex flex-col gap-6 px-4 sm:flex-row md:my-16 xl:px-28"
       >
         <div class="flex w-full flex-col gap-6 sm:w-1/2">
           <h2
@@ -401,10 +421,48 @@
     </section>
     <!-- About Section End -->
 
+    <!-- Mission & Vision Start -->
+    <section>
+      <div
+        class="container mx-auto my-8 flex flex-col gap-6 md:my-16 md:flex-row xl:px-28"
+      >
+        <div class="flex w-1/2 flex-col gap-4">
+          <div class="flex w-full items-center gap-4">
+            <h3 class="text-xl text-primary-800">Our Vision</h3>
+            <hr class="h-0.5 flex-grow border-0 bg-primary-700" />
+          </div>
+          <div class="mb-auto w-full">
+            <p class="text-base font-light text-black">
+              IEEE's core purpose is to foster technological innovation and
+              excellence for the benefit of humanity.
+            </p>
+          </div>
+          <hr class="h-px max-h-px flex-grow border-0 bg-primary-700" />
+        </div>
+
+        <div class="flex w-1/2 flex-col gap-4">
+          <div class="flex w-full items-center gap-4">
+            <h3 class="text-xl text-primary-800">Our Mission</h3>
+            <hr class="h-0.5 flex-grow border-0 bg-primary-700" />
+          </div>
+          <div class="w-full text-base font-light text-black">
+            <p class="mb-4">To provide a platform for the members to:</p>
+            <ul class="mission">
+              <li>Exercise & adopt their knowledge for the common good.</li>
+              <li>Develop their managerial and organizational skills.</li>
+              <li>Celebrate the spirit of working together</li>
+            </ul>
+          </div>
+          <hr class="h-px flex-grow border-0 bg-primary-700" />
+        </div>
+      </div>
+    </section>
+    <!-- Mission & Vision End -->
+
     <!-- Front Gallery Start -->
     <section>
       <div
-        class="container mx-auto my-8 grid h-screen grid-cols-12 grid-rows-6 gap-1 px-4 md:grid-cols-7 md:grid-rows-5 md:gap-4 xl:px-28"
+        class="container mx-auto my-8 grid h-screen grid-cols-12 grid-rows-6 gap-1 px-4 md:my-16 md:grid-cols-7 md:grid-rows-5 md:gap-4 xl:px-28"
       >
         <div
           class="col-span-8 col-start-1 row-span-1 row-start-1 rounded-lg bg-cover bg-center bg-no-repeat md:col-span-2 md:col-start-1 md:row-span-2 md:row-start-1"
@@ -532,7 +590,7 @@
     <!-- Counters Section Start -->
     <section>
       <div
-        class="w-full bg-[#F9F9F9] px-4 py-8 shadow-[inset_0_10px_10px_0px_rgba(0,0,0,0.1)]"
+        class="w-full bg-[#F9F9F9] px-4 py-8 shadow-[inset_0_10px_10px_0px_rgba(0,0,0,0.1)] md:my-16"
       >
         <div
           class="counters container mx-auto flex w-full justify-between xl:px-28"
@@ -566,7 +624,9 @@
 
     <!-- Services Section Start -->
     <section>
-      <div class="container mx-auto my-8 flex flex-col gap-6 px-4 xl:px-28">
+      <div
+        class="container mx-auto my-8 flex flex-col gap-6 px-4 md:my-16 xl:px-28"
+      >
         <h2 class="my-5 font-poppins text-3xl text-primary-800">
           What We Offer
         </h2>
@@ -756,7 +816,7 @@
     <!-- Featured Chapters Start -->
     <section class="w-full overflow-hidden">
       <div
-        class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row sm:gap-24 xl:px-28"
+        class="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row sm:gap-24 md:my-16 xl:px-28"
       >
         <div class="flex max-h-min w-full flex-col gap-6 sm:w-5/12">
           <h2 class="font-poppins text-3xl text-primary-800 sm:block">
@@ -1091,7 +1151,7 @@
     <!-- EXURO Start -->
     <section>
       <div
-        class="container mx-auto my-8 flex flex-col-reverse px-4 sm:flex-row xl:px-28"
+        class="container mx-auto my-8 flex flex-col-reverse px-4 sm:flex-row md:my-16 xl:px-28"
       >
         <div class="mt-6 flex w-full flex-col gap-6 sm:mt-0 sm:w-1/2">
           <h2 class="hidden font-poppins text-3xl text-primary-800 sm:block">
@@ -1133,7 +1193,9 @@
 
     <!-- Major Events Section Start -->
     <section class="major-events-hosted">
-      <div class="container mx-auto my-8 flex flex-col gap-6 px-4 xl:px-28">
+      <div
+        class="container mx-auto my-8 flex flex-col gap-6 px-4 md:my-16 xl:px-28"
+      >
         <div class="flex w-full items-center justify-between py-2">
           <h2 class="font-poppins text-3xl font-normal text-primary-800">
             Major Events Hosted
@@ -1455,7 +1517,7 @@
     <!-- Alumni Testimonials Start -->
     <section class="alumni-testimonials">
       <div
-        class="container mx-auto my-8 flex flex-col-reverse gap-8 px-4 sm:flex-row xl:px-28"
+        class="container mx-auto my-8 flex flex-col-reverse gap-8 px-4 sm:flex-row md:my-16 xl:px-28"
       >
         <div class="flex h-full w-full items-center sm:w-1/2">
           <svg viewBox="0 0 500 500" class="w-full">
@@ -1535,7 +1597,7 @@
     <!-- FAQ Start -->
     <section>
       <div
-        class="faq container mx-auto my-8 flex flex-col px-4 text-center xl:px-28"
+        class="faq container mx-auto my-8 flex flex-col px-4 text-center md:my-16 xl:px-28"
       >
         <h2 class="py-8 font-poppins text-4xl font-normal text-primary-800">
           Frequently Asked Questions

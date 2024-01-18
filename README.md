@@ -17,3 +17,4 @@
 - [x] use hammer.js for iOS scroll for major events (Mobile)
 - [ ] add `transition ease-in-out hover:translate-x-1` classes footer link
 - [ ] Fix footer style
+- [ ] Add `md:my-16` to every section
