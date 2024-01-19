@@ -7,16 +7,12 @@ import Save from "./save";
 const attributes = {
   vision: {
     type: "String",
-    source: "html",
-    selector: "p",
   },
   missionStart: {
     type: "String",
-    source: "html",
-    selector: "p",
   },
   missionList: {
-    type: "Strings",
+    type: "String",
   },
 };
 

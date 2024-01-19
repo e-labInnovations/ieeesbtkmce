@@ -103,6 +103,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/major-events");
   register_block_type(dirname(__FILE__) . "/build/blocks/major-events-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/vision-and-mission");
+  register_block_type(dirname(__FILE__) . "/build/blocks/exuro");
 }
 add_action('init', 'register_blocks');
 

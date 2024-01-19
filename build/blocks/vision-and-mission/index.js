@@ -115,17 +115,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const attributes = {
   vision: {
-    type: "String",
-    source: "html",
-    selector: "p"
+    type: "String"
   },
   missionStart: {
-    type: "String",
-    source: "html",
-    selector: "p"
+    type: "String"
   },
   missionList: {
-    type: "Strings"
+    type: "String"
   }
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__, {
