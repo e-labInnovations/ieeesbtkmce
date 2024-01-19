@@ -102,6 +102,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/faq-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/major-events");
   register_block_type(dirname(__FILE__) . "/build/blocks/major-events-item");
+  register_block_type(dirname(__FILE__) . "/build/blocks/vision-and-mission");
 }
 add_action('init', 'register_blocks');
 

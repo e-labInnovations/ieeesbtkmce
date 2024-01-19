@@ -259,9 +259,9 @@
       <h2 class="text-3xl">Banner Placeholder</h2>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.rings.min.js"></script>
       <script>
-        VANTA.BIRDS(".s-section");
+        VANTA.RINGS(".s-section");
       </script>
     </section>
     <!-- Banner End -->
@@ -421,7 +421,7 @@
     </section>
     <!-- About Section End -->
 
-    <!-- Mission & Vision Start -->
+    <!-- Vision & Mission Start -->
     <section>
       <div
         class="container mx-auto my-8 flex flex-col gap-6 px-2 md:my-16 md:flex-row xl:px-28"
@@ -445,7 +445,7 @@
             <h3 class="text-xl text-primary-800">Our Mission</h3>
             <hr class="h-0.5 flex-grow border-0 bg-primary-700" />
           </div>
-          <div class="w-full text-base font-light text-black">
+          <div class="mb-auto w-full text-base font-light text-black">
             <p class="mb-4">To provide a platform for the members to:</p>
             <ul class="mission">
               <li>Exercise & adopt their knowledge for the common good.</li>
@@ -453,11 +453,11 @@
               <li>Celebrate the spirit of working together</li>
             </ul>
           </div>
-          <hr class="h-px flex-grow border-0 bg-primary-700" />
+          <hr class="h-px max-h-px flex-grow border-0 bg-primary-700" />
         </div>
       </div>
     </section>
-    <!-- Mission & Vision End -->
+    <!-- Vision & Mission End -->
 
     <!-- Front Gallery Start -->
     <section>
@@ -853,8 +853,8 @@
                 width="140%"
                 height="140%"
               >
-                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-                <feOffset dx="2" dy="2" result="offsetblur" />
+                <feGaussianBlur in="SourceAlpha" stdDeviation="8" />
+                <feOffset dx="0" dy="0" result="offsetblur" />
                 <feComponentTransfer>
                   <feFuncA type="linear" slope="0.3" />
                 </feComponentTransfer>
