@@ -104,6 +104,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/major-events-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/vision-and-mission");
   register_block_type(dirname(__FILE__) . "/build/blocks/exuro");
+  register_block_type(dirname(__FILE__) . "/build/blocks/featured-chapters");
 }
 add_action('init', 'register_blocks');
 
@@ -141,3 +142,12 @@ function ieeesbtkmce_disable_gutenberg($current_status, $post_type) {
 
 //Certificates Page
 require_once IEEESBTKMCE_THEME_PATH . '/inc/certificates.php';
+
+function ieeesbtkmce_block_editor_settings( $editor_settings, $editor_context ) {
+  $editor_settings['themeData'] = array(
+    'theme_url' => IEEESBTKMCE_THEME_URL,
+  );
+  return $editor_settings;
+}
+
+add_filter( 'block_editor_settings_all', 'ieeesbtkmce_block_editor_settings', 10, 2 );
