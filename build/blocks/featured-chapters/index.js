@@ -26,7 +26,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const theme_url = wp.data.select("core/block-editor").getSettings().themeData.theme_url;
 function Edit({
   attributes,
   setAttributes
@@ -38,13 +37,9 @@ function Edit({
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "w-full overflow-hidden"
   });
-  const getChapterImage = chapter => {
-    return chapters[chapter].image ? chapters[chapter].image : null;
-  };
-  const getChapterLink = chapter => {
-    return chapters[chapter].linkObject ? chapters[chapter].linkObject : null;
-  };
+  const [theme_url, setTheme_url] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)("");
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+    setTheme_url(wp.data.select("core/block-editor").getSettings().themeData.theme_url);
     console.log("help", wp.data.select("core/block-editor").getSettings().themeData.theme_url);
   }, []);
   const setChapterLink = (chapter, newLinkObject) => {
@@ -52,7 +47,7 @@ function Edit({
       chapters: {
         ...chapters,
         [chapter]: {
-          ...chapbers[chapter],
+          ...chapters[chapter],
           linkObject: newLinkObject
         }
       }
@@ -189,7 +184,7 @@ function Edit({
     in: "SourceGraphic"
   }))), Object.entries(chapters).map(([chapterName, chapter]) => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-      id: "chapter_01",
+      id: `chapter_${chapterName}`,
       x: "0%",
       y: "0%",
       height: "100%",
@@ -198,234 +193,62 @@ function Edit({
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
       width: 1,
       height: 1,
-      className: "fill-white"
+      className: `fill-${chapter.bg_color}`
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-      xlinkHref: `${theme_url}/assets/images/chapter-${chapterName}.png`,
+      xlinkHref: chapter.image && chapter.image.url ? chapter.image.url : `${theme_url}/assets/images/chapter-${chapterName}.png`,
       x: "0.1",
       y: "0.1",
       width: "0.8",
       height: "0.8",
       preserveAspectRatio: "xMidYMid meet"
     }));
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_01",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-01.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_02",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-02.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_03",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-03.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_04",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-04.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_05",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-primary-800"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-05.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_06",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-06.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_07",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-07.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_08",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-08.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
-    id: "chapter_09",
-    x: "0%",
-    y: "0%",
-    height: "100%",
-    width: "100%",
-    viewBox: "0 0 1 1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
-    width: 1,
-    height: 1,
-    className: "fill-white"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
-    xlinkHref: "./imgs/chapter-09.png",
-    x: "0.1",
-    y: "0.1",
-    width: "0.8",
-    height: "0.8",
-    preserveAspectRatio: "xMidYMid meet"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
     dangerouslySetInnerHTML: {
       __html: "\n                .chapter-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .chapter-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              "
     }
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
+    onClick: () => setEditItem("pes")
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "86.5958",
     y: "7.1709",
     width: 170,
     height: 170,
-    fill: "url(#chapter_01)",
+    fill: "url(#chapter_pes)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "272.491",
     y: "7.1709",
     width: 170,
     height: 170,
-    fill: "url(#chapter_02)",
+    fill: "url(#chapter_ras)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "458.387",
     y: "7.1709",
     width: 170,
     height: 170,
-    fill: "url(#chapter_03)",
+    fill: "url(#chapter_cs)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "10.9073",
     y: "204.143",
     width: 170,
     height: 170,
-    fill: "url(#chapter_04)",
+    fill: "url(#chapter_sight)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "196.803",
     y: "204.143",
     width: 170,
     height: 170,
-    fill: "url(#chapter_05)",
+    fill: "url(#chapter_ias)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "382.698",
     y: "204.143",
     width: 170,
     height: 170,
-    fill: "url(#chapter_06)",
+    fill: "url(#chapter_sps)",
     className: "chapter-rect stroke-primary-800"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "580.262",
@@ -435,32 +258,26 @@ function Edit({
     fill: "#006DA5",
     className: "w-screen",
     filter: "url(#drop-shadow)"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "86.5958",
     y: "401.115",
     width: 170,
     height: 170,
-    fill: "url(#chapter_07)",
+    fill: "url(#chapter_wie)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "272.491",
     y: "401.115",
     width: 170,
     height: 170,
-    fill: "url(#chapter_08)",
+    fill: "url(#chapter_cass)",
     className: "chapter-rect stroke-primary-800"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "458.387",
     y: "401.115",
     width: 170,
     height: 170,
-    fill: "url(#chapter_09)",
+    fill: "url(#chapter_ies)",
     className: "chapter-rect stroke-primary-800"
   })))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, Object.entries(chapters).map(([chapterName, chapter]) => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
@@ -518,47 +335,56 @@ const attributes = {
       ras: {
         name: "Robotic Automation Society (RAS)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       pes: {
         name: "Power Energy Society (PES)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       ias: {
         name: "Industrial Applications Society (IAS)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "primary-800"
       },
       ies: {
         name: "Industrial Electronics society (IES)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       cs: {
         name: "Computer Society (CS)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       wie: {
         name: "Women in Engineering (WIE)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       cass: {
         name: "Circuits and systems society(CASS)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       sight: {
         name: "Special interested group on humanitarian Technology (SIGHT)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       },
       sps: {
         name: "Signal Processing Society (SPS)",
         image: {},
-        linkObject: {}
+        linkObject: {},
+        bg_color: "white"
       }
     }
   }
@@ -583,11 +409,178 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
 
 function save({
   attributes
 }) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Test block");
+  const {
+    content,
+    chapters
+  } = attributes;
+  const theme_url = themeData.theme_url;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row sm:gap-24 md:my-16 xl:px-28"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex max-h-min w-full flex-col gap-6 sm:w-5/12"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "font-poppins text-3xl text-primary-800 sm:block"
+  }, "Trusted Among Global Organizations"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "p",
+    value: content,
+    className: "font-poppins text-base font-light text-black"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "h-full w-full sm:w-7/12"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    viewBox: "0 0 640 580",
+    className: "w-full overflow-visible"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+    id: "drop-shadow"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+    in: "SourceAlpha",
+    stdDeviation: 1
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+    dx: 1,
+    dy: 1
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComponentTransfer", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFuncA", {
+    type: "linear",
+    slope: "0.3"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feMerge", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feMergeNode", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feMergeNode", {
+    in: "SourceGraphic"
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("filter", {
+    id: "drop-shadow-hover",
+    x: "-20%",
+    y: "-20%",
+    width: "140%",
+    height: "140%"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feGaussianBlur", {
+    in: "SourceAlpha",
+    stdDeviation: 8
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feOffset", {
+    dx: 0,
+    dy: 0,
+    result: "offsetblur"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feComponentTransfer", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feFuncA", {
+    type: "linear",
+    slope: "0.3"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feMerge", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feMergeNode", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("feMergeNode", {
+    in: "SourceGraphic"
+  }))), Object.entries(chapters).map(([chapterName, chapter]) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("pattern", {
+      id: `chapter_${chapterName}`,
+      x: "0%",
+      y: "0%",
+      height: "100%",
+      width: "100%",
+      viewBox: "0 0 1 1"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+      width: 1,
+      height: 1,
+      className: `fill-${chapter.bg_color}`
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("image", {
+      xlinkHref: chapter.image && chapter.image.url ? chapter.image.url : `${theme_url}/assets/images/chapter-${chapterName}.png`,
+      x: "0.1",
+      y: "0.1",
+      width: "0.8",
+      height: "0.8",
+      preserveAspectRatio: "xMidYMid meet"
+    }));
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
+    dangerouslySetInnerHTML: {
+      __html: "\n                .chapter-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .chapter-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              "
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.pes.linkObject && chapters.pes.linkObject.url ? chapters.pes.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "86.5958",
+    y: "7.1709",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_pes)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.ras.linkObject && chapters.ras.linkObject.url ? chapters.ras.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "272.491",
+    y: "7.1709",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_ras)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.cs.linkObject && chapters.cs.linkObject.url ? chapters.cs.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "458.387",
+    y: "7.1709",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_cs)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.sight.linkObject && chapters.sight.linkObject.url ? chapters.sight.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "10.9073",
+    y: "204.143",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_sight)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.ias.linkObject && chapters.ias.linkObject.url ? chapters.ias.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "196.803",
+    y: "204.143",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_ias)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.sps.linkObject && chapters.sps.linkObject.url ? chapters.sps.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "382.698",
+    y: "204.143",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_sps)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "580.262",
+    y: "204.143",
+    height: 170,
+    rx: 35,
+    fill: "#006DA5",
+    className: "w-screen",
+    filter: "url(#drop-shadow)"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.wie.linkObject && chapters.wie.linkObject.url ? chapters.wie.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "86.5958",
+    y: "401.115",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_wie)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.cass.linkObject && chapters.cass.linkObject.url ? chapters.cass.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "272.491",
+    y: "401.115",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_cass)",
+    className: "chapter-rect stroke-primary-800"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: chapters.ies.linkObject && chapters.ies.linkObject.url ? chapters.ies.linkObject.url : "#"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    x: "458.387",
+    y: "401.115",
+    width: 170,
+    height: 170,
+    fill: "url(#chapter_ies)",
+    className: "chapter-rect stroke-primary-800"
+  }))))));
 }
 
 /***/ }),

@@ -7,13 +7,7 @@ import {
   useBlockProps,
   InspectorControls,
 } from "@wordpress/block-editor";
-import {
-  Popover,
-  Button,
-  PanelBody,
-  TextControl,
-  PanelRow,
-} from "@wordpress/components";
+import { PanelBody, PanelRow } from "@wordpress/components";
 import { Fragment, useEffect, useState } from "@wordpress/element";
 import "./editor.scss";
 
@@ -23,29 +17,24 @@ export default function Edit({ attributes, setAttributes }) {
     className: "w-full overflow-hidden",
   });
 
-  const [theme_url, set]
+  const [theme_url, setTheme_url] = useState("");
 
   useEffect(() => {
+    setTheme_url(
+      wp.data.select("core/block-editor").getSettings().themeData.theme_url,
+    );
     console.log(
       "help",
       wp.data.select("core/block-editor").getSettings().themeData.theme_url,
     );
   }, []);
 
-  const getChapterImage = (chapter) => {
-    return chapters[chapter].image ? chapters[chapter].image : null;
-  };
-
-  const getChapterLink = (chapter) => {
-    return chapters[chapter].linkObject ? chapters[chapter].linkObject : null;
-  };
-
   const setChapterLink = (chapter, newLinkObject) => {
     setAttributes({
       chapters: {
         ...chapters,
         [chapter]: {
-          ...chapbers[chapter],
+          ...chapters[chapter],
           linkObject: newLinkObject,
         },
       },
@@ -185,17 +174,25 @@ export default function Edit({ attributes, setAttributes }) {
                 {Object.entries(chapters).map(([chapterName, chapter]) => {
                   return (
                     <pattern
-                      id="chapter_01"
+                      id={`chapter_${chapterName}`}
                       x="0%"
                       y="0%"
                       height="100%"
                       width="100%"
                       viewBox="0 0 1 1"
                     >
-                      <rect width={1} height={1} className="fill-white" />
+                      <rect
+                        width={1}
+                        height={1}
+                        className={`fill-${chapter.bg_color}`}
+                      />
 
                       <image
-                        xlinkHref={`${theme_url}/assets/images/chapter-${chapterName}.png`}
+                        xlinkHref={
+                          chapter.image && chapter.image.url
+                            ? chapter.image.url
+                            : `${theme_url}/assets/images/chapter-${chapterName}.png`
+                        }
                         x="0.1"
                         y="0.1"
                         width="0.8"
@@ -205,169 +202,6 @@ export default function Edit({ attributes, setAttributes }) {
                     </pattern>
                   );
                 })}
-                <pattern
-                  id="chapter_01"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-
-                  <image
-                    xlinkHref="./imgs/chapter-01.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_02"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-02.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_03"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-03.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_04"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-04.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_05"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-primary-800" />
-                  <image
-                    xlinkHref="./imgs/chapter-05.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_06"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-06.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_07"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-07.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_08"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-08.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
-                <pattern
-                  id="chapter_09"
-                  x="0%"
-                  y="0%"
-                  height="100%"
-                  width="100%"
-                  viewBox="0 0 1 1"
-                >
-                  <rect width={1} height={1} className="fill-white" />
-                  <image
-                    xlinkHref="./imgs/chapter-09.png"
-                    x="0.1"
-                    y="0.1"
-                    width="0.8"
-                    height="0.8"
-                    preserveAspectRatio="xMidYMid meet"
-                  />
-                </pattern>
                 <style
                   dangerouslySetInnerHTML={{
                     __html:
@@ -375,63 +209,64 @@ export default function Edit({ attributes, setAttributes }) {
                   }}
                 />
               </defs>
-              <a href="#">
+
+              <a onClick={() => setEditItem("pes")}>
                 <rect
                   x="86.5958"
                   y="7.1709"
                   width={170}
                   height={170}
-                  fill="url(#chapter_01)"
+                  fill="url(#chapter_pes)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="272.491"
                   y="7.1709"
                   width={170}
                   height={170}
-                  fill="url(#chapter_02)"
+                  fill="url(#chapter_ras)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="458.387"
                   y="7.1709"
                   width={170}
                   height={170}
-                  fill="url(#chapter_03)"
+                  fill="url(#chapter_cs)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="10.9073"
                   y="204.143"
                   width={170}
                   height={170}
-                  fill="url(#chapter_04)"
+                  fill="url(#chapter_sight)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="196.803"
                   y="204.143"
                   width={170}
                   height={170}
-                  fill="url(#chapter_05)"
+                  fill="url(#chapter_ias)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="382.698"
                   y="204.143"
                   width={170}
                   height={170}
-                  fill="url(#chapter_06)"
+                  fill="url(#chapter_sps)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
@@ -444,33 +279,33 @@ export default function Edit({ attributes, setAttributes }) {
                 className="w-screen"
                 filter="url(#drop-shadow)"
               />
-              <a href="#">
+              <a>
                 <rect
                   x="86.5958"
                   y="401.115"
                   width={170}
                   height={170}
-                  fill="url(#chapter_07)"
+                  fill="url(#chapter_wie)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="272.491"
                   y="401.115"
                   width={170}
                   height={170}
-                  fill="url(#chapter_08)"
+                  fill="url(#chapter_cass)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
-              <a href="#">
+              <a>
                 <rect
                   x="458.387"
                   y="401.115"
                   width={170}
                   height={170}
-                  fill="url(#chapter_09)"
+                  fill="url(#chapter_ies)"
                   className="chapter-rect stroke-primary-800"
                 />
               </a>
