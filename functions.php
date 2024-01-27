@@ -76,7 +76,7 @@ function ieeesbtkmce_add_support() {
 }
 add_action('after_setup_theme', 'ieeesbtkmce_add_support');
 
-// register new menus
+//Register new menus
 function ieeesbtkmce_menus() {
   $locations = array(
     'primary' => "Main Menu",
@@ -87,6 +87,31 @@ function ieeesbtkmce_menus() {
   register_nav_menus($locations);
 }
 add_action('init', 'ieeesbtkmce_menus');
+
+//Register sidebars
+function ieeestkmce_sidebars() {
+	register_sidebar(
+		array(
+			'id'            => 'primary',
+			'name'          => __( 'Primary Sidebar' ),
+			'description'   => __( 'A short description of the sidebar.' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		)
+	);
+  register_sidebar(
+		array(
+			'id'            => 'footer-contacts',
+			'name'          => __( 'Footer Contact Us' ),
+			'description'   => __( 'Footer contact us widgets' ),
+			'before_widget' => '<div class="grid grid-cols-3">',
+			'after_widget'  => '</div>',
+		)
+	);
+}
+add_action( 'widgets_init', 'ieeestkmce_sidebars' );
 
 //Register custom blocks
 function register_blocks() {

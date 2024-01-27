@@ -186,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return Math.random() * (max - min) + min;
       }
       apiFetch({ path: "/alumni_testimonials/v1/all" }).then((data) => {
-        console.log(data);
         generateChart(data);
       });
     })();

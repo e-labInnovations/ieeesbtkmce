@@ -202,7 +202,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
       _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
         path: "/alumni_testimonials/v1/all"
       }).then(data => {
-        console.log(data);
         generateChart(data);
       });
     })();

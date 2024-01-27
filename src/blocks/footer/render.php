@@ -137,68 +137,69 @@
             >
                 Contact Us
             </h2>
+            <?php dynamic_sidebar( 'footer-contacts' ); ?>
             <div class="grid grid-cols-3">
                 <div class="flex h-full flex-col">
-                <h5 class="font-poppins text-base font-[275] text-white"></h5>
-                Branch Councillor
-                </h5>
-                <h4 class="font-poppins text-base font-light text-white mb-4">
-                    Dr. Bijuna Kunju
-                </h4>
-                <div class="mt-auto flex items-center gap-2">
-                    <a href="#">
-                    <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                        <use xlink:href="#icon-call"></use>
-                    </svg>
-                    </a>
-                    <a href="#">
-                    <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                        <use xlink:href="#icon-mail"></use>
-                    </svg>
-                    </a>
-                </div>
-                </div>
-
-                <div class="flex h-full flex-col">
-                <h5 class="font-poppins text-base font-[275] text-white"></h5>
-                Chairperson
-                </h5>
-                <h4 class="font-poppins text-base font-light text-white mb-4">
-                    Augustus Waters
-                </h4>
-                <div class="mt-auto flex items-center gap-2">
-                    <a href="#">
-                    <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                        <use xlink:href="#icon-call"></use>
-                    </svg>
-                    </a>
-                    <a href="#">
-                    <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                        <use xlink:href="#icon-mail"></use>
-                    </svg>
-                    </a>
-                </div>
+                    <h5 class="font-poppins text-base font-[275] text-white"></h5>
+                    Branch Councillor
+                    </h5>
+                    <h4 class="font-poppins text-base font-light text-white mb-4">
+                        Dr. Bijuna Kunju
+                    </h4>
+                    <div class="mt-auto flex items-center gap-2">
+                        <a href="#">
+                        <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <use xlink:href="#icon-call"></use>
+                        </svg>
+                        </a>
+                        <a href="#">
+                        <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <use xlink:href="#icon-mail"></use>
+                        </svg>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="flex h-full flex-col">
-                <h5 class="font-poppins text-base font-[275] text-white"></h5>
-                    Webmaster
-                </h5>
-                <h4 class="font-poppins text-base font-light text-white mb-4">
-                    Hazel Grace
-                </h4>
-                <div class="mt-auto flex items-center gap-2">
-                    <a href="#">
-                    <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                        <use xlink:href="#icon-call"></use>
-                    </svg>
-                    </a>
-                    <a href="#">
-                    <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                        <use xlink:href="#icon-mail"></use>
-                    </svg>
-                    </a>
+                    <h5 class="font-poppins text-base font-[275] text-white"></h5>
+                    Chairperson
+                    </h5>
+                    <h4 class="font-poppins text-base font-light text-white mb-4">
+                        Augustus Waters
+                    </h4>
+                    <div class="mt-auto flex items-center gap-2">
+                        <a href="#">
+                        <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <use xlink:href="#icon-call"></use>
+                        </svg>
+                        </a>
+                        <a href="#">
+                        <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <use xlink:href="#icon-mail"></use>
+                        </svg>
+                        </a>
+                    </div>
                 </div>
+
+                <div class="flex h-full flex-col">
+                    <h5 class="font-poppins text-base font-[275] text-white"></h5>
+                        Webmaster
+                    </h5>
+                    <h4 class="font-poppins text-base font-light text-white mb-4">
+                        Hazel Grace
+                    </h4>
+                    <div class="mt-auto flex items-center gap-2">
+                        <a href="#">
+                        <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <use xlink:href="#icon-call"></use>
+                        </svg>
+                        </a>
+                        <a href="#">
+                        <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <use xlink:href="#icon-mail"></use>
+                        </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             </div>
