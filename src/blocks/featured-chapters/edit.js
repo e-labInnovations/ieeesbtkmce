@@ -23,10 +23,6 @@ export default function Edit({ attributes, setAttributes }) {
     setTheme_url(
       wp.data.select("core/block-editor").getSettings().themeData.theme_url,
     );
-    console.log(
-      "help",
-      wp.data.select("core/block-editor").getSettings().themeData.theme_url,
-    );
   }, []);
 
   const setChapterLink = (chapter, newLinkObject) => {

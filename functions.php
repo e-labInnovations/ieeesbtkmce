@@ -105,6 +105,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/vision-and-mission");
   register_block_type(dirname(__FILE__) . "/build/blocks/exuro");
   register_block_type(dirname(__FILE__) . "/build/blocks/featured-chapters");
+  register_block_type(dirname(__FILE__) . "/build/blocks/front-gallery");
 }
 add_action('init', 'register_blocks');
 

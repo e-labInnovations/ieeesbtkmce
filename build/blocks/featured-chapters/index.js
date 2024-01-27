@@ -40,7 +40,6 @@ function Edit({
   const [theme_url, setTheme_url] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)("");
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     setTheme_url(wp.data.select("core/block-editor").getSettings().themeData.theme_url);
-    console.log("help", wp.data.select("core/block-editor").getSettings().themeData.theme_url);
   }, []);
   const setChapterLink = (chapter, newLinkObject) => {
     setAttributes({
