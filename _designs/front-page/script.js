@@ -459,10 +459,7 @@ document.querySelectorAll(".faq").forEach((faqBlock) => {
 
       _qBlock
         .querySelector("svg")
-        .classList.remove(
-          isMobile ? "-rotate-90" : "rotate-180",
-          "fill-primary-800",
-        );
+        .classList.remove("-rotate-90", "rotate-180", "fill-primary-800");
       _qBlock
         .querySelector("svg")
         .classList.add(isMobile ? "rotate-90" : "rotate-0", "fill-gray-200");
@@ -472,7 +469,7 @@ document.querySelectorAll(".faq").forEach((faqBlock) => {
     qBlock.classList.add("border-[3px]", "border-primary-800");
     qBlock
       .querySelector("svg")
-      .classList.remove(isMobile ? "rotate-90" : "rotate-0", "fill-gray-200");
+      .classList.remove("rotate-90", "rotate-0", "fill-gray-200");
     qBlock
       .querySelector("svg")
       .classList.add(

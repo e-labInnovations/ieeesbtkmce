@@ -12,9 +12,9 @@
 - After completion
   - [ ] Watch `201. Templates (Part 2)` and fix the template default images
   - [ ] `src/blocks/major-events/edit.js` fix child position and scrolling
-- [ ] SVG Sprites working in frontend but not in admin side (Block editor side)
+- ~~[ ] SVG Sprites working in frontend but not in admin side (Block editor side)~~
 - [ ] Hide alumni testimonial from menu
 - [x] use hammer.js for iOS scroll for major events (Mobile)
 - [ ] add `transition ease-in-out hover:translate-x-1` classes footer link
 - [ ] Fix footer style
-- [ ] Add `md:my-16` to every section
+- ~~[ ] Add `md:my-16` to every section~~

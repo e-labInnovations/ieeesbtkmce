@@ -11,12 +11,12 @@ document.querySelectorAll(".faq").forEach(faqBlock => {
     faqBlock.querySelectorAll(".faq-item-q").forEach(_qBlock => {
       _qBlock.classList.add("border-[1px]", "border-gray-800");
       _qBlock.classList.remove("border-[3px]", "border-primary-800");
-      _qBlock.querySelector("svg").classList.remove(isMobile ? "-rotate-90" : "rotate-180", "fill-primary-800");
+      _qBlock.querySelector("svg").classList.remove("-rotate-90", "rotate-180", "fill-primary-800");
       _qBlock.querySelector("svg").classList.add(isMobile ? "rotate-90" : "rotate-0", "fill-gray-200");
     });
     qBlock.classList.remove("border-[1px]", "border-gray-800");
     qBlock.classList.add("border-[3px]", "border-primary-800");
-    qBlock.querySelector("svg").classList.remove(isMobile ? "rotate-90" : "rotate-0", "fill-gray-200");
+    qBlock.querySelector("svg").classList.remove("rotate-90", "rotate-0", "fill-gray-200");
     qBlock.querySelector("svg").classList.add(isMobile ? "-rotate-90" : "rotate-180", "fill-primary-800");
     answerOutP.innerText = answerInP.innerText;
     // gsap.fromTo(
