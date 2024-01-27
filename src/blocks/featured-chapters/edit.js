@@ -210,7 +210,7 @@ export default function Edit({ attributes, setAttributes }) {
                 />
               </defs>
 
-              <a onClick={() => setEditItem("pes")}>
+              <a>
                 <rect
                   x="86.5958"
                   y="7.1709"

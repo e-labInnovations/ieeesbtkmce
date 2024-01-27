@@ -206,9 +206,7 @@ function Edit({
     dangerouslySetInnerHTML: {
       __html: "\n                .chapter-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .chapter-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              "
     }
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    onClick: () => setEditItem("pes")
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
     x: "86.5958",
     y: "7.1709",
     width: 170,
