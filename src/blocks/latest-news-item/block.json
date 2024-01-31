@@ -1,11 +1,10 @@
 {
   "apiVersion": 2,
-  "name": "ieeesbtkmce/latest-news",
+  "name": "ieeesbtkmce/latest-news-item",
   "version": "0.1.0",
-  "title": "Latest News",
+  "title": "Latest News Item",
   "category": "ieeesbtkmce",
-  "icon": "welcome-widgets-menus",
-  "description": "Shows latest news posts",
+  "description": "Latest news item block used inside latest-news block",
   "supports": {
     "html": false,
     "anchor": true
@@ -13,6 +12,5 @@
   "textdomain": "ieeesbtkmce",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
-  "viewScript": ["file:./view.js", "hammer-js"]
+  "style": "file:./style-index.css"
 }

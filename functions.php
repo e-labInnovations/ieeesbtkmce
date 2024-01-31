@@ -17,6 +17,7 @@ add_action('wp_enqueue_scripts', 'ieeesbtkmce_load_assets');
 function load_editor_assets() {
   wp_enqueue_script('gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), false, true);
   wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js', array('gsap-js'), false, true);
+  wp_enqueue_script( 'hammer-js', 'https://hammerjs.github.io/dist/hammer.min.js', array(), false, true);
   wp_enqueue_script( 'd3-js', 'https://d3js.org/d3.v6.js', array(), false, true);
 
   wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0', 'all');
@@ -115,7 +116,7 @@ add_action( 'widgets_init', 'ieeestkmce_sidebars' );
 
 //Register custom blocks
 function register_blocks() {
-  register_block_type(dirname(__FILE__) . "/build/blocks/test");
+  // register_block_type(dirname(__FILE__) . "/build/blocks/test");
   register_block_type(dirname(__FILE__) . "/build/blocks/banner");
   register_block_type(dirname(__FILE__) . "/build/blocks/counter");
   register_block_type(dirname(__FILE__) . "/build/blocks/counter-item");
@@ -123,6 +124,7 @@ function register_blocks() {
   register_block_type(dirname(__FILE__) . "/build/blocks/header");
   register_block_type(dirname(__FILE__) . "/build/blocks/footer");
   register_block_type(dirname(__FILE__) . "/build/blocks/latest-news");
+  register_block_type(dirname(__FILE__) . "/build/blocks/latest-news-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/services");
   register_block_type(dirname(__FILE__) . "/build/blocks/services-item");
   register_block_type(dirname(__FILE__) . "/build/blocks/faq");

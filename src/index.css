@@ -19,25 +19,25 @@ html {
 
 @layer utilities {
   .news-front-img {
-    @apply absolute inset-y-0 z-20 my-auto h-full max-h-max w-auto self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+    @apply absolute inset-y-0 z-20 my-auto h-full max-h-full rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
   }
 
   .news-back-img {
-    @apply absolute inset-y-0 z-10 my-auto h-full max-h-max w-auto translate-x-3/4 scale-[90%] self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+    @apply absolute inset-y-0 z-10 my-auto h-full max-h-full translate-x-3/4 scale-[90%] rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
   }
 
   .news-hidden-front-img {
-    @apply absolute inset-y-0 my-auto h-full max-h-max w-auto translate-y-3/4 scale-[80%] self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+    @apply absolute inset-y-0 my-auto h-full max-h-full  scale-[60%] rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
     visibility: hidden;
-    /* opacity: 0;
-        transition: visibility 0s linear 500ms, opacity 500ms; */
+    opacity: 0;
+    /*transition: visibility 0s linear 500ms, opacity 500ms; */
   }
 
   .news-hidden-back-img {
-    @apply absolute inset-y-0 my-auto h-full max-h-max w-auto translate-x-3/4 scale-[60%] self-center rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
+    @apply absolute inset-y-0 my-auto h-full max-h-full translate-x-3/4 scale-[60%] rounded-2xl border border-gray-200 bg-white p-1 shadow transition-all duration-500;
     visibility: hidden;
-    /* opacity: 0;
-        transition: visibility 0s linear 500ms, opacity 500ms; */
+    opacity: 0;
+    /*transition: visibility 0s linear 500ms, opacity 500ms; */
   }
 
   .mission {

@@ -1,11 +1,11 @@
 {
   "apiVersion": 2,
-  "name": "ieeesbtkmce/latest-news",
+  "name": "ieeesbtkmce/test",
   "version": "0.1.0",
-  "title": "Latest News",
+  "title": "Test Block",
   "category": "ieeesbtkmce",
-  "icon": "welcome-widgets-menus",
-  "description": "Shows latest news posts",
+  "icon": "smiley",
+  "description": "Example block written with ESNext standard and JSX support build step required.",
   "supports": {
     "html": false,
     "anchor": true
@@ -13,6 +13,5 @@
   "textdomain": "ieeesbtkmce",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
-  "viewScript": ["file:./view.js", "hammer-js"]
+  "style": "file:./style-index.css"
 }

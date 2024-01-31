@@ -1,8 +1,8 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-/*!******************************************!*\
-  !*** ./src/blocks/latest-news/script.js ***!
-  \******************************************/
+/*!****************************************!*\
+  !*** ./src/blocks/latest-news/view.js ***!
+  \****************************************/
 document.addEventListener("DOMContentLoaded", function (event) {
   document.querySelectorAll("#latest-news-section").forEach(latestNewsSection => {
     const nextButton = latestNewsSection.querySelector("#news-next");
@@ -94,4 +94,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 /******/ })()
 ;
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=view.js.map
