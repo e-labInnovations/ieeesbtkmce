@@ -12,30 +12,32 @@ const imagesClasses = {
 };
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-  const parentClientId = useSelect((select) => {
-    const parentBlock =
-      select("core/block-editor").getBlockParents(clientId)[0];
-    return parentBlock ? parentBlock.clientId : null;
+  const [isSelected, setIsSelected] = useState(false);
+  const parentClientId =
+    select("core/block-editor").getBlockParents(clientId)[0];
+
+  const activeItem = useSelect((select) => {
+    const parentBlock = select("core/block-editor").getBlock(parentClientId);
+    return parentBlock ? parentBlock.attributes.activeItem : null;
   });
 
-  const data = select("core/block-editor").getBlock(parentClientId);
+  useEffect(() => {
+    setIsSelected(activeItem == clientId);
+  }, [activeItem]);
 
-  console.log(data);
-
-  const isSelected = useSelect(
-    (select) => {
-      const selectedBlockClientId =
-        select("core/block-editor").getSelectedBlockClientId();
-      if (!selectedBlockClientId) {
-        return false;
-      }
-      const selectedBlock = select("core/block-editor").getBlock(
-        selectedBlockClientId,
-      );
-      return selectedBlock.clientId === clientId;
-    },
-    [clientId],
-  );
+  //ToDo: check the selected block is latest-news-item, if yes then `isSelected = check current one is selected`
+  useEffect(() => {
+    const selectedBlockClientId =
+      select("core/block-editor").getSelectedBlockClientId();
+    console.log(
+      "🚀 ~ useEffect ~ selectedBlockClientId:",
+      selectedBlockClientId,
+    );
+    const selectedBlock = select("core/block-editor").getBlock(
+      selectedBlockClientId,
+    );
+    setIsSelected(selectedBlock.clientId === clientId);
+  }, []);
 
   const blockProps = useBlockProps({
     className: isSelected ? imagesClasses.front : imagesClasses.backHidden,

@@ -38,20 +38,23 @@ function Edit({
   setAttributes,
   clientId
 }) {
-  const parentClientId = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
-    const parentBlock = select("core/block-editor").getBlockParents(clientId)[0];
-    return parentBlock ? parentBlock.clientId : null;
+  const [isSelected, setIsSelected] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+  const parentClientId = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/block-editor").getBlockParents(clientId)[0];
+  const activeItem = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
+    const parentBlock = select("core/block-editor").getBlock(parentClientId);
+    return parentBlock ? parentBlock.attributes.activeItem : null;
   });
-  const data = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/block-editor").getBlock(parentClientId);
-  console.log(data);
-  const isSelected = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
-    const selectedBlockClientId = select("core/block-editor").getSelectedBlockClientId();
-    if (!selectedBlockClientId) {
-      return false;
-    }
-    const selectedBlock = select("core/block-editor").getBlock(selectedBlockClientId);
-    return selectedBlock.clientId === clientId;
-  }, [clientId]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+    setIsSelected(activeItem == clientId);
+  }, [activeItem]);
+
+  //ToDo: check the selected block is latest-news-item, if yes then `isSelected = check current one is selected`
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+    const selectedBlockClientId = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/block-editor").getSelectedBlockClientId();
+    console.log("🚀 ~ useEffect ~ selectedBlockClientId:", selectedBlockClientId);
+    const selectedBlock = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/block-editor").getBlock(selectedBlockClientId);
+    setIsSelected(selectedBlock.clientId === clientId);
+  }, []);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: isSelected ? imagesClasses.front : imagesClasses.backHidden
   });
