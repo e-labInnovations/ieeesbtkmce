@@ -71,8 +71,6 @@ function Edit({
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     setIsSelected(activeItem == clientId);
   }, [activeItem]);
-
-  //ToDo: check the selected block is latest-news-item, if yes then `isSelected = check current one is selected`
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     const selectedBlockClientId = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/block-editor").getSelectedBlockClientId();
     const selectedBlock = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)("core/block-editor").getBlock(selectedBlockClientId);
