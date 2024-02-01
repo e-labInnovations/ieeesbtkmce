@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const moreDetailsUrl = contentP.dataset.detailsUrl;
         const registerUrl = contentP.dataset.registerUrl;
 
-        activeNewsItem.title.innerText = title;
-        activeNewsItem.content.innerText = contentP.innerText.trim();
+        activeNewsItem.title.innerHTML = title;
+        activeNewsItem.content.innerHTML = contentP.innerHTML;
         activeNewsItem.details.href = moreDetailsUrl ? moreDetailsUrl : "#";
         if (moreDetailsUrl == "#") {
           activeNewsItem.details.classList.add(...disabledClasses);

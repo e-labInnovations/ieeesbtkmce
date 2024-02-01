@@ -1,30 +1,66 @@
-import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
+import {
+  useBlockProps,
+  useInnerBlocksProps,
+  RichText,
+} from "@wordpress/block-editor";
 import { selectBlock } from "@wordpress/blocks";
 import { useSelect, dispatch } from "@wordpress/data";
 import { Fragment, useState, useEffect } from "@wordpress/element";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-  const activeItem = { attributes };
+  const { activeItem, title, content, registerLink, detailsLink } = attributes;
   const blockProps = useBlockProps();
-  const [currentItemPos, setCurrentItemPos] = useState(-1);
+  const [currentItemPos, setCurrentItemPos] = useState(0);
 
-  const isSelectedBlock = useSelect((select) => {
-    const selectedBlockClientId =
-      select("core/block-editor").getSelectedBlockClientId();
-    if (!selectedBlockClientId) {
-      return false;
-    }
-    const selectedBlock = select("core/block-editor").getBlock(
-      selectedBlockClientId,
-    );
-    return selectedBlock.name === "ieeesbtkmce/latest-news-item";
-  }, []);
+  const selectedBlock = useSelect((select) => {
+    let currentSelection = select("core/block-editor").getSelectedBlock();
+    return currentSelection ? currentSelection : null;
+  });
 
   const innerBlocks = useSelect(
     (select) => select("core/block-editor").getBlocks(clientId),
     [clientId],
   );
+
+  const selectInnerBlock = (innerBlock = null) => {
+    innerBlock = innerBlock ? innerBlock : innerBlocks[currentItemPos];
+
+    setAttributes({
+      activeItem: innerBlock.clientId,
+      title: innerBlock.attributes.title || "",
+      content: innerBlock.attributes.content || "",
+      registerLink: innerBlock.attributes.registerLink || null,
+      detailsLink: innerBlock.attributes.detailsLink || null,
+    });
+  };
+
+  useEffect(() => {
+    selectInnerBlock();
+  }, []);
+
+  useEffect(() => {
+    if (selectedBlock && selectedBlock.name == "ieeesbtkmce/latest-news-item") {
+      selectInnerBlock(selectedBlock);
+      console.log("selectedBlock:", selectedBlock);
+    }
+  }, [selectedBlock]);
+
+  const doNext = () => {
+    let newPosition = currentItemPos + 1;
+    newPosition = newPosition >= innerBlocks.length ? 0 : newPosition;
+    setCurrentItemPos(newPosition);
+    selectInnerBlock(innerBlocks[newPosition]);
+  };
+
+  const doPrev = () => {
+    let newPosition = currentItemPos - 1;
+    newPosition = newPosition < 0 ? innerBlocks.length - 1 : newPosition;
+    setCurrentItemPos(newPosition);
+    selectInnerBlock(innerBlocks[newPosition]);
+  };
+
+  //ToDo : implement register and details links
 
   const blockProps2 = useBlockProps({
     className: "relative flex h-64 w-full sm:mx-0 sm:mt-0",
@@ -33,17 +69,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   const innerBlocksProps = useInnerBlocksProps(blockProps2, {
     allowedBlocks: ["ieeesbtkmce/latest-news-item"],
   });
-
-  const doNext = () => {
-    let newPosition = currentItemPos + 1;
-    newPosition = newPosition >= innerBlocks.length ? 0 : newPosition;
-    setCurrentItemPos(newPosition);
-    // console.log(innerBlocks);
-    // dispatch("core/block-editor").selectBlock(
-    //   innerBlocks[newPosition].clientId,
-    // );
-    setAttributes({ activeItem: innerBlocks[newPosition].clientId });
-  };
 
   return (
     <section {...blockProps}>
@@ -75,6 +100,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
               </svg>
             </button>
             <button
+              onClick={doPrev}
               className="rounded-full border border-primary-800 bg-white p-3"
               id="news-prev"
             >
@@ -93,13 +119,23 @@ export default function Edit({ attributes, setAttributes, clientId }) {
             </button>
           </div>
           <div className="mb-auto flex flex-col gap-1 sm:gap-2">
-            <h3 className="text-xl" id="active-news-title">
-              Lorem Ipsum
-            </h3>
-            <p className="font-light" id="active-news-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-              libero perferendis minima? lore
-            </p>
+            <RichText
+              className="text-xl"
+              id="active-news-title"
+              tagName="h3"
+              value={title}
+              onChange={(title) => setAttributes({ title })}
+              placeholder={"Title..."}
+              allowedFormats={[]}
+            />
+            <RichText
+              className="font-light"
+              id="active-news-content"
+              tagName="h3"
+              value={content}
+              onChange={(content) => setAttributes({ content })}
+              placeholder={"Content..."}
+            />
           </div>
           <div className="flex flex-row">
             <a

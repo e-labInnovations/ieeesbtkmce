@@ -6,6 +6,10 @@ import Save from "./save";
 
 const attributes = {
   activeItem: { type: "string" },
+  title: { type: "string" },
+  content: { type: "string" },
+  registerLink: { type: "object" },
+  detailsLink: { type: "object" },
 };
 
 registerBlockType(metadata, {
