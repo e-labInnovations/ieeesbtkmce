@@ -1,32 +1,33 @@
 {
-  "name": "ieeesbtkmce",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "preview": "npm-run-all --parallel sync wpstart tailwindwatch",
-    "sync": "browser-sync start -p 'http://ieeesbtkmce.localhost/' --files '**/*.php' 'build/*.js' 'build/*.css'",
-    "buildwp": "wp-scripts build",
-    "build": "npm-run-all --sequential buildwp tailwindbuild",
-    "wpstart": "wp-scripts start",
-    "start": "npm-run-all --parallel wpstart tailwindwatch",
-    "tailwindbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
-    "tailwindwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.2",
-    "@wordpress/scripts": "^26.19.0",
-    "browser-sync": "^2.27.10",
-    "npm-run-all": "^4.1.5",
-    "prettier": "3.1.1",
-    "prettier-plugin-tailwindcss": "^0.5.10",
-    "tailwindcss": "^3.1.4"
-  },
-  "dependencies": {
-    "@skjnldsv/sanitize-svg": "^1.0.2"
-  }
+    "name": "ieeesbtkmce",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "preview": "npm-run-all --parallel sync wpstart tailwindwatch",
+        "sync": "browser-sync start -p 'http://ieeesbtkmce.localhost/' --files '**/*.php' 'build/*.js' 'build/*.css'",
+        "buildwp": "wp-scripts build",
+        "build": "npm-run-all --sequential buildwp tailwindbuild",
+        "wpstart": "wp-scripts start",
+        "start": "npm-run-all --parallel wpstart tailwindwatch",
+        "tailwindbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
+        "tailwindwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",
+        "prettier": "prettier"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@prettier/plugin-php": "^0.22.1",
+        "@tailwindcss/typography": "^0.5.2",
+        "@wordpress/scripts": "^26.19.0",
+        "browser-sync": "^2.27.10",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^3.1.1",
+        "prettier-plugin-tailwindcss": "^0.5.10",
+        "tailwindcss": "^3.1.4"
+    },
+    "dependencies": {
+        "@skjnldsv/sanitize-svg": "^1.0.2"
+    }
 }
