@@ -22,7 +22,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/latest-news/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/latest-news/editor.scss");
+
 
 
 
@@ -43,6 +46,7 @@ function Edit({
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   const [currentItemPos, setCurrentItemPos] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(0);
+  const [linkPicker, setLinkPicker] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(null);
   const selectedBlock = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     let currentSelection = select("core/block-editor").getSelectedBlock();
     return currentSelection ? currentSelection : null;
@@ -90,7 +94,18 @@ function Edit({
   });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: 0,
+    height: 0,
+    className: "hidden"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("symbol", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "currentColor",
+    viewBox: "0 0 16 16",
+    id: "pencil-fill"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container mx-auto my-8 flex flex-col-reverse gap-4 px-4 sm:flex-row md:my-16 xl:px-28",
     id: "latest-news-section"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -149,14 +164,60 @@ function Edit({
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-row"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    onClick: () => setLinkPicker("details"),
     id: "active-news-details",
-    href: "#",
-    className: "mr-2 basis-1/2 rounded p-2 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400"
-  }, "More Details"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "group relative mr-2 basis-1/2 rounded p-2 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400"
+  }, "More Details", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "absolute -end-2 -top-2 hidden h-6  w-6 items-center justify-center rounded-full border-2 border-white bg-primary-800 p-1 text-xs font-bold text-white group-hover:inline-flex"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 16,
+    height: 16,
+    fill: "currentColor",
+    className: "bi bi-pencil-fill",
+    viewBox: "0 0 16 16"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("use", {
+    xlinkHref: "#pencil-fill"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    onClick: () => setLinkPicker("register"),
     id: "active-news-register",
-    href: "#",
-    className: "ml-2 basis-1/2 rounded bg-primary-800 p-2 text-center text-white transition-shadow hover:shadow-md hover:shadow-gray-400"
-  }, "Register Now!"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "group relative ml-2 basis-1/2 rounded bg-primary-800 p-2 text-center text-white transition-shadow hover:shadow-md hover:shadow-gray-400"
+  }, "Register Now!", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "absolute -end-2 -top-2 hidden h-6  w-6 items-center justify-center rounded-full border-2 border-white bg-primary-800 p-1 text-xs font-bold text-white group-hover:inline-flex"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 16,
+    height: 16,
+    fill: "currentColor",
+    className: "bi bi-pencil-fill",
+    viewBox: "0 0 16 16"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("use", {
+    xlinkHref: "#pencil-fill"
+  }))))), linkPicker && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Popover, {
+    position: "middle center",
+    onFocusOutside: () => setLinkPicker(null)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.__experimentalLinkControl, {
+    settings: [],
+    value: linkPicker == "details" ? detailsLink : registerLink,
+    onChange: newLink => {
+      if (linkPicker == "details") setAttributes({
+        detailsLink: newLink
+      });else setAttributes({
+        registerLink: newLink
+      });
+    },
+    style: {
+      display: "block",
+      width: "80%"
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+    variant: "primary",
+    onClick: () => setLinkPicker(null),
+    style: {
+      display: "block",
+      width: "100%"
+    }
+  }, "Confirm Link"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-6 flex w-full flex-col gap-6 sm:mx-0 sm:mt-0 sm:w-7/12"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "font-sans text-3xl text-primary-800 sm:hidden"
@@ -359,6 +420,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 

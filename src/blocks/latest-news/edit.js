@@ -2,16 +2,19 @@ import {
   useBlockProps,
   useInnerBlocksProps,
   RichText,
+  __experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
 import { selectBlock } from "@wordpress/blocks";
 import { useSelect, dispatch } from "@wordpress/data";
 import { Fragment, useState, useEffect } from "@wordpress/element";
+import { Popover, Button } from "@wordpress/components";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
   const { activeItem, title, content, registerLink, detailsLink } = attributes;
   const blockProps = useBlockProps();
   const [currentItemPos, setCurrentItemPos] = useState(0);
+  const [linkPicker, setLinkPicker] = useState(null);
 
   const selectedBlock = useSelect((select) => {
     let currentSelection = select("core/block-editor").getSelectedBlock();
@@ -72,6 +75,16 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
   return (
     <section {...blockProps}>
+      <svg width={0} height={0} className="hidden">
+        <symbol
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+          id="pencil-fill"
+        >
+          <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+        </symbol>
+      </svg>
       <div
         className="container mx-auto my-8 flex flex-col-reverse gap-4 px-4 sm:flex-row md:my-16 xl:px-28"
         id="latest-news-section"
@@ -139,20 +152,69 @@ export default function Edit({ attributes, setAttributes, clientId }) {
           </div>
           <div className="flex flex-row">
             <a
+              onClick={() => setLinkPicker("details")}
               id="active-news-details"
-              href="#"
-              className="mr-2 basis-1/2 rounded p-2 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400"
+              className="group relative mr-2 basis-1/2 rounded p-2 text-center text-primary-800 outline outline-1 outline-primary-800 transition-shadow hover:shadow-md hover:shadow-gray-400"
             >
               More Details
+              <div class="absolute -end-2 -top-2 hidden h-6  w-6 items-center justify-center rounded-full border-2 border-white bg-primary-800 p-1 text-xs font-bold text-white group-hover:inline-flex">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={16}
+                  height={16}
+                  fill="currentColor"
+                  className="bi bi-pencil-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <use xlinkHref="#pencil-fill" />
+                </svg>
+              </div>
             </a>
             <a
+              onClick={() => setLinkPicker("register")}
               id="active-news-register"
-              href="#"
-              className="ml-2 basis-1/2 rounded bg-primary-800 p-2 text-center text-white transition-shadow hover:shadow-md hover:shadow-gray-400"
+              className="group relative ml-2 basis-1/2 rounded bg-primary-800 p-2 text-center text-white transition-shadow hover:shadow-md hover:shadow-gray-400"
             >
               Register Now!
+              <div class="absolute -end-2 -top-2 hidden h-6  w-6 items-center justify-center rounded-full border-2 border-white bg-primary-800 p-1 text-xs font-bold text-white group-hover:inline-flex">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={16}
+                  height={16}
+                  fill="currentColor"
+                  className="bi bi-pencil-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <use xlinkHref="#pencil-fill" />
+                </svg>
+              </div>
             </a>
           </div>
+
+          {linkPicker && (
+            <Popover
+              position="middle center"
+              onFocusOutside={() => setLinkPicker(null)}
+            >
+              <LinkControl
+                settings={[]}
+                value={linkPicker == "details" ? detailsLink : registerLink}
+                onChange={(newLink) => {
+                  if (linkPicker == "details")
+                    setAttributes({ detailsLink: newLink });
+                  else setAttributes({ registerLink: newLink });
+                }}
+                style={{ display: "block", width: "80%" }}
+              />
+              <Button
+                variant="primary"
+                onClick={() => setLinkPicker(null)}
+                style={{ display: "block", width: "100%" }}
+              >
+                Confirm Link
+              </Button>
+            </Popover>
+          )}
         </div>
         <div className="mt-6 flex w-full flex-col gap-6 sm:mx-0 sm:mt-0 sm:w-7/12">
           <h2 className="font-sans text-3xl text-primary-800 sm:hidden">
