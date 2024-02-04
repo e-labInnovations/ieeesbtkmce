@@ -1,13 +1,3 @@
 {
-    "parser": "php",
-    "plugins": ["prettier-plugin-tailwindcss", "@prettier/plugin-php"],
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": false,
-    "phpVersion": "5.4",
-    "trailingCommaPHP": true,
-    "braceStyle": "1tbs",
-    "requirePragma": false,
-    "insertPragma": false
+    "plugins": ["prettier-plugin-tailwindcss"]
 }
