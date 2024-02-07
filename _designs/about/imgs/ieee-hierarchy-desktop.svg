@@ -4,7 +4,63 @@
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
       >
+      <defs>
+        <style>
+          :root {
+            --animation-duration: 2.5s;
+            --circle-animation-duration: 0.2s;
+            --circle-animation-delay: 0.4s;
+          }
+
+          @keyframes drawPath {
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+
+          .path-animation {
+            stroke-dasharray: 1500; /* Adjust this value based on the length of your path */
+            stroke-dashoffset: 1500;
+            animation: drawPath var(--animation-duration) ease-in-out forwards; /* Adjust the duration as needed */
+          }
+
+          @keyframes drawCircles {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+
+          .circle-animation {
+            opacity: 0;
+            animation: drawCircles var(--circle-animation-duration) ease-in-out forwards;
+          }
+
+          .circle-animation:nth-of-type(1) {
+            animation-delay: 0s;
+          }
+
+          .circle-animation:nth-of-type(2) {
+            animation-delay: var(--circle-animation-delay);
+          }
+
+          .circle-animation:nth-of-type(3) {
+            animation-delay: calc(var(--circle-animation-delay) * 2);
+          }
+
+          .circle-animation:nth-of-type(4) {
+            animation-delay: calc(var(--circle-animation-delay) * 3);
+          }
+
+          .circle-animation:nth-of-type(5) {
+            animation-delay: calc(var(--circle-animation-delay) * 4);
+          }
+
+          .circle-animation:nth-of-type(6) {
+            animation-delay: calc(var(--circle-animation-delay) * 5);
+          }
+        </style>
+      </defs>
         <path
+        class="path-animation"
           opacity="0.55"
           d="M87.4258 87.0938C201.235 87.0938 201.235 194.261 315.045 194.261C428.855 194.261 428.855 87.0938 542.664 87.0938C656.474 87.0938 656.474 194.261 770.284 194.261C884.093 194.261 884.093 87.0938 997.903 87.0938C1111.71 87.0938 1111.71 194.261 1225.52 194.261"
           stroke="#006DA5"
@@ -12,12 +68,12 @@
           stroke-miterlimit="10"
           stroke-linecap="round"
         />
-        <circle cx="87.584" cy="88.098" r="4.81249" fill="#006DA5" />
-        <circle cx="317.294" cy="194.261" r="4.81249" fill="#006DA5" />
-        <circle cx="782.557" cy="194.261" r="4.81249" fill="#006DA5" />
-        <circle cx="1232.83" cy="195.265" r="9.1615" fill="#006DA5" />
-        <circle cx="547.005" cy="87.0937" r="4.81249" fill="#006DA5" />
-        <circle cx="1007.97" cy="87.0937" r="4.81249" fill="#006DA5" />
+        <circle class="circle-animation" cx="87.584" cy="88.098" r="4.81249" fill="#006DA5" />
+        <circle class="circle-animation" cx="317.294" cy="194.261" r="4.81249" fill="#006DA5" />
+        <circle class="circle-animation" cx="547.005" cy="87.0937" r="4.81249" fill="#006DA5" />
+        <circle class="circle-animation" cx="782.557" cy="194.261" r="4.81249" fill="#006DA5" />
+        <circle class="circle-animation" cx="1007.97" cy="87.0937" r="4.81249" fill="#006DA5" />
+        <circle class="circle-animation" cx="1232.83" cy="195.265" r="9.1615" fill="#006DA5" />
 
         <g filter="url(#filter0_d_237_777)">
           <circle cx="94.0794" cy="195.265" r="79.94" fill="white" />
