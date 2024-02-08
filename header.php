@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-  <head>
-    <meta charset="<?php bloginfo("charset"); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); ?>
-  </head>
-  <body <?php body_class(); ?>>
+<?php get_template_part("template-parts-php/head"); ?>
+
+<body <?php body_class(); ?>>
+
+  <!-- WordPress wp_body_open: start -->
+  <?php wp_body_open(); ?>
+  <!-- WordPress wp_body_open: end -->
 
   <?php get_template_part("template-parts-php/header"); ?>
-
-
-
