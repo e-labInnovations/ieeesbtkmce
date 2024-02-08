@@ -94,6 +94,7 @@
               "menu" => "footer1",
               "theme_location" => "footer1",
               "menu_class" => "font-poppins text-base font-light text-white",
+              "container_class" => "left-animated-menu"
             ]); ?>
                     </div>
 
@@ -149,6 +150,7 @@
                             <?php wp_nav_menu([
                   "menu" => "footer2",
                   "theme_location" => "footer2",
+                  "container_class" => "left-animated-menu",
                   "menu_class" =>
                     "font-poppins text-base font-light text-white",
                 ]); ?>
