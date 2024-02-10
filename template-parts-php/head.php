@@ -6,7 +6,7 @@ $description = get_bloginfo('name') . " - " . get_bloginfo('description');
 $keywords = '';
 $image = get_site_icon_url();
 $url = home_url($wp->request);
-$tags;
+$tags = false;
 
 if (is_singular()) {
   $title = get_the_title();

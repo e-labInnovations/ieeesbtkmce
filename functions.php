@@ -249,6 +249,9 @@ require_once IEEESBTKMCE_THEME_PATH . "/inc/events.php";
 //Alumni Testimonials
 require_once IEEESBTKMCE_THEME_PATH . "/inc/alumni-testimonials.php";
 
+//SVG Sprite
+require_once IEEESBTKMCE_THEME_PATH . "/inc/svg-sprite.php";
+
 //Disable Gutenberg / block editor for certain post types
 add_filter(
   "use_block_editor_for_post_type",
