@@ -2,6 +2,7 @@ import ExampleReactComponent from "./scripts/ExampleReactComponent";
 import AdminCertificate from "./scripts/AdminCertificate";
 import React from "react";
 import ReactDOM from "react-dom";
+import { initHamburgerMenu } from "./scripts/Menu";
 
 if (document.querySelector("#render-react-example-here")) {
   ReactDOM.render(
@@ -16,3 +17,7 @@ if (document.querySelector("#ieeesbtkmce-admin-certificate-edit")) {
     document.querySelector("#ieeesbtkmce-admin-certificate-edit"),
   );
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  initHamburgerMenu();
+});

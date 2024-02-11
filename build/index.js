@@ -103,6 +103,27 @@ function ExampleReactComponent() {
 
 /***/ }),
 
+/***/ "./src/scripts/Menu.js":
+/*!*****************************!*\
+  !*** ./src/scripts/Menu.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initHamburgerMenu: () => (/* binding */ initHamburgerMenu)
+/* harmony export */ });
+function initHamburgerMenu() {
+  const nav = document.querySelector("nav");
+  const hamburgerMenuButton = nav.querySelector("#hamburger-menu-button");
+  const menuContainer = nav.querySelector("#navbar-dropdown");
+  hamburgerMenuButton.addEventListener("click", () => {
+    menuContainer.classList.toggle("hidden");
+  });
+}
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "React" ***!
@@ -224,6 +245,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_AdminCertificate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/AdminCertificate */ "./src/scripts/AdminCertificate.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _scripts_Menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/Menu */ "./src/scripts/Menu.js");
+
 
 
 
@@ -235,6 +258,9 @@ if (document.querySelector("#render-react-example-here")) {
 if (document.querySelector("#ieeesbtkmce-admin-certificate-edit")) {
   react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_scripts_AdminCertificate__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.querySelector("#ieeesbtkmce-admin-certificate-edit"));
 }
+document.addEventListener("DOMContentLoaded", () => {
+  (0,_scripts_Menu__WEBPACK_IMPORTED_MODULE_4__.initHamburgerMenu)();
+});
 })();
 
 /******/ })()

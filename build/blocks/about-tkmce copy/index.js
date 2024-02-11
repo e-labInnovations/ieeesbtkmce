@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/about-tkmce/edit.js":
-/*!****************************************!*\
-  !*** ./src/blocks/about-tkmce/edit.js ***!
-  \****************************************/
+/***/ "./src/blocks/about-tkmce copy/edit.js":
+/*!*********************************************!*\
+  !*** ./src/blocks/about-tkmce copy/edit.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_edit_icon_EditIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/edit-icon/EditIcon */ "./src/components/edit-icon/EditIcon.js");
 /* harmony import */ var _components_link_picker_LinkPickerView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/link-picker/LinkPickerView */ "./src/components/link-picker/LinkPickerView.js");
 /* harmony import */ var _components_image_picker_ImagePicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/image-picker/ImagePicker */ "./src/components/image-picker/ImagePicker.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/about-tkmce/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/about-tkmce copy/editor.scss");
 
 
 
@@ -87,10 +87,10 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/blocks/about-tkmce/index.js":
-/*!*****************************************!*\
-  !*** ./src/blocks/about-tkmce/index.js ***!
-  \*****************************************/
+/***/ "./src/blocks/about-tkmce copy/index.js":
+/*!**********************************************!*\
+  !*** ./src/blocks/about-tkmce copy/index.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -98,10 +98,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/about-tkmce/style.scss");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/about-tkmce/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/about-tkmce/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/about-tkmce/save.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/about-tkmce copy/style.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/about-tkmce copy/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/about-tkmce copy/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/about-tkmce copy/save.js");
 
 
 
@@ -113,9 +113,6 @@ const attributes = {
     type: "string"
   },
   image: {
-    type: "object"
-  },
-  websiteLink: {
     type: "object"
   }
 };
@@ -141,10 +138,10 @@ const attributes = {
 
 /***/ }),
 
-/***/ "./src/blocks/about-tkmce/save.js":
-/*!****************************************!*\
-  !*** ./src/blocks/about-tkmce/save.js ***!
-  \****************************************/
+/***/ "./src/blocks/about-tkmce copy/save.js":
+/*!*********************************************!*\
+  !*** ./src/blocks/about-tkmce copy/save.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -210,8 +207,9 @@ function EditIcon() {
     width: 16,
     height: 16,
     className: "fill-white"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("use", {
-    xlinkHref: "/icons.svg#icon-pencil-fill"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "m 14.459899,0.16468999 a 0.5624754,0.562493 0 0 0 -0.79534,0 l -1.852794,1.85285191 4.170193,4.1703232 1.852794,-1.851727 a 0.5624754,0.562493 0 0 0 0,-0.7964901 z M 15.186618,6.9832302 11.016425,2.8129071 3.7042449,10.125316 h 0.2328648 a 0.5624754,0.562493 0 0 1 0.5624754,0.562493 v 0.562493 h 0.5624754 a 0.5624754,0.562493 0 0 1 0.5624754,0.562493 v 0.562493 h 0.5624754 a 0.5624754,0.562493 0 0 1 0.5624754,0.562493 v 0.562493 h 0.5624754 a 0.5624754,0.562493 0 0 1 0.5624754,0.562493 v 0.232872 z M 6.7854851,15.384626 A 0.5624754,0.562493 0 0 1 6.7494867,15.187753 V 14.62526 H 6.1870113 A 0.5624754,0.562493 0 0 1 5.6245359,14.062767 V 13.500274 H 5.0620605 A 0.5624754,0.562493 0 0 1 4.4995851,12.937781 V 12.375288 H 3.9371097 A 0.5624754,0.562493 0 0 1 3.3746343,11.812795 V 11.250302 H 2.8121589 a 0.5624754,0.562493 0 0 1 -0.1968664,-0.036 l -0.2013662,0.200247 a 0.5624754,0.562493 0 0 0 -0.1237446,0.188998 l -2.24990166,5.62493 a 0.5624754,0.562493 0 0 0 0.73121803,0.731242 L 6.3962521,15.709747 a 0.5624754,0.562493 0 0 0 0.1889918,-0.123749 z",
+    fill: "currentColor"
   })));
 }
 
@@ -321,10 +319,10 @@ function LinkPickerView({
 
 /***/ }),
 
-/***/ "./src/blocks/about-tkmce/editor.scss":
-/*!********************************************!*\
-  !*** ./src/blocks/about-tkmce/editor.scss ***!
-  \********************************************/
+/***/ "./src/blocks/about-tkmce copy/editor.scss":
+/*!*************************************************!*\
+  !*** ./src/blocks/about-tkmce copy/editor.scss ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -333,10 +331,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/about-tkmce/style.scss":
-/*!*******************************************!*\
-  !*** ./src/blocks/about-tkmce/style.scss ***!
-  \*******************************************/
+/***/ "./src/blocks/about-tkmce copy/style.scss":
+/*!************************************************!*\
+  !*** ./src/blocks/about-tkmce copy/style.scss ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -395,13 +393,13 @@ module.exports = window["wp"]["element"];
 
 /***/ }),
 
-/***/ "./src/blocks/about-tkmce/block.json":
-/*!*******************************************!*\
-  !*** ./src/blocks/about-tkmce/block.json ***!
-  \*******************************************/
+/***/ "./src/blocks/about-tkmce copy/block.json":
+/*!************************************************!*\
+  !*** ./src/blocks/about-tkmce copy/block.json ***!
+  \************************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-tkmce","version":"0.1.0","title":"About TKMCE Block","category":"ieeesbtkmce","description":"","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-ieeesbtkmce","version":"0.1.0","title":"About IEEE SB TKMCE Block","category":"ieeesbtkmce","description":"","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ })
 
@@ -515,8 +513,8 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-tkmce","v
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"blocks/about-tkmce/index": 0,
-/******/ 			"blocks/about-tkmce/style-index": 0
+/******/ 			"blocks/about-tkmce copy/index": 0,
+/******/ 			"blocks/about-tkmce copy/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -566,7 +564,7 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-tkmce","v
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/about-tkmce/style-index"], () => (__webpack_require__("./src/blocks/about-tkmce/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/about-tkmce copy/style-index"], () => (__webpack_require__("./src/blocks/about-tkmce copy/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

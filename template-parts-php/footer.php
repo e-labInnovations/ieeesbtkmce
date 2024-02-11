@@ -47,41 +47,41 @@
                         <a href="https://www.facebook.com/<?php echo get_theme_mod(
               "ieeesbtkmce_facebook",
               ""
-            ); ?>">
+            ); ?>" target="_blank">
                             <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                <use xlink:href="icons.svg#icon-facebook"></use>
+                                <use xlink:href="/icons.svg#icon-facebook"></use>
                             </svg>
                         </a>
                         <a href="https://www.instagram.com/<?php echo get_theme_mod(
               "ieeesbtkmce_instagram",
               ""
-            ); ?>">
+            ); ?>" target="_blank">
                             <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                <use xlink:href="icons.svg#icon-instagram"></use>
+                                <use xlink:href="/icons.svg#icon-instagram"></use>
                             </svg>
                         </a>
                         <a href="https://twitter.com/<?php echo get_theme_mod(
               "ieeesbtkmce_twitter",
               ""
-            ); ?>">
+            ); ?>" target="_blank">
                             <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                <use xlink:href="icons.svg#icon-twitter"></use>
+                                <use xlink:href="/icons.svg#icon-twitter"></use>
                             </svg>
                         </a>
                         <a href="https://www.linkedin.com/in/<?php echo get_theme_mod(
               "ieeesbtkmce_linkedin",
               ""
-            ); ?>">
+            ); ?>" target="_blank">
                             <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                <use xlink:href="icons.svg#icon-linkedin"></use>
+                                <use xlink:href="/icons.svg#icon-linkedin"></use>
                             </svg>
                         </a>
                         <a href="https://www.instagram.com/<?php echo get_theme_mod(
               "ieeesbtkmce_collabratec",
               ""
-            ); ?>">
+            ); ?>" target="_blank">
                             <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                <use xlink:href="icons.svg#icon-collabratec"></use>
+                                <use xlink:href="/icons.svg#icon-collabratec"></use>
                             </svg>
                         </a>
                     </div>
@@ -126,12 +126,12 @@
                                 <div class="mt-auto flex items-center gap-2">
                                     <a href="#">
                                         <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                            <use xlink:href="icons.svg#icon-call"></use>
+                                            <use xlink:href="/icons.svg#icon-call"></use>
                                         </svg>
                                     </a>
                                     <a href="#">
                                         <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                            <use xlink:href="icons.svg#icon-mail"></use>
+                                            <use xlink:href="/icons.svg#icon-mail"></use>
                                         </svg>
                                     </a>
                                 </div>
@@ -147,12 +147,12 @@
                                 <div class="mt-auto flex items-center gap-2">
                                     <a href="#">
                                         <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                            <use xlink:href="icons.svg#icon-call"></use>
+                                            <use xlink:href="/icons.svg#icon-call"></use>
                                         </svg>
                                     </a>
                                     <a href="#">
                                         <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                            <use xlink:href="icons.svg#icon-mail"></use>
+                                            <use xlink:href="/icons.svg#icon-mail"></use>
                                         </svg>
                                     </a>
                                 </div>
@@ -168,12 +168,12 @@
                                 <div class="mt-auto flex items-center gap-2">
                                     <a href="#">
                                         <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                            <use xlink:href="icons.svg#icon-call"></use>
+                                            <use xlink:href="/icons.svg#icon-call"></use>
                                         </svg>
                                     </a>
                                     <a href="#">
                                         <svg class="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
-                                            <use xlink:href="icons.svg#icon-mail"></use>
+                                            <use xlink:href="/icons.svg#icon-mail"></use>
                                         </svg>
                                     </a>
                                 </div>

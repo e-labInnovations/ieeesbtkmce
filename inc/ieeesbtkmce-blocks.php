@@ -24,6 +24,7 @@ function register_blocks() {
 
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-ieee");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-tkmce");
+    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-ieeesbtkmce");
   }
   add_action("init", "register_blocks");
   
