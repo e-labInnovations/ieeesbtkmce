@@ -1,9 +1,4 @@
-import {
-  RichText,
-  __experimentalLinkControl as LinkControl,
-  useBlockProps,
-} from "@wordpress/block-editor";
-import { Popover, Button } from "@wordpress/components";
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 import { useState } from "@wordpress/element";
 import EditIcon from "../../components/edit-icon/EditIcon";
 import LinkPickerView from "../../components/link-picker/LinkPickerView";
