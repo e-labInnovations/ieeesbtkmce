@@ -73,30 +73,30 @@ function events_custom_fields() {
 function event_datetime_callback($post) {
     $event_datetime = get_post_meta($post->ID, 'event_datetime', true);
     ?>
-    <label for="event_datetime">Event Date & Time:</label>
-    <input type="datetime-local" id="event_datetime" name="event_datetime" value="<?php echo esc_attr($event_datetime); ?>">
-    <?php
+<label for="event_datetime">Event Date & Time:</label>
+<input type="datetime-local" id="event_datetime" name="event_datetime" value="<?php echo esc_attr($event_datetime); ?>">
+<?php
 }
 
 function registration_link_callback($post) {
     $registration_link = get_post_meta($post->ID, 'registration_link', true);
     ?>
-    <label for="registration_link">Registration Link:</label>
-    <input type="text" id="registration_link" name="registration_link" value="<?php echo esc_url($registration_link); ?>">
-    <?php
+<label for="registration_link">Registration Link:</label>
+<input type="text" id="registration_link" name="registration_link" value="<?php echo esc_url($registration_link); ?>">
+<?php
 }
 
 function registration_status_callback($post) {
     $registration_status = get_post_meta($post->ID, 'registration_status', true);
     ?>
-    <label for="registration_status">
-        <select name="registration_status">
-            <option value="open" <?php selected($registration_status, 'open'); ?>>Open</option>
-            <option value="closed" <?php selected($registration_status, 'closed'); ?>>Closed</option>
-        </select>
-        Registration Status
-    </label>
-    <?php
+<label for="registration_status">
+    <select name="registration_status">
+        <option value="open" <?php selected($registration_status, 'open'); ?>>Open</option>
+        <option value="closed" <?php selected($registration_status, 'closed'); ?>>Closed</option>
+    </select>
+    Registration Status
+</label>
+<?php
 }
 
 function save_event_custom_fields($post_id) {
@@ -163,3 +163,8 @@ function registerMajorEventAPI() {
         return $content;
     }    
 }
+
+//MultiPostThumbnails
+// if (class_exists('MultiPostThumbnails')) { 
+//     new MultiPostThumbnails(array('label' => 'Major Events Feature Image', 'id' => 'feature-major-event', 'post_type' => 'events'));
+// };

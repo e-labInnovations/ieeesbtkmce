@@ -79,7 +79,10 @@ function load_editor_assets() {
     "1.0",
     "all"
   );
-  // wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri('/build/index.css'));
+  // wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri("/build/index.css"),
+  //   [],
+  //   filemtime(dirname(__FILE__) . "/build/index.css")
+  // );
 
   wp_localize_script("gsap-js", "themeData", [
     "theme_url" => IEEESBTKMCE_THEME_URL,
@@ -210,6 +213,12 @@ require_once IEEESBTKMCE_THEME_PATH . "/inc/walker.php";
 require_once IEEESBTKMCE_THEME_PATH . "/inc/customizer.php";
 new IEEESBTKMCE_Customizer();
 
+//SVG Sprite
+require_once IEEESBTKMCE_THEME_PATH . "/inc/svg-sprite.php";
+
+//MultiPostThumbnails
+// require_once IEEESBTKMCE_THEME_PATH . '/inc/multi-post-thumbnails/multi-post-thumbnails.php';
+
 /*** Custom Post Type **/
 //Events
 require_once IEEESBTKMCE_THEME_PATH . "/inc/events.php";
@@ -220,8 +229,8 @@ require_once IEEESBTKMCE_THEME_PATH . "/inc/alumni-testimonials.php";
 //Societies
 require_once IEEESBTKMCE_THEME_PATH . "/inc/societies.php";
 
-//SVG Sprite
-require_once IEEESBTKMCE_THEME_PATH . "/inc/svg-sprite.php";
+//Awards
+require_once IEEESBTKMCE_THEME_PATH . "/inc/awards.php";
 
 //Disable Gutenberg / block editor for certain post types
 add_filter(
