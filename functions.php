@@ -2,6 +2,7 @@
 
 define("IEEESBTKMCE_THEME_PATH", get_stylesheet_directory());
 define("IEEESBTKMCE_THEME_URL", get_stylesheet_directory_uri());
+define("DOMAIN", "ieeesbtkmce");
 function ieeesbtkmce_load_assets() {
   wp_enqueue_script(
     "gsap-js",
@@ -215,6 +216,9 @@ require_once IEEESBTKMCE_THEME_PATH . "/inc/events.php";
 
 //Alumni Testimonials
 require_once IEEESBTKMCE_THEME_PATH . "/inc/alumni-testimonials.php";
+
+//Societies
+require_once IEEESBTKMCE_THEME_PATH . "/inc/societies.php";
 
 //SVG Sprite
 require_once IEEESBTKMCE_THEME_PATH . "/inc/svg-sprite.php";
