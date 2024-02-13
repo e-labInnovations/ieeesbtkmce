@@ -3,13 +3,15 @@ const SVGSpritemapPlugin = require("svg-spritemap-webpack-plugin");
 const path = require("path");
 
 /**
- * @see https://stackoverflow.com/questions/35903246/how-to-create-multiple-output-paths-in-webpack-config
+ * @see https://stackoverflow.com/a/38132106/11409930
+ * @see https://stackoverflow.com/a/45278943/11409930
  */
 
 var indexConfig = Object.assign({}, defaultConfig, {
   name: "index",
   entry: {
-    index: "./src/index.js",
+    "scripts/main/index": "./src/scripts/main/index.js",
+    "scripts/awards-post/index": "./src/scripts/awards-post/index.js",
   },
   output: {
     path: path.resolve(__dirname, "build"),

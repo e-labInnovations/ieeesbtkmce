@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/AdminCertificate.js":
-/*!*****************************************!*\
-  !*** ./src/scripts/AdminCertificate.js ***!
-  \*****************************************/
+/***/ "./src/scripts/main/AdminCertificate.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/main/AdminCertificate.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -72,10 +72,10 @@ function AdminCertificate() {
 
 /***/ }),
 
-/***/ "./src/scripts/ExampleReactComponent.js":
-/*!**********************************************!*\
-  !*** ./src/scripts/ExampleReactComponent.js ***!
-  \**********************************************/
+/***/ "./src/scripts/main/ExampleReactComponent.js":
+/*!***************************************************!*\
+  !*** ./src/scripts/main/ExampleReactComponent.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -103,10 +103,10 @@ function ExampleReactComponent() {
 
 /***/ }),
 
-/***/ "./src/scripts/Menu.js":
-/*!*****************************!*\
-  !*** ./src/scripts/Menu.js ***!
-  \*****************************/
+/***/ "./src/scripts/main/Menu.js":
+/*!**********************************!*\
+  !*** ./src/scripts/main/Menu.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -115,11 +115,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function initHamburgerMenu() {
   const nav = document.querySelector("nav");
-  const hamburgerMenuButton = nav.querySelector("#hamburger-menu-button");
-  const menuContainer = nav.querySelector("#navbar-dropdown");
-  hamburgerMenuButton.addEventListener("click", () => {
-    menuContainer.classList.toggle("hidden");
-  });
+  if (nav) {
+    const hamburgerMenuButton = nav.querySelector("#hamburger-menu-button");
+    const menuContainer = nav.querySelector("#navbar-dropdown");
+    hamburgerMenuButton.addEventListener("click", () => {
+      menuContainer.classList.toggle("hidden");
+    });
+  }
 }
 
 /***/ }),
@@ -235,17 +237,17 @@ module.exports = window["wp"]["components"];
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/*!***********************************!*\
+  !*** ./src/scripts/main/index.js ***!
+  \***********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/ExampleReactComponent */ "./src/scripts/ExampleReactComponent.js");
-/* harmony import */ var _scripts_AdminCertificate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/AdminCertificate */ "./src/scripts/AdminCertificate.js");
+/* harmony import */ var _ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleReactComponent */ "./src/scripts/main/ExampleReactComponent.js");
+/* harmony import */ var _AdminCertificate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdminCertificate */ "./src/scripts/main/AdminCertificate.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _scripts_Menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/Menu */ "./src/scripts/Menu.js");
+/* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Menu */ "./src/scripts/main/Menu.js");
 
 
 
@@ -253,13 +255,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (document.querySelector("#render-react-example-here")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__["default"], null), document.querySelector("#render-react-example-here"));
+  react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_1__["default"], null), document.querySelector("#render-react-example-here"));
 }
 if (document.querySelector("#ieeesbtkmce-admin-certificate-edit")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_scripts_AdminCertificate__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.querySelector("#ieeesbtkmce-admin-certificate-edit"));
+  react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AdminCertificate__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.querySelector("#ieeesbtkmce-admin-certificate-edit"));
 }
 document.addEventListener("DOMContentLoaded", () => {
-  (0,_scripts_Menu__WEBPACK_IMPORTED_MODULE_4__.initHamburgerMenu)();
+  (0,_Menu__WEBPACK_IMPORTED_MODULE_4__.initHamburgerMenu)();
 });
 })();
 

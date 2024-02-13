@@ -3,6 +3,16 @@
 define("IEEESBTKMCE_THEME_PATH", get_stylesheet_directory());
 define("IEEESBTKMCE_THEME_URL", get_stylesheet_directory_uri());
 define("DOMAIN", "ieeesbtkmce");
+
+function ieeesbtkmce_enqueue_script($name) {
+  $manifest = require IEEESBTKMCE_THEME_PATH . '/build/scripts/' . $name . '/index.asset.php';
+  wp_enqueue_script(
+    DOMAIN . '-' . $name,
+    IEEESBTKMCE_THEME_URL . '/build/scripts/' . $name . '/index.js',
+    $manifest['dependencies'],
+    $manifest['version']
+  );
+}
 function ieeesbtkmce_load_assets() {
   wp_enqueue_script(
     "gsap-js",
@@ -18,13 +28,7 @@ function ieeesbtkmce_load_assets() {
     false,
     true
   );
-  wp_enqueue_script(
-    "ieeesbtkmce-mainjs",
-    get_theme_file_uri("/build/index.js"),
-    ["wp-element"],
-    "1.0",
-    true
-  );
+  ieeesbtkmce_enqueue_script("main");
   wp_enqueue_script(
     "hammer-js",
     "https://hammerjs.github.io/dist/hammer.min.js",
@@ -97,6 +101,8 @@ add_action("enqueue_block_editor_assets", function () {
     [],
     filemtime(dirname(__FILE__) . "/build/index.css")
   );
+
+  ieeesbtkmce_enqueue_script("awards-post");
 });
 function enqueue_custom_script() {
   // Enqueue script only on the certificate edit page
@@ -132,13 +138,7 @@ function enqueue_custom_script() {
       null,
       true
     );
-    wp_enqueue_script(
-      "ieeesbtkmce-mainjs",
-      get_theme_file_uri("/build/index.js"),
-      ["wp-element", "wp-components", "wp-block-editor"],
-      "1.0",
-      true
-    );
+    ieeesbtkmce_enqueue_script("main");
   }
 }
 add_action("admin_enqueue_scripts", "enqueue_custom_script");

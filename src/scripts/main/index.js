@@ -1,8 +1,8 @@
-import ExampleReactComponent from "./scripts/ExampleReactComponent";
-import AdminCertificate from "./scripts/AdminCertificate";
+import ExampleReactComponent from "./ExampleReactComponent";
+import AdminCertificate from "./AdminCertificate";
 import React from "react";
 import ReactDOM from "react-dom";
-import { initHamburgerMenu } from "./scripts/Menu";
+import { initHamburgerMenu } from "./Menu";
 
 if (document.querySelector("#render-react-example-here")) {
   ReactDOM.render(

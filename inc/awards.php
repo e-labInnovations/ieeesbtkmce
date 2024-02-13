@@ -54,3 +54,13 @@ function custom_post_type_awards() {
     register_post_type('awards', $args);
 }
 add_action('init', 'custom_post_type_awards', 0);
+
+
+function awards_register_post_meta() {
+    register_post_meta('awards', 'awards_metadata', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'object',
+    ));
+}
+add_action('init', 'awards_register_post_meta');
