@@ -102,7 +102,9 @@ add_action("enqueue_block_editor_assets", function () {
     filemtime(dirname(__FILE__) . "/build/index.css")
   );
 
-  ieeesbtkmce_enqueue_script("awards-post");
+  if (get_post_type() === 'awards') {
+    ieeesbtkmce_enqueue_script("awards-post");
+  }
 });
 function enqueue_custom_script() {
   // Enqueue script only on the certificate edit page

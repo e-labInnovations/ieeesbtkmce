@@ -1,8 +1,8 @@
 import { registerPlugin } from "@wordpress/plugins";
-import Awards_Custom_Plugin from "./awards-custom-postmeta-fields";
+import Metabox from "./metabox";
 
-registerPlugin("my-custom-postmeta-plugin", {
+registerPlugin("ieeesbtkmce-awards-plugin", {
   render() {
-    return <Awards_Custom_Plugin />;
+    return <Metabox />;
   },
 });

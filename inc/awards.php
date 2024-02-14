@@ -34,7 +34,7 @@ function custom_post_type_awards() {
         'label'                 => __('Award', DOMAIN),
         'description'           => __('Custom post type for Awards', DOMAIN),
         'labels'                => $labels,
-        'supports'              => array('title', 'editor', 'revisions', 'excerpt'),
+        'supports'              => array('title', 'editor', 'revisions', 'excerpt', 'custom-fields'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -57,10 +57,29 @@ add_action('init', 'custom_post_type_awards', 0);
 
 
 function awards_register_post_meta() {
-    register_post_meta('awards', 'awards_metadata', array(
-        'show_in_rest' => true,
-        'single' => true,
-        'type' => 'object',
+    register_post_meta('awards', 'award_recipient', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+    ));
+    register_post_meta('awards', 'awarding_authority', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+    ));
+    register_post_meta('awards', 'award_date', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
     ));
 }
 add_action('init', 'awards_register_post_meta');
