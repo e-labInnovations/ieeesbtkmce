@@ -63,6 +63,88 @@
           height: 13px; /* Height of the SVG */
           background-image: url('data:image/svg+xml;utf8,<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.80123 6.74078L6.96697 5.67106C6.70481 5.51751 6.39395 5.4281 6.06055 5.4281C5.12878 5.4281 4.37073 6.12371 4.37073 6.97873C4.37073 7.83376 5.12878 8.52937 6.06055 8.52937C6.99232 8.52937 7.75038 7.83376 7.75038 6.97873C7.75038 6.67282 7.65294 6.38754 7.48561 6.14698L6.31987 7.21669L5.80123 6.74078Z" fill="%23006DA5"/><path d="M11.8636 6.9786C11.8636 6.06405 11.609 5.1697 11.1256 4.37822L9.68069 4.55991C10.2211 5.23907 10.5405 6.07518 10.5405 6.9786C10.5405 9.24537 8.53085 11.0895 6.06057 11.0895C3.5903 11.0895 1.58064 9.24537 1.58064 6.9786C1.58064 4.71182 3.59035 2.86768 6.0606 2.86768C7.04511 2.86768 7.95627 3.16083 8.6964 3.65669L8.8944 2.33076C8.03187 1.88719 7.05724 1.65356 6.0606 1.65356C4.51055 1.65356 3.05327 2.20747 1.95725 3.21324C0.861194 4.21899 0.257568 5.55623 0.257568 6.9786C0.257568 8.40096 0.861194 9.7382 1.95725 10.744C3.05327 11.7497 4.51053 12.3036 6.0606 12.3036C7.61066 12.3036 9.06792 11.7497 10.1639 10.744C11.26 9.7382 11.8636 8.40098 11.8636 6.9786Z" fill="%23006DA5"/><path d="M6.06054 3.54077C3.99474 3.54077 2.31409 5.08297 2.31409 6.97863C2.31409 8.87428 3.99472 10.4165 6.06054 10.4165C8.12636 10.4165 9.80699 8.87428 9.80699 6.97863C9.80699 6.15174 9.48713 5.39216 8.95509 4.79843L8.01296 5.66297C8.3088 6.03164 8.48389 6.48669 8.48389 6.97863C8.48389 8.20479 7.39679 9.20235 6.06056 9.20235C4.72434 9.20235 3.63723 8.20479 3.63723 6.97863C3.63723 5.75247 4.72434 4.75491 6.06056 4.75491C6.59666 4.75491 7.09253 4.91557 7.49432 5.18705L8.43646 4.32252C7.78941 3.83426 6.96165 3.54077 6.06054 3.54077Z" fill="%23006DA5"/><path d="M11.2677 0.816406L9.63755 2.31225L9.39801 3.91621L11.146 3.69641L12.7761 2.20056L11.6758 1.82608L11.2677 0.816406Z" fill="%23006DA5"/></svg>');
         }
+
+        nav.dark {
+          @apply fixed top-0 z-50 w-full border-gray-200 px-10;
+
+          .main-wrapper {
+            @apply mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-3;
+          }
+
+          #menu-header {
+            @apply mt-4 flex flex-col rounded-lg border border-gray-100 bg-black/50 p-4 font-medium bg-blend-darken backdrop-blur-lg rtl:space-x-reverse md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
+          }
+
+          .primary-li-item {
+            @apply block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+          }
+
+          .primary-a-item {
+            @apply block rounded px-3 py-2 font-poppins font-normal md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+          }
+
+          .primary-li-item {
+            div {
+              @apply w-full divide-y divide-gray-100 rounded-lg bg-black/50 font-normal outline outline-1 outline-white md:absolute md:right-0 md:z-10 md:w-44 md:shadow;
+            }
+            button {
+              @apply flex w-full items-center justify-between rounded px-3 py-2 font-poppins font-normal text-white md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+            }
+
+            ul {
+              @apply py-2 text-sm text-white;
+
+              a {
+                @apply block px-4 py-2 font-poppins font-normal hover:text-primary-800;
+              }
+            }
+
+            .btn {
+              @apply px-4 py-1 text-center font-poppins text-sm font-normal text-white outline outline-1 outline-primary-800 hover:bg-black/50;
+            }
+          }
+        }
+
+        nav.light {
+          @apply fixed top-0 z-50 w-full border-gray-200 bg-white px-10;
+
+          .main-wrapper {
+            @apply mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-3;
+          }
+
+          #menu-header {
+            @apply mt-4 flex flex-col rounded-lg border border-gray-100 bg-white p-4 font-medium bg-blend-darken backdrop-blur-lg rtl:space-x-reverse md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
+          }
+
+          .primary-li-item {
+            @apply block rounded px-3 py-2 text-black md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+          }
+
+          .primary-a-item {
+            @apply block rounded px-3 py-2 font-poppins font-normal  md:border-0 md:p-0 md:hover:bg-transparent;
+          }
+
+          .primary-li-item {
+            div {
+              @apply w-full divide-y divide-gray-100 rounded-lg bg-white font-normal md:absolute md:right-0 md:z-10 md:w-44 md:shadow;
+            }
+            button {
+              @apply flex w-full items-center justify-between rounded px-3 py-2 font-poppins font-normal text-black md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+            }
+
+            ul {
+              @apply py-2 text-sm text-black;
+
+              a {
+                @apply block px-4 py-2 font-poppins font-normal hover:text-primary-800;
+              }
+            }
+
+            .btn {
+              @apply bg-white px-4 py-1 text-center font-poppins text-sm font-normal text-primary-800 outline outline-1 outline-primary-800;
+            }
+          }
+        }
       }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,10 +158,8 @@
   </head>
   <body class="relative">
     <!-- Navbar Start -->
-    <nav class="fixed top-0 z-50 w-full border-gray-200 px-10">
-      <div
-        class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between pt-6"
-      >
+    <nav class="dark">
+      <div class="main-wrapper">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="./imgs/header-logo.png" class="h-12" alt="IEEE SB TKMCE" />
 
@@ -90,10 +170,11 @@
         <button
           id="hamburger-menu-button"
           type="button"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 md:hidden"
         >
           <span class="sr-only">Open main menu</span>
           <svg
+            id="icon-open"
             class="h-5 w-5"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -108,16 +189,21 @@
               d="M1 1h15M1 7h15M1 13h15"
             ></path>
           </svg>
+          <svg
+            id="icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            class="hidden h-5 w-5 fill-gray-500"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+            />
+          </svg>
         </button>
 
-        <div id="navbar-dropdown" class="hidden w-full md:block md:w-auto">
-          <ul
-            id="menu-header"
-            class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium bg-blend-darken backdrop-blur-lg rtl:space-x-reverse md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 md:bg-blend-normal md:backdrop-blur-none"
-          >
-            <li
-              class="block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-            >
+        <div id="navbar-dropdown" class="hidden h-0 w-full md:block md:w-auto">
+          <ul id="menu-header" class="">
+            <li class="primary-li-item">
               <a
                 href="/"
                 class="block rounded bg-primary-800 px-3 py-2 font-poppins font-normal text-white md:bg-transparent md:p-0 md:text-primary-800"
@@ -125,31 +211,14 @@
                 >Home</a
               >
             </li>
-            <li
-              class="block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-            >
-              <a
-                href="#"
-                class="block rounded px-3 py-2 font-poppins font-normal text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-                >About Us</a
-              >
+            <li class="primary-li-item">
+              <a href="#" class="primary-a-item">About Us</a>
             </li>
-            <li
-              class="block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-            >
-              <a
-                href="#"
-                class="block rounded px-3 py-2 font-poppins font-normal text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-                >Events</a
-              >
+            <li class="primary-li-item">
+              <a href="#" class="primary-a-item">Events</a>
             </li>
-            <li
-              class="group block rounded px-3 py-2 text-white md:relative md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-            >
-              <button
-                data-dropdown-toggle="dropdownNavbar"
-                class="flex w-full items-center justify-between rounded px-3 py-2 font-poppins font-normal text-white md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-              >
+            <li class="primary-li-item group md:relative">
+              <button>
                 Execom<svg
                   class="ms-2.5 h-2.5 w-2.5"
                   aria-hidden="true"
@@ -166,30 +235,16 @@
                   ></path>
                 </svg>
               </button>
-              <div
-                class="hidden w-full divide-y divide-gray-100 rounded-lg font-normal outline outline-1 outline-white group-hover:block md:absolute md:right-0 md:z-10 md:w-44 md:shadow"
-              >
-                <ul
-                  class="py-2 text-sm text-white"
-                  aria-labelledby="dropdownLargeButton"
-                >
+              <div class="hidden group-hover:block">
+                <ul>
                   <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 font-poppins font-normal hover:text-primary-800"
-                      >Chapters</a
-                    >
+                    <a href="#">Chapters</a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li
-              class="group block rounded px-3 py-2 text-white md:relative md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-            >
-              <button
-                data-dropdown-toggle="dropdownNavbar"
-                class="flex w-full items-center justify-between rounded px-3 py-2 font-poppins font-normal text-white md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-              >
+            <li class="primary-li-item group md:relative">
+              <button>
                 More<svg
                   class="ms-2.5 h-2.5 w-2.5"
                   aria-hidden="true"
@@ -206,19 +261,10 @@
                   ></path>
                 </svg>
               </button>
-              <div
-                class="hidden w-full divide-y divide-gray-100 rounded-lg font-normal outline outline-1 outline-white group-hover:block md:absolute md:right-0 md:z-10 md:w-44 md:shadow"
-              >
-                <ul
-                  class="py-2 text-sm text-white"
-                  aria-labelledby="dropdownLargeButton"
-                >
+              <div class="hidden group-hover:block">
+                <ul>
                   <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 font-poppins font-normal hover:text-primary-800"
-                      >Scholarship</a
-                    >
+                    <a href="#">Scholarship</a>
                   </li>
                   <li>
                     <a
@@ -228,23 +274,15 @@
                     >
                   </li>
                   <li>
-                    <a
-                      href="http://ieeesbtkmce.localhost/sample-page/"
-                      class="block px-4 py-2 font-poppins font-normal hover:text-primary-800"
+                    <a href="http://ieeesbtkmce.localhost/sample-page/"
                       >Sample Page</a
                     >
                   </li>
                 </ul>
               </div>
             </li>
-            <li
-              class="block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800"
-            >
-              <a
-                href="#"
-                class="px-4 py-1 text-center font-poppins text-sm font-normal text-white outline outline-1 outline-primary-800 hover:text-primary-800"
-                >Join IEEE</a
-              >
+            <li class="primary-li-item">
+              <a href="#" class="btn">Join IEEE</a>
             </li>
           </ul>
         </div>
@@ -253,9 +291,7 @@
     <!-- Navbar End -->
 
     <!-- Banner Start -->
-    <section
-      class="s-section container-fluid front-banner relative flex h-screen w-full bg-gray-300"
-    >
+    <section class="front-banner relative flex h-screen w-full bg-gray-300">
       <div
         id="large-header"
         class="flex h-screen w-screen"
@@ -263,19 +299,19 @@
       >
         <canvas id="demo-canvas"></canvas>
         <div
-          class="absolute left-1/2 top-1/2 m-auto flex w-8/12 -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-8 text-center font-poppins text-white"
+          class="absolute left-1/2 top-1/2 m-auto mt-10 flex w-10/12 -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-8 text-center font-poppins text-white md:w-8/12 lg:w-7/12"
         >
-          <h1 class="text-4xl font-bold">
+          <h1 class="text-3xl font-bold md:text-4xl">
             Empowering with Skills, Confidence & Sense of Purpose
           </h1>
 
-          <h2 class="text-4xl font-light uppercase">
+          <h2 class="text-3xl font-light uppercase md:text-4xl">
             IEEE SB TKMCE WELCOMES YOU
           </h2>
 
           <a
             href=""
-            class="my-8 px-8 py-1 outline outline-1 outline-white hover:text-primary-800"
+            class="my-8 px-8 py-1 outline outline-1 outline-white hover:bg-black/50"
             >JOIN IEEE</a
           >
         </div>
