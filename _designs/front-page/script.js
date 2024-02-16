@@ -63,13 +63,9 @@ document.querySelectorAll("nav").forEach((nav) => {
   function initHeader() {
     largeHeader = document.getElementById("large-header");
 
-    width = window.innerWidth;
-    height = window.innerHeight;
     width = largeHeader.clientWidth;
     height = largeHeader.clientHeight;
     target = { x: width / 2, y: height / 2 };
-
-    largeHeader.style.height = height + "px";
 
     canvas = document.getElementById("demo-canvas");
     canvas.width = width;
@@ -162,11 +158,13 @@ document.querySelectorAll("nav").forEach((nav) => {
   }
 
   function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    largeHeader.style.height = height + "px";
+    width = largeHeader.clientWidth;
+    height = largeHeader.clientHeight;
     canvas.width = width;
     canvas.height = height;
+
+    initHeader();
+    initAnimation();
   }
 
   // animation
