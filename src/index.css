@@ -66,6 +66,96 @@ html {
     }
   }
 
+  nav.dark {
+    @apply fixed top-0 z-50 w-full border-gray-200 px-10;
+
+    .main-wrapper {
+      @apply mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-3;
+
+      .logo {
+        @apply h-12 w-32 text-white;
+      }
+    }
+
+    #menu-header {
+      @apply mt-4 flex flex-col rounded-lg border border-gray-100 bg-black/50 p-4 font-medium bg-blend-darken backdrop-blur-lg rtl:space-x-reverse md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
+    }
+
+    .primary-li-item {
+      @apply block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+    }
+
+    .primary-a-item {
+      @apply block rounded px-3 py-2 font-poppins font-normal md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+    }
+
+    .primary-li-item {
+      div {
+        @apply w-full divide-y divide-gray-100 rounded-lg bg-black/50 font-normal outline outline-1 outline-white md:absolute md:right-0 md:z-10 md:w-44 md:shadow;
+      }
+      button {
+        @apply flex w-full items-center justify-between rounded px-3 py-2 font-poppins font-normal text-white md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+      }
+
+      ul {
+        @apply py-2 text-sm text-white;
+
+        a {
+          @apply block px-4 py-2 font-poppins font-normal hover:text-primary-800;
+        }
+      }
+
+      .btn {
+        @apply px-4 py-1 text-center font-poppins text-sm font-normal text-white outline outline-1 outline-primary-800 hover:bg-black/50;
+      }
+    }
+  }
+
+  nav.light {
+    @apply fixed top-0 z-50 w-full border-gray-200 bg-white px-10 shadow-md;
+
+    .main-wrapper {
+      @apply mx-auto flex max-w-screen-xl flex-wrap items-center justify-between py-3;
+
+      .logo {
+        @apply h-12 w-32 text-primary-800;
+      }
+    }
+
+    #menu-header {
+      @apply mt-4 flex flex-col rounded-lg border border-gray-100 bg-white p-4 font-medium bg-blend-darken backdrop-blur-lg rtl:space-x-reverse md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none;
+    }
+
+    .primary-li-item {
+      @apply block rounded px-3 py-2 text-black md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+    }
+
+    .primary-a-item {
+      @apply block rounded px-3 py-2 font-poppins font-normal  md:border-0 md:p-0 md:hover:bg-transparent;
+    }
+
+    .primary-li-item {
+      div {
+        @apply w-full divide-y divide-gray-100 rounded-lg bg-white font-normal md:absolute md:right-0 md:z-10 md:w-44 md:shadow;
+      }
+      button {
+        @apply flex w-full items-center justify-between rounded px-3 py-2 font-poppins font-normal text-black md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+      }
+
+      ul {
+        @apply py-2 text-sm text-black;
+
+        a {
+          @apply block px-4 py-2 font-poppins font-normal hover:text-primary-800;
+        }
+      }
+
+      .btn {
+        @apply bg-white px-4 py-1 text-center font-poppins text-sm font-normal text-primary-800 outline outline-1 outline-primary-800;
+      }
+    }
+  }
+
   /* WordPress Blog Styles */
   mark {
     @apply inline-block py-0 pl-1 pr-1;

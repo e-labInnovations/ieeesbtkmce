@@ -103,23 +103,50 @@ function ExampleReactComponent() {
 
 /***/ }),
 
-/***/ "./src/scripts/main/Menu.js":
-/*!**********************************!*\
-  !*** ./src/scripts/main/Menu.js ***!
-  \**********************************/
+/***/ "./src/scripts/main/Nav.js":
+/*!*********************************!*\
+  !*** ./src/scripts/main/Nav.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   initHamburgerMenu: () => (/* binding */ initHamburgerMenu)
+/* harmony export */   navInit: () => (/* binding */ navInit)
 /* harmony export */ });
-function initHamburgerMenu() {
+function navInit() {
   const nav = document.querySelector("nav");
   if (nav) {
     const hamburgerMenuButton = nav.querySelector("#hamburger-menu-button");
     const menuContainer = nav.querySelector("#navbar-dropdown");
+    const iconOpen = nav.querySelector("#icon-open");
+    const iconClose = nav.querySelector("#icon-close");
+    let lastScrollTop = 0;
+    let defaultMode = nav.classList.contains("dark") ? "dark" : "light";
     hamburgerMenuButton.addEventListener("click", () => {
       menuContainer.classList.toggle("hidden");
+      iconOpen.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
+    });
+    window.addEventListener("scroll", function () {
+      const currentScrollTop = window.pageYOffset;
+      if (currentScrollTop === 0) {
+        nav.classList.remove("dark");
+        nav.classList.remove("light");
+        nav.classList.add(defaultMode);
+      } else {
+        // Remove the dark class from the nav element if the user has scrolled down
+        nav.classList.remove("dark");
+        nav.classList.add("light");
+      }
+
+      // Hide the nav element if the user has scrolled down more than the last scroll position
+      if (currentScrollTop > lastScrollTop) {
+        nav.classList.add("hidden");
+      } else {
+        // Show the nav element if the user has scrolled up less than the last scroll position
+        nav.classList.remove("hidden");
+      }
+      lastScrollTop = currentScrollTop;
     });
   }
 }
@@ -247,7 +274,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdminCertificate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdminCertificate */ "./src/scripts/main/AdminCertificate.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Menu */ "./src/scripts/main/Menu.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Nav */ "./src/scripts/main/Nav.js");
 
 
 
@@ -261,7 +288,7 @@ if (document.querySelector("#ieeesbtkmce-admin-certificate-edit")) {
   react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AdminCertificate__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.querySelector("#ieeesbtkmce-admin-certificate-edit"));
 }
 document.addEventListener("DOMContentLoaded", () => {
-  (0,_Menu__WEBPACK_IMPORTED_MODULE_4__.initHamburgerMenu)();
+  (0,_Nav__WEBPACK_IMPORTED_MODULE_4__.navInit)();
 });
 })();
 

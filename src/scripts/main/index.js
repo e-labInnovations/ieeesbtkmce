@@ -2,7 +2,7 @@ import ExampleReactComponent from "./ExampleReactComponent";
 import AdminCertificate from "./AdminCertificate";
 import React from "react";
 import ReactDOM from "react-dom";
-import { initHamburgerMenu } from "./Menu";
+import { navInit } from "./Nav";
 
 if (document.querySelector("#render-react-example-here")) {
   ReactDOM.render(
@@ -19,5 +19,5 @@ if (document.querySelector("#ieeesbtkmce-admin-certificate-edit")) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initHamburgerMenu();
+  navInit();
 });
