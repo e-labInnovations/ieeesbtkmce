@@ -2,7 +2,7 @@
 //Register custom blocks
 function register_blocks() {
     // register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/test");
-    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/banner");
+    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/hero");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/counter");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/counter-item");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-us");

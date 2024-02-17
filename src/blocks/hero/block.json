@@ -1,17 +1,17 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "ieeesbtkmce/banner",
+  "name": "ieeesbtkmce/hero",
   "version": "0.1.0",
-  "title": "Banner",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "Example Dynamic new block.",
+  "title": "Hero Section",
+  "category": "ieeesbtkmce",
+  "description": "Hero section block for front page",
   "supports": {
     "html": false
   },
   "textdomain": "ieeesbtkmce",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+  "style": "file:./style-index.css",
+  "script": "file:./script.js"
 }

@@ -13,6 +13,7 @@ function ieeesbtkmce_enqueue_script($name) {
     $manifest['version']
   );
 }
+
 function ieeesbtkmce_load_assets() {
   wp_enqueue_script(
     "gsap-js",
@@ -46,13 +47,17 @@ function ieeesbtkmce_load_assets() {
     "all"
   );
   wp_enqueue_style(
-    "ieeesbtkmce-maincss",
-    get_theme_file_uri("/build/index.css")
+    "ieeesbtkmce-main",
+    get_theme_file_uri("/build/index.css"),
+    [],
+    "1.0",
+    "all"
   );
 }
 add_action("wp_enqueue_scripts", "ieeesbtkmce_load_assets");
 
 function load_editor_assets() {
+  ieeesbtkmce_enqueue_script("main");
   wp_enqueue_script(
     "gsap-js",
     "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js",
@@ -83,12 +88,13 @@ function load_editor_assets() {
     "1.0",
     "all"
   );
-  // wp_enqueue_style('ieeesbtkmce-maincss', get_theme_file_uri("/build/index.css"),
-  //   [],
-  //   filemtime(dirname(__FILE__) . "/build/index.css")
-  // );
+  wp_enqueue_style('ieeesbtkmce-mainc', get_theme_file_uri("/build/index.css"),
+    [],
+    filemtime(dirname(__FILE__) . "/build/index.css"),
+    "all"
+  );
 
-  wp_localize_script("gsap-js", "themeData", [
+  wp_localize_script(DOMAIN . "-main", "themeData", [
     "theme_url" => IEEESBTKMCE_THEME_URL,
   ]);
 }
@@ -96,7 +102,7 @@ add_action("enqueue_block_assets", "load_editor_assets");
 
 add_action("enqueue_block_editor_assets", function () {
   wp_enqueue_style(
-    "ieeesbtkmce-maincss",
+    "ieeesbtkmce-main",
     get_theme_file_uri("/build/index.css"),
     [],
     filemtime(dirname(__FILE__) . "/build/index.css")
@@ -106,6 +112,7 @@ add_action("enqueue_block_editor_assets", function () {
     ieeesbtkmce_enqueue_script("awards-post");
   }
 });
+
 function enqueue_custom_script() {
   // Enqueue script only on the certificate edit page
   global $pagenow;
@@ -217,9 +224,6 @@ new IEEESBTKMCE_Customizer();
 
 //SVG Sprite
 require_once IEEESBTKMCE_THEME_PATH . "/inc/svg-sprite.php";
-
-//MultiPostThumbnails
-// require_once IEEESBTKMCE_THEME_PATH . '/inc/multi-post-thumbnails/multi-post-thumbnails.php';
 
 /*** Custom Post Type **/
 //Events
