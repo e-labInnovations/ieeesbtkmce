@@ -192,25 +192,7 @@ function ieeesbtkmce_menus() {
 add_action("init", "ieeesbtkmce_menus");
 
 //Register sidebars
-function ieeestkmce_sidebars() {
-  register_sidebar([
-    "id" => "primary",
-    "name" => __("Primary Sidebar"),
-    "description" => __("A short description of the sidebar."),
-    "before_widget" => '<div id="%1$s" class="widget %2$s">',
-    "after_widget" => "</div>",
-    "before_title" => '<h3 class="widget-title">',
-    "after_title" => "</h3>",
-  ]);
-  register_sidebar([
-    "id" => "footer-contacts",
-    "name" => __("Footer Contact Us"),
-    "description" => __("Footer contact us widgets"),
-    "before_widget" => '<div class="grid grid-cols-3">',
-    "after_widget" => "</div>",
-  ]);
-}
-add_action("widgets_init", "ieeestkmce_sidebars");
+require_once IEEESBTKMCE_THEME_PATH . "/inc/sidebars.php";
 
 //Custom IEEE SB TKMCE Blocks
 require_once IEEESBTKMCE_THEME_PATH . "/inc/ieeesbtkmce-blocks.php";
