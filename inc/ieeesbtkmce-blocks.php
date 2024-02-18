@@ -6,7 +6,15 @@ function register_blocks() {
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/counter");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/counter-item");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-us");
-    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/header");
+    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/header", array(
+      'api_version' => 3,
+      'attributes'  => array(
+        'mode'  => array(
+          'type'    => 'string',
+          'default' => 'light',
+        ),
+      )
+    ));
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/footer");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/latest-news");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/latest-news-item");

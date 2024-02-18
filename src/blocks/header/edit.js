@@ -1,6 +1,7 @@
-import { useBlockProps } from "@wordpress/block-editor";
+import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import ServerSideRender from "@wordpress/server-side-render";
-const { Fragment } = wp.element;
+import { Fragment } from "@wordpress/element";
+import { PanelBody, SelectControl } from "@wordpress/components";
 import "./editor.scss";
 import metadata from "./block.json";
 
@@ -13,6 +14,7 @@ const Placeholder = () => {
 };
 
 export default function Edit({ attributes, setAttributes }) {
+  const { mode } = attributes;
   const blockProps = useBlockProps();
 
   return (
@@ -20,9 +22,31 @@ export default function Edit({ attributes, setAttributes }) {
       <div {...blockProps}>
         <ServerSideRender
           block={metadata.name}
+          attributes={{
+            mode,
+          }}
           LoadingResponsePlaceholder={Placeholder}
         />
       </div>
+
+      <InspectorControls>
+        <PanelBody title="Header Settings">
+          <SelectControl
+            value={mode}
+            onChange={(value) => setAttributes({ mode: value })}
+            options={[
+              {
+                label: "Light",
+                value: "light",
+              },
+              {
+                label: "Dark",
+                value: "dark",
+              },
+            ]}
+          />
+        </PanelBody>
+      </InspectorControls>
     </Fragment>
   );
 }

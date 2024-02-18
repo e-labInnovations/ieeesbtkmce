@@ -31,6 +31,7 @@ export default function save({ attributes }) {
           <a
             href={buttonLink && buttonLink.url ? buttonLink.url : "#"}
             target="_blank"
+            rel="noopener"
             className="my-8 px-8 py-1 outline outline-1 outline-white hover:bg-black/50"
           >
             JOIN IEEE

@@ -4,18 +4,9 @@
             <div class="grid grid-cols-5 gap-8 lg:grid-cols-9">
                 <div class="col-span-3 mb-6 md:mb-0">
                     <a href="<?php echo get_home_url(); ?>" class="flex items-center">
-                        <?php
-            $hero_bgimage = get_theme_mod("ieeesbtkmce-footer-logo");
-            if ($hero_bgimage) { ?>
-                        <img src="<?php echo $hero_bgimage; ?>" class="h-16" alt="<?php echo get_bloginfo(
-  "name"
-); ?>" />
-                        <?php } else { ?>
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap">
-                            <?php echo get_bloginfo("name"); ?>
-                        </span>
-                        <?php }
-            ?>
+                        <svg class="w-40 h-16 text-white">
+                            <use xlink:href="/icons.svg#icon-logo"></use>
+                        </svg>
                     </a>
                     <p class="mt-6 text-justify font-poppins text-base font-light text-white">
                         <?php echo get_theme_mod(

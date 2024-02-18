@@ -1,4 +1,4 @@
-<nav class="dark">
+<nav class="<?php echo $args['mode']?$args['mode']:'light'; ?>">
     <div class="main-wrapper">
         <a href="<?php echo get_home_url(); ?>" class="flex items-center space-x-3 rtl:space-x-reverse">
             <svg class="logo">

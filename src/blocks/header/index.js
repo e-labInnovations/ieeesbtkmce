@@ -4,7 +4,12 @@ import metadata from "./block.json";
 import Edit from "./edit";
 import Save from "./save";
 
+const attributes = {
+  mode: { type: "string", default: "light" },
+};
+
 registerBlockType(metadata, {
+  attributes,
   icon: {
     src: (
       <svg

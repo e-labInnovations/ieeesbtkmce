@@ -4,7 +4,7 @@ import {
   useBlockProps,
 } from "@wordpress/block-editor";
 import { useState, Fragment } from "@wordpress/element";
-import { PanelBody, TextareaControl } from "@wordpress/components";
+import { PanelBody } from "@wordpress/components";
 import EditIcon from "../../components/edit-icon/EditIcon";
 import LinkPickerView from "../../components/link-picker/LinkPickerView";
 import ImagePicker from "../../components/image-picker/ImagePicker";
