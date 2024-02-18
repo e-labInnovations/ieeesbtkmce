@@ -15,9 +15,11 @@
                 ); ?>
                     </p>
                     <div class="flex flex-col justify-between lg:flex-row">
-                        <a href="#" class="mt-3 font-poppins text-base font-normal text-white lg:mt-6">Terms &amp;
+                        <a href="<?php echo home_url('/terms-and-conditions'); ?>"
+                            class="mt-3 font-poppins text-base font-normal text-white lg:mt-6">Terms &amp;
                             Conditions</a>
-                        <a href="#" class="mt-1 font-poppins text-base font-normal text-white lg:mt-6">Privacy
+                        <a href="<?php echo home_url('/privacy-policy'); ?>"
+                            class="mt-1 font-poppins text-base font-normal text-white lg:mt-6">Privacy
                             Policy</a>
                     </div>
                 </div>

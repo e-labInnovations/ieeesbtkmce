@@ -93,6 +93,32 @@ To manage the Quick Links and Membership sections displayed in the footer of you
 
 10. After publishing, the "About Us" page will be accessible via the URL `ieeesbtkmce.in/about`.
 
+### Terms & Conditions and Privacy Policy Pages
+
+1. Click on **Pages** in the left sidebar.
+
+2. Select **Add New** to create a new page.
+
+3. Title the first page as `Terms & Conditions`.
+
+4. Change the page slug to `terms-and-conditions`.
+
+5. Add the terms and conditions content to the page.
+
+6. Save your changes.
+
+7. Repeat the process to create the "Privacy Policy" page.
+
+8. Title the second page as `Privacy Policy`.
+
+9. Change the page slug to `privacy-policy`.
+
+10. Add the privacy policy content to the page.
+
+11. Save your changes.
+
+By following these steps, you can create "Terms & Conditions" and "Privacy Policy" pages with the specified slugs.
+
 ## Social Media Customization
 
 ### Editing Social Links and Usernames
