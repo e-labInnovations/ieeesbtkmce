@@ -7,4 +7,3 @@
     <!-- WordPress wp_body_open: end -->
 
     <?php get_template_part("template-parts-php/header", null, $args); ?>
-    <?php print_r($args); ?>

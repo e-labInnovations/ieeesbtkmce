@@ -39,7 +39,7 @@
               "ieeesbtkmce_facebook",
               ""
             ); ?>" target="_blank">
-                            <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <svg class="h-5 w-5 fill-gray-200 transition ease-in-out hover:-translate-y-1">
                                 <use xlink:href="/icons.svg#icon-facebook"></use>
                             </svg>
                         </a>
@@ -47,7 +47,7 @@
               "ieeesbtkmce_instagram",
               ""
             ); ?>" target="_blank">
-                            <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <svg class="h-5 w-5 fill-gray-200 transition ease-in-out hover:-translate-y-1">
                                 <use xlink:href="/icons.svg#icon-instagram"></use>
                             </svg>
                         </a>
@@ -55,7 +55,7 @@
               "ieeesbtkmce_twitter",
               ""
             ); ?>" target="_blank">
-                            <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <svg class="h-5 w-5 fill-gray-200 transition ease-in-out hover:-translate-y-1">
                                 <use xlink:href="/icons.svg#icon-twitter"></use>
                             </svg>
                         </a>
@@ -63,7 +63,7 @@
               "ieeesbtkmce_linkedin",
               ""
             ); ?>" target="_blank">
-                            <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <svg class="h-5 w-5 fill-gray-200 transition ease-in-out hover:-translate-y-1">
                                 <use xlink:href="/icons.svg#icon-linkedin"></use>
                             </svg>
                         </a>
@@ -71,7 +71,7 @@
               "ieeesbtkmce_collabratec",
               ""
             ); ?>" target="_blank">
-                            <svg class="h-6 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
+                            <svg class="h-5 w-5 fill-gray-200 transition ease-in-out hover:-translate-y-1">
                                 <use xlink:href="/icons.svg#icon-collabratec"></use>
                             </svg>
                         </a>
