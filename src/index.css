@@ -82,11 +82,11 @@ html {
     }
 
     .primary-li-item {
-      @apply block rounded px-3 py-2 text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+      @apply block rounded px-3 py-2 text-white transition ease-in-out md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
     }
 
     .primary-a-item {
-      @apply block rounded px-3 py-2 font-poppins font-normal md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+      @apply block rounded px-3 py-2 font-poppins font-normal md:border-0 md:p-0;
     }
 
     .primary-li-item {
@@ -101,7 +101,7 @@ html {
         @apply py-2 text-sm text-white;
 
         a {
-          @apply block px-4 py-2 font-poppins font-normal hover:text-primary-800;
+          @apply block px-4 py-2 font-poppins font-normal transition ease-in-out hover:text-primary-800;
         }
       }
 
@@ -127,7 +127,7 @@ html {
     }
 
     .primary-li-item {
-      @apply block rounded px-3 py-2 text-black md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
+      @apply block rounded px-3 py-2 text-black transition ease-in-out md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-primary-800;
     }
 
     .primary-a-item {
@@ -146,7 +146,7 @@ html {
         @apply py-2 text-sm text-black;
 
         a {
-          @apply block px-4 py-2 font-poppins font-normal hover:text-primary-800;
+          @apply block px-4 py-2 font-poppins font-normal transition ease-in-out hover:text-primary-800;
         }
       }
 
