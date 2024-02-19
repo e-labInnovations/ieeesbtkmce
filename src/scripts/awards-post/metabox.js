@@ -5,14 +5,7 @@ import {
   TextControl,
   SelectControl,
 } from "@wordpress/components";
-import { compose } from "@wordpress/compose";
-import {
-  withSelect,
-  withDispatch,
-  useSelect,
-  useDispatch,
-} from "@wordpress/data";
-import { useState, useEffect, useRef } from "@wordpress/element";
+import { useSelect, useDispatch } from "@wordpress/data";
 
 const Metabox = () => {
   const postType = useSelect((select) => {
@@ -26,12 +19,6 @@ const Metabox = () => {
   );
 
   if (postType !== "awards") return null; // Will only render component for post type 'awards'
-  let today = new Date();
-
-  useEffect(() => {
-    if (!(meta.award_date && meta.award_recipient && meta.awarding_authority)) {
-    }
-  }, [meta]);
 
   return (
     <PluginDocumentSettingPanel

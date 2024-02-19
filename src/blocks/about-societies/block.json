@@ -1,11 +1,10 @@
 {
   "apiVersion": 2,
-  "name": "ieeesbtkmce/test",
+  "name": "ieeesbtkmce/about-societies",
   "version": "0.1.0",
-  "title": "Test Block",
+  "title": "Societies Slider",
   "category": "ieeesbtkmce",
-  "icon": "smiley",
-  "description": "Example block written with ESNext standard and JSX support build step required.",
+  "description": "Societies slider block for about page",
   "supports": {
     "html": false,
     "anchor": true

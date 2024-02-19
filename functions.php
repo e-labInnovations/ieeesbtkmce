@@ -90,7 +90,7 @@ function load_editor_assets() {
   );
   wp_enqueue_style('ieeesbtkmce-mainc', get_theme_file_uri("/build/index.css"),
     [],
-    filemtime(dirname(__FILE__) . "/build/index.css"),
+    filemtime(IEEESBTKMCE_THEME_PATH . "/build/index.css") || 'v1.0',
     "all"
   );
 
@@ -105,12 +105,16 @@ add_action("enqueue_block_editor_assets", function () {
     "ieeesbtkmce-main",
     get_theme_file_uri("/build/index.css"),
     [],
-    filemtime(dirname(__FILE__) . "/build/index.css")
+    filemtime(IEEESBTKMCE_THEME_PATH . "/build/index.css") || 'v1.0'
   );
 
   if (get_post_type() === 'awards') {
     ieeesbtkmce_enqueue_script("awards-post");
   }
+  if (get_post_type() === 'societies') {
+    ieeesbtkmce_enqueue_script("societies-post");
+  }
+  
 });
 
 function enqueue_custom_script() {

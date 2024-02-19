@@ -34,7 +34,7 @@ function custom_post_type_societies() {
         'label'                 => __('Society', DOMAIN),
         'description'           => __('Custom post type for Societies', DOMAIN),
         'labels'                => $labels,
-        'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'excerpt'),
+        'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'excerpt', 'custom-fields'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -54,3 +54,15 @@ function custom_post_type_societies() {
     register_post_type('societies', $args);
 }
 add_action('init', 'custom_post_type_societies', 0);
+
+function societies_register_post_meta() {
+    register_post_meta('societies', 'society_logo', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'integer',
+    ));
+}
+add_action('init', 'societies_register_post_meta');
