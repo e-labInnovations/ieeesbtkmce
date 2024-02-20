@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/about-societies/edit.js":
-/*!********************************************!*\
-  !*** ./src/blocks/about-societies/edit.js ***!
-  \********************************************/
+/***/ "./src/blocks/test copy/edit.js":
+/*!**************************************!*\
+  !*** ./src/blocks/test copy/edit.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16,41 +16,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
-/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/about-societies/block.json");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/about-societies/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/test copy/editor.scss");
 
 
 
-
-
-const Placeholder = () => {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bg-gray-200 p-4 text-center"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "text-xl font-semibold text-gray-800"
-  }, "Societies Slider Placeholder"));
-};
 function Edit({
   attributes,
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default()), {
-    block: _block_json__WEBPACK_IMPORTED_MODULE_3__.name,
-    LoadingResponsePlaceholder: Placeholder
-  }));
+  }, "Test block");
 }
 
 /***/ }),
 
-/***/ "./src/blocks/about-societies/index.js":
-/*!*********************************************!*\
-  !*** ./src/blocks/about-societies/index.js ***!
-  \*********************************************/
+/***/ "./src/blocks/test copy/index.js":
+/*!***************************************!*\
+  !*** ./src/blocks/test copy/index.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -58,10 +43,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/about-societies/style.scss");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/about-societies/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/about-societies/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/about-societies/save.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/test copy/style.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/test copy/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/test copy/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/test copy/save.js");
 
 
 
@@ -88,10 +73,10 @@ const attributes = {};
 
 /***/ }),
 
-/***/ "./src/blocks/about-societies/save.js":
-/*!********************************************!*\
-  !*** ./src/blocks/about-societies/save.js ***!
-  \********************************************/
+/***/ "./src/blocks/test copy/save.js":
+/*!**************************************!*\
+  !*** ./src/blocks/test copy/save.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -109,10 +94,10 @@ function save({
 
 /***/ }),
 
-/***/ "./src/blocks/about-societies/editor.scss":
-/*!************************************************!*\
-  !*** ./src/blocks/about-societies/editor.scss ***!
-  \************************************************/
+/***/ "./src/blocks/test copy/editor.scss":
+/*!******************************************!*\
+  !*** ./src/blocks/test copy/editor.scss ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -121,10 +106,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/about-societies/style.scss":
-/*!***********************************************!*\
-  !*** ./src/blocks/about-societies/style.scss ***!
-  \***********************************************/
+/***/ "./src/blocks/test copy/style.scss":
+/*!*****************************************!*\
+  !*** ./src/blocks/test copy/style.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -163,23 +148,13 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
-/***/ "@wordpress/server-side-render":
-/*!******************************************!*\
-  !*** external ["wp","serverSideRender"] ***!
-  \******************************************/
+/***/ "./src/blocks/test copy/block.json":
+/*!*****************************************!*\
+  !*** ./src/blocks/test copy/block.json ***!
+  \*****************************************/
 /***/ ((module) => {
 
-module.exports = window["wp"]["serverSideRender"];
-
-/***/ }),
-
-/***/ "./src/blocks/about-societies/block.json":
-/*!***********************************************!*\
-  !*** ./src/blocks/about-societies/block.json ***!
-  \***********************************************/
-/***/ ((module) => {
-
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-societies","version":"0.1.0","title":"Societies Slider","category":"ieeesbtkmce","description":"Societies slider block for about page","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","script":"file:./script.js","render":"file:./render.php"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/test","version":"0.1.0","title":"Test Block","category":"ieeesbtkmce","icon":"smiley","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
@@ -293,8 +268,8 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-societies
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"blocks/about-societies/index": 0,
-/******/ 			"blocks/about-societies/style-index": 0
+/******/ 			"blocks/test copy/index": 0,
+/******/ 			"blocks/test copy/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -344,7 +319,7 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/about-societies
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/about-societies/style-index"], () => (__webpack_require__("./src/blocks/about-societies/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/test copy/style-index"], () => (__webpack_require__("./src/blocks/test copy/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

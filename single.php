@@ -1,17 +1,20 @@
 <?php
+get_header(null, array('mode' => 'light')); ?>
 
-get_header(); ?>
+<main class="container pt-[72px] mx-auto px-4 xl:px-14">
+  <h1 class="font-poppins text-4xl md:mt-12 md:mb-16 mt-6 mb-4 font-semibold text-primary-800 md:text-[4rem]">
+    <?php the_title() ?>
+  </h1>
 
-<div class="max-w-4xl mx-auto px-4 prose">
-  <?php if (have_posts()) {
-    while(have_posts()) {
-      the_post(); ?>
-      <div>
-        <h1><?php the_title(); ?></h1>
-        <?php the_content(); ?>
-      </div>
-    <?php }
-  } ?>
-</div>
+  <?php
+        if(have_posts()) {
+          while (have_posts()) {
+            the_post();
+            the_content();
+          }
+        }
+    ?>
 
-<?php get_footer();
+</main>
+
+<?php get_footer(); ?>
