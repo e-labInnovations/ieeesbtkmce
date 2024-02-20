@@ -11,7 +11,7 @@ const attributes = {
     source: "html",
     selector: "p",
   },
-  chapters: {
+  societies: {
     type: "object",
     default: {
       ras: {

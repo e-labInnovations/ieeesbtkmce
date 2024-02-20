@@ -1,7 +1,7 @@
 import { RichText } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
-  const { content, chapters } = attributes;
+  const { content, societies } = attributes;
   const theme_url = themeData.theme_url;
 
   return (
@@ -49,10 +49,10 @@ export default function save({ attributes }) {
                 </feMerge>
               </filter>
 
-              {Object.entries(chapters).map(([chapterName, chapter]) => {
+              {Object.entries(societies).map(([societyName, society]) => {
                 return (
                   <pattern
-                    id={`chapter_${chapterName}`}
+                    id={`society_${societyName}`}
                     x="0%"
                     y="0%"
                     height="100%"
@@ -62,14 +62,14 @@ export default function save({ attributes }) {
                     <rect
                       width={1}
                       height={1}
-                      className={`fill-${chapter.bg_color}`}
+                      className={`fill-${society.bg_color}`}
                     />
 
                     <image
                       xlinkHref={
-                        chapter.image && chapter.image.url
-                          ? chapter.image.url
-                          : `${theme_url}/assets/images/chapter-${chapterName}.png`
+                        society.image && society.image.url
+                          ? society.image.url
+                          : `${theme_url}/assets/images/societies/front/${societyName}.svg`
                       }
                       x="0.1"
                       y="0.1"
@@ -83,15 +83,15 @@ export default function save({ attributes }) {
               <style
                 dangerouslySetInnerHTML={{
                   __html:
-                    "\n                .chapter-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .chapter-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              ",
+                    "\n                .society-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .society-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              ",
                 }}
               />
             </defs>
 
             <a
               href={
-                chapters.pes.linkObject && chapters.pes.linkObject.url
-                  ? chapters.pes.linkObject.url
+                societies.pes.linkObject && societies.pes.linkObject.url
+                  ? societies.pes.linkObject.url
                   : "#"
               }
             >
@@ -100,14 +100,14 @@ export default function save({ attributes }) {
                 y="7.1709"
                 width={170}
                 height={170}
-                fill="url(#chapter_pes)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_pes)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.ras.linkObject && chapters.ras.linkObject.url
-                  ? chapters.ras.linkObject.url
+                societies.ras.linkObject && societies.ras.linkObject.url
+                  ? societies.ras.linkObject.url
                   : "#"
               }
             >
@@ -116,14 +116,14 @@ export default function save({ attributes }) {
                 y="7.1709"
                 width={170}
                 height={170}
-                fill="url(#chapter_ras)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_ras)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.cs.linkObject && chapters.cs.linkObject.url
-                  ? chapters.cs.linkObject.url
+                societies.cs.linkObject && societies.cs.linkObject.url
+                  ? societies.cs.linkObject.url
                   : "#"
               }
             >
@@ -132,14 +132,14 @@ export default function save({ attributes }) {
                 y="7.1709"
                 width={170}
                 height={170}
-                fill="url(#chapter_cs)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_cs)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.sight.linkObject && chapters.sight.linkObject.url
-                  ? chapters.sight.linkObject.url
+                societies.sight.linkObject && societies.sight.linkObject.url
+                  ? societies.sight.linkObject.url
                   : "#"
               }
             >
@@ -148,14 +148,14 @@ export default function save({ attributes }) {
                 y="204.143"
                 width={170}
                 height={170}
-                fill="url(#chapter_sight)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_sight)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.ias.linkObject && chapters.ias.linkObject.url
-                  ? chapters.ias.linkObject.url
+                societies.ias.linkObject && societies.ias.linkObject.url
+                  ? societies.ias.linkObject.url
                   : "#"
               }
             >
@@ -164,14 +164,14 @@ export default function save({ attributes }) {
                 y="204.143"
                 width={170}
                 height={170}
-                fill="url(#chapter_ias)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_ias)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.sps.linkObject && chapters.sps.linkObject.url
-                  ? chapters.sps.linkObject.url
+                societies.sps.linkObject && societies.sps.linkObject.url
+                  ? societies.sps.linkObject.url
                   : "#"
               }
             >
@@ -180,8 +180,8 @@ export default function save({ attributes }) {
                 y="204.143"
                 width={170}
                 height={170}
-                fill="url(#chapter_sps)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_sps)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <rect
@@ -195,8 +195,8 @@ export default function save({ attributes }) {
             />
             <a
               href={
-                chapters.wie.linkObject && chapters.wie.linkObject.url
-                  ? chapters.wie.linkObject.url
+                societies.wie.linkObject && societies.wie.linkObject.url
+                  ? societies.wie.linkObject.url
                   : "#"
               }
             >
@@ -205,14 +205,14 @@ export default function save({ attributes }) {
                 y="401.115"
                 width={170}
                 height={170}
-                fill="url(#chapter_wie)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_wie)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.cass.linkObject && chapters.cass.linkObject.url
-                  ? chapters.cass.linkObject.url
+                societies.cass.linkObject && societies.cass.linkObject.url
+                  ? societies.cass.linkObject.url
                   : "#"
               }
             >
@@ -221,14 +221,14 @@ export default function save({ attributes }) {
                 y="401.115"
                 width={170}
                 height={170}
-                fill="url(#chapter_cass)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_cass)"
+                className="society-rect stroke-primary-800"
               />
             </a>
             <a
               href={
-                chapters.ies.linkObject && chapters.ies.linkObject.url
-                  ? chapters.ies.linkObject.url
+                societies.ies.linkObject && societies.ies.linkObject.url
+                  ? societies.ies.linkObject.url
                   : "#"
               }
             >
@@ -237,8 +237,8 @@ export default function save({ attributes }) {
                 y="401.115"
                 width={170}
                 height={170}
-                fill="url(#chapter_ies)"
-                className="chapter-rect stroke-primary-800"
+                fill="url(#society_ies)"
+                className="society-rect stroke-primary-800"
               />
             </a>
           </svg>

@@ -12,7 +12,7 @@ import { Fragment, useEffect, useState } from "@wordpress/element";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-  const { content, chapters } = attributes;
+  const { content, societies } = attributes;
   const blockProps = useBlockProps({
     className: "w-full overflow-hidden",
   });
@@ -25,19 +25,19 @@ export default function Edit({ attributes, setAttributes }) {
     );
   }, []);
 
-  const setChapterLink = (chapter, newLinkObject) => {
+  const setSocietyLink = (society, newLinkObject) => {
     setAttributes({
-      chapters: {
-        ...chapters,
-        [chapter]: {
-          ...chapters[chapter],
+      societies: {
+        ...societies,
+        [society]: {
+          ...societies[society],
           linkObject: newLinkObject,
         },
       },
     });
   };
 
-  function ChapterImage({ chapter, image }) {
+  function SocietyImage({ society, image }) {
     return (
       <div className="group relative w-1/2">
         {image && image.url ? (
@@ -45,13 +45,13 @@ export default function Edit({ attributes, setAttributes }) {
             <MediaUpload
               onSelect={(media) => {
                 setAttributes({
-                  chapters: {
-                    ...chapters,
-                    [chapter]: {
-                      ...chapters[chapter],
+                  societies: {
+                    ...societies,
+                    [society]: {
+                      ...societies[society],
                       image: {
                         id: media.id,
-                        alt: media.alt || `Chapter ${chapter} Image`,
+                        alt: media.alt || `Society ${society} Image`,
                         url: media.url,
                       },
                     },
@@ -74,13 +74,13 @@ export default function Edit({ attributes, setAttributes }) {
           <MediaPlaceholder
             onSelect={(media) => {
               setAttributes({
-                chapters: {
-                  ...chapters,
-                  [chapter]: {
-                    ...chapters[chapter],
+                societies: {
+                  ...societies,
+                  [society]: {
+                    ...societies[society],
                     image: {
                       id: media.id,
-                      alt: media.alt || `Chapter ${chapter} Image`,
+                      alt: media.alt || `Society ${society} Image`,
                       url: media.url,
                     },
                   },
@@ -89,7 +89,7 @@ export default function Edit({ attributes, setAttributes }) {
             }}
             allowedTypes={["image"]}
             multiple={false}
-            labels={{ title: `Chapter ${chapter} Image` }}
+            labels={{ title: `Society ${society} Image` }}
           />
         )}
 
@@ -167,10 +167,10 @@ export default function Edit({ attributes, setAttributes }) {
                   </feMerge>
                 </filter>
 
-                {Object.entries(chapters).map(([chapterName, chapter]) => {
+                {Object.entries(societies).map(([societyName, society]) => {
                   return (
                     <pattern
-                      id={`chapter_${chapterName}`}
+                      id={`society_${societyName}`}
                       x="0%"
                       y="0%"
                       height="100%"
@@ -180,14 +180,14 @@ export default function Edit({ attributes, setAttributes }) {
                       <rect
                         width={1}
                         height={1}
-                        className={`fill-${chapter.bg_color}`}
+                        className={`fill-${society.bg_color}`}
                       />
 
                       <image
                         xlinkHref={
-                          chapter.image && chapter.image.url
-                            ? chapter.image.url
-                            : `${theme_url}/assets/images/chapter-${chapterName}.png`
+                          society.image && society.image.url
+                            ? society.image.url
+                            : `${theme_url}/assets/images/societies/front/${societyName}.svg`
                         }
                         x="0.1"
                         y="0.1"
@@ -201,7 +201,7 @@ export default function Edit({ attributes, setAttributes }) {
                 <style
                   dangerouslySetInnerHTML={{
                     __html:
-                      "\n                .chapter-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .chapter-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              ",
+                      "\n                .society-rect {\n                  filter: url(#drop-shadow);\n                  stroke-width: 0.25;\n                  filter: url(#drop-shadow);\n                  rx: 35;\n                }\n\n                .society-rect:hover {\n                  filter: url(#drop-shadow-hover);\n                }\n              ",
                   }}
                 />
               </defs>
@@ -212,8 +212,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="7.1709"
                   width={170}
                   height={170}
-                  fill="url(#chapter_pes)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_pes)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -222,8 +222,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="7.1709"
                   width={170}
                   height={170}
-                  fill="url(#chapter_ras)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_ras)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -232,8 +232,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="7.1709"
                   width={170}
                   height={170}
-                  fill="url(#chapter_cs)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_cs)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -242,8 +242,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="204.143"
                   width={170}
                   height={170}
-                  fill="url(#chapter_sight)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_sight)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -252,8 +252,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="204.143"
                   width={170}
                   height={170}
-                  fill="url(#chapter_ias)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_ias)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -262,8 +262,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="204.143"
                   width={170}
                   height={170}
-                  fill="url(#chapter_sps)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_sps)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <rect
@@ -281,8 +281,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="401.115"
                   width={170}
                   height={170}
-                  fill="url(#chapter_wie)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_wie)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -291,8 +291,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="401.115"
                   width={170}
                   height={170}
-                  fill="url(#chapter_cass)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_cass)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
               <a>
@@ -301,8 +301,8 @@ export default function Edit({ attributes, setAttributes }) {
                   y="401.115"
                   width={170}
                   height={170}
-                  fill="url(#chapter_ies)"
-                  className="chapter-rect stroke-primary-800"
+                  fill="url(#society_ies)"
+                  className="society-rect stroke-primary-800"
                 />
               </a>
             </svg>
@@ -310,18 +310,18 @@ export default function Edit({ attributes, setAttributes }) {
         </div>
       </section>
       <InspectorControls>
-        {Object.entries(chapters).map(([chapterName, chapter]) => {
+        {Object.entries(societies).map(([societyName, society]) => {
           return (
-            <PanelBody title={chapter.name}>
+            <PanelBody title={society.name}>
               <PanelRow className="w-full max-w-full">
-                <ChapterImage chapter={chapterName} image={chapter.image} />
+                <SocietyImage society={societyName} image={society.image} />
               </PanelRow>
               <PanelRow>
                 <LinkControl
                   className="w-full max-w-full"
                   settings={[]}
-                  value={chapter.linkObject}
-                  onChange={(newLink) => setChapterLink(chapterName, newLink)}
+                  value={society.linkObject}
+                  onChange={(newLink) => setSocietyLink(societyName, newLink)}
                   style={{ display: "block", width: "80%" }}
                 />
               </PanelRow>

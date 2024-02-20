@@ -26,7 +26,7 @@ function register_blocks() {
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/major-events-item");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/vision-and-mission");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/exuro");
-    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/featured-chapters");
+    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/featured-societies");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/front-gallery");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/alumni-testimonials");
 

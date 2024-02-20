@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/featured-chapters/edit.js":
-/*!**********************************************!*\
-  !*** ./src/blocks/featured-chapters/edit.js ***!
-  \**********************************************/
+/***/ "./src/blocks/featured-societies/edit.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/featured-societies/edit.js ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/featured-chapters/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/featured-societies/editor.scss");
 
 
 
@@ -299,10 +299,10 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/blocks/featured-chapters/index.js":
-/*!***********************************************!*\
-  !*** ./src/blocks/featured-chapters/index.js ***!
-  \***********************************************/
+/***/ "./src/blocks/featured-societies/index.js":
+/*!************************************************!*\
+  !*** ./src/blocks/featured-societies/index.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -310,10 +310,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/featured-chapters/style.scss");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/featured-chapters/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/featured-chapters/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/featured-chapters/save.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/featured-societies/style.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/featured-societies/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/featured-societies/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/blocks/featured-societies/save.js");
 
 
 
@@ -394,10 +394,10 @@ const attributes = {
 
 /***/ }),
 
-/***/ "./src/blocks/featured-chapters/save.js":
-/*!**********************************************!*\
-  !*** ./src/blocks/featured-chapters/save.js ***!
-  \**********************************************/
+/***/ "./src/blocks/featured-societies/save.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/featured-societies/save.js ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -582,10 +582,10 @@ function save({
 
 /***/ }),
 
-/***/ "./src/blocks/featured-chapters/editor.scss":
-/*!**************************************************!*\
-  !*** ./src/blocks/featured-chapters/editor.scss ***!
-  \**************************************************/
+/***/ "./src/blocks/featured-societies/editor.scss":
+/*!***************************************************!*\
+  !*** ./src/blocks/featured-societies/editor.scss ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -594,10 +594,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/featured-chapters/style.scss":
-/*!*************************************************!*\
-  !*** ./src/blocks/featured-chapters/style.scss ***!
-  \*************************************************/
+/***/ "./src/blocks/featured-societies/style.scss":
+/*!**************************************************!*\
+  !*** ./src/blocks/featured-societies/style.scss ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -666,10 +666,10 @@ module.exports = window["wp"]["element"];
 
 /***/ }),
 
-/***/ "./src/blocks/featured-chapters/block.json":
-/*!*************************************************!*\
-  !*** ./src/blocks/featured-chapters/block.json ***!
-  \*************************************************/
+/***/ "./src/blocks/featured-societies/block.json":
+/*!**************************************************!*\
+  !*** ./src/blocks/featured-societies/block.json ***!
+  \**************************************************/
 /***/ ((module) => {
 
 module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/featured-societies","version":"0.1.0","title":"Featured Societies","category":"ieeesbtkmce","icon":"smiley","description":"Featured Societies block for front page","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
@@ -786,8 +786,8 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/featured-societ
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"blocks/featured-chapters/index": 0,
-/******/ 			"blocks/featured-chapters/style-index": 0
+/******/ 			"blocks/featured-societies/index": 0,
+/******/ 			"blocks/featured-societies/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -837,7 +837,7 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/featured-societ
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/featured-chapters/style-index"], () => (__webpack_require__("./src/blocks/featured-chapters/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/featured-societies/style-index"], () => (__webpack_require__("./src/blocks/featured-societies/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
