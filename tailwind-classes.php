@@ -1,1 +1,1 @@
-<p class="fill-white">silence is golden</p>
+<p class="fill-white min-h-[100px] border-dashed border-1">silence is golden</p>

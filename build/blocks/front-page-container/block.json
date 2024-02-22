@@ -1,11 +1,10 @@
 {
   "apiVersion": 2,
-  "name": "ieeesbtkmce/test",
+  "name": "ieeesbtkmce/front-page-container",
   "version": "0.1.0",
-  "title": "Test Block",
+  "title": "Front Page container",
   "category": "ieeesbtkmce",
-  "icon": "smiley",
-  "description": "Example block written with ESNext standard and JSX support build step required.",
+  "description": "This the container div for front page.",
   "supports": {
     "html": false,
     "anchor": true

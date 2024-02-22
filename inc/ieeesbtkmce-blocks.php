@@ -15,6 +15,7 @@ function register_blocks() {
         ),
       )
     ));
+    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/front-page-container");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/footer");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/latest-news");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/latest-news-item");

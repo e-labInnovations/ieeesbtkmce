@@ -1,11 +1,10 @@
 {
   "apiVersion": 2,
-  "name": "ieeesbtkmce/featured-societies",
+  "name": "ieeesbtkmce/front-page-container",
   "version": "0.1.0",
-  "title": "Featured Societies",
+  "title": "Front Page container",
   "category": "ieeesbtkmce",
-  "icon": "smiley",
-  "description": "Featured Societies block for front page",
+  "description": "This the container div for front page.",
   "supports": {
     "html": false,
     "anchor": true
