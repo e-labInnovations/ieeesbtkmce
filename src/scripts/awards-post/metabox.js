@@ -12,6 +12,8 @@ const Metabox = () => {
     return select("core/editor").getCurrentPostType();
   });
 
+  if (postType !== "awards") return null; // Will only render component for post type 'awards'
+
   const { editPost } = useDispatch("core/editor");
 
   const meta = useSelect((select) =>
@@ -19,10 +21,26 @@ const Metabox = () => {
   );
 
   const chapters = useSelect((select) => {
-    return select("core").getEntityRecords("postType", "page");
+    const query = {
+      status: "publish",
+      per_page: -1,
+    };
+
+    return select("core").getEntityRecords("postType", "chapters", query);
   });
 
-  if (postType !== "awards") return null; // Will only render component for post type 'awards'
+  let options = [];
+  if (chapters) {
+    options.push({ value: -1, label: "IEEE" });
+    chapters.forEach((chapter) => {
+      options.push({
+        value: chapter.id,
+        label: `${chapter.slug.toUpperCase()} - ${chapter.title.rendered}`,
+      });
+    });
+  } else {
+    options.push({ value: -1, label: "Loading..." });
+  }
 
   return (
     <PluginDocumentSettingPanel
@@ -57,13 +75,9 @@ const Metabox = () => {
 
       <PanelRow>
         <SelectControl
-          label="Recipient Society"
+          label="Recipient Chapter"
           value={meta && meta.award_recipient ? meta.award_recipient : "-1"}
-          options={[
-            { label: "IEEE", value: "-1" },
-            { label: "CASS", value: "cass" },
-            { label: "CS", value: "cs" },
-          ]}
+          options={options}
           onChange={(value) => editPost({ meta: { award_recipient: value } })}
         />
       </PanelRow>

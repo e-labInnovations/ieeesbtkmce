@@ -28,15 +28,37 @@ const Metabox = () => {
   const postType = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     return select("core/editor").getCurrentPostType();
   });
+  if (postType !== "awards") return null; // Will only render component for post type 'awards'
+
   const {
     editPost
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)("core/editor");
   const meta = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select("core/editor").getEditedPostAttribute("meta"));
   const chapters = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    return select("core").getEntityRecords("postType", "page");
+    const query = {
+      status: "publish",
+      per_page: -1
+    };
+    return select("core").getEntityRecords("postType", "chapters", query);
   });
-  if (postType !== "awards") return null; // Will only render component for post type 'awards'
-
+  let options = [];
+  if (chapters) {
+    options.push({
+      value: -1,
+      label: "IEEE"
+    });
+    chapters.forEach(chapter => {
+      options.push({
+        value: chapter.id,
+        label: `${chapter.slug.toUpperCase()} - ${chapter.title.rendered}`
+      });
+    });
+  } else {
+    options.push({
+      value: -1,
+      label: "Loading..."
+    });
+  }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_1__.PluginDocumentSettingPanel, {
     title: "Award Details",
     name: "meta",
@@ -62,18 +84,9 @@ const Metabox = () => {
       }
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: "Recipient Society",
+    label: "Recipient Chapter",
     value: meta && meta.award_recipient ? meta.award_recipient : "-1",
-    options: [{
-      label: "IEEE",
-      value: "-1"
-    }, {
-      label: "CASS",
-      value: "cass"
-    }, {
-      label: "CS",
-      value: "cs"
-    }],
+    options: options,
     onChange: value => editPost({
       meta: {
         award_recipient: value
