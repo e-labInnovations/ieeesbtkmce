@@ -39,7 +39,7 @@ const Metabox = () => {
     chapters.forEach((chapter) => {
       chapterOptions.push({
         value: chapter.id,
-        label: `${chapter.slug.toUpperCase()} - ${chapter.title.rendered}`,
+        label: chapter.slug.toUpperCase(),
       });
     });
   }
