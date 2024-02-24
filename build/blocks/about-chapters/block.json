@@ -1,10 +1,10 @@
 {
   "apiVersion": 2,
-  "name": "ieeesbtkmce/about-societies",
+  "name": "ieeesbtkmce/about-chapters",
   "version": "0.1.0",
-  "title": "Societies Slider",
+  "title": "Chapters Slider",
   "category": "ieeesbtkmce",
-  "description": "Societies slider block for about page",
+  "description": "Chapters slider block for about page",
   "supports": {
     "html": false,
     "anchor": true

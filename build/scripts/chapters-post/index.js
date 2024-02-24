@@ -79,10 +79,10 @@ const MetaImageControl = props => {
 
 /***/ }),
 
-/***/ "./src/scripts/societies-post/sidebar.js":
-/*!***********************************************!*\
-  !*** ./src/scripts/societies-post/sidebar.js ***!
-  \***********************************************/
+/***/ "./src/scripts/chapters-post/sidebar.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/chapters-post/sidebar.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -104,15 +104,15 @@ const Sidebar = () => {
   const postType = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
     return select("core/editor").getCurrentPostType();
   });
-  if (postType !== "societies") return null; // Will only render component for post type 'societies'
+  if (postType !== "chapters") return null; // Will only render component for post type 'chapters'
 
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_1__.PluginDocumentSettingPanel, {
-    title: "Society Details",
+    title: "Chapter Details",
     name: "meta-sidebar",
     initialOpen: "true"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_meta_image_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    label: "Society Logo",
-    metaKey: "society_logo"
+    label: "Chapter Logo",
+    metaKey: "chapter_logo"
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sidebar);
@@ -250,15 +250,15 @@ module.exports = window["wp"]["plugins"];
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!*********************************************!*\
-  !*** ./src/scripts/societies-post/index.js ***!
-  \*********************************************/
+/*!********************************************!*\
+  !*** ./src/scripts/chapters-post/index.js ***!
+  \********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
 /* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar */ "./src/scripts/societies-post/sidebar.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar */ "./src/scripts/chapters-post/sidebar.js");
 
 
 

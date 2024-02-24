@@ -2,9 +2,9 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/awards-post/metabox.js":
+/***/ "./src/scripts/events-post/metabox.js":
 /*!********************************************!*\
-  !*** ./src/scripts/awards-post/metabox.js ***!
+  !*** ./src/scripts/events-post/metabox.js ***!
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -32,13 +32,10 @@ const Metabox = () => {
     editPost
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)("core/editor");
   const meta = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select("core/editor").getEditedPostAttribute("meta"));
-  const chapters = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
-    return select("core").getEntityRecords("postType", "page");
-  });
-  if (postType !== "awards") return null; // Will only render component for post type 'awards'
+  if (postType !== "events") return null; // Will only render component for post type 'events'
 
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_1__.PluginDocumentSettingPanel, {
-    title: "Award Details",
+    title: "Event Details",
     name: "meta",
     initialOpen: "true",
     icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("use", {
@@ -207,14 +204,14 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /*!******************************************!*\
-  !*** ./src/scripts/awards-post/index.js ***!
+  !*** ./src/scripts/events-post/index.js ***!
   \******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
 /* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _metabox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./metabox */ "./src/scripts/awards-post/metabox.js");
+/* harmony import */ var _metabox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./metabox */ "./src/scripts/events-post/metabox.js");
 
 
 

@@ -7,7 +7,7 @@ const Placeholder = () => {
   return (
     <div className="bg-gray-200 p-4 text-center">
       <p className="text-xl font-semibold text-gray-800">
-        Societies Slider Placeholder
+        Chapters Slider Placeholder
       </p>
     </div>
   );

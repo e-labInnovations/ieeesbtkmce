@@ -12,7 +12,8 @@ var indexConfig = Object.assign({}, defaultConfig, {
   entry: {
     "scripts/main/index": "./src/scripts/main/index.js",
     "scripts/awards-post/index": "./src/scripts/awards-post/index.js",
-    "scripts/societies-post/index": "./src/scripts/societies-post/index.js",
+    "scripts/chapters-post/index": "./src/scripts/chapters-post/index.js",
+    "scripts/events-post/index": "./src/scripts/events-post/index.js",
   },
   output: {
     path: path.resolve(__dirname, "build"),

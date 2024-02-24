@@ -1,38 +1,38 @@
 <?php
-// Custom Post type - Societies
+// Custom Post type - Chapters
 function custom_post_type_societies() {
     $labels = array(
-        'name'                  => _x('Societies', 'Post Type General Name', DOMAIN),
-        'singular_name'         => _x('Society', 'Post Type Singular Name', DOMAIN),
-        'menu_name'             => __('Societies', DOMAIN),
-        'name_admin_bar'        => __('Society', DOMAIN),
-        'archives'              => __('Society Archives', DOMAIN),
-        'attributes'            => __('Society Attributes', DOMAIN),
-        'parent_item_colon'     => __('Parent Society:', DOMAIN),
-        'all_items'             => __('All Societies', DOMAIN),
-        'add_new_item'          => __('Add New Society', DOMAIN),
+        'name'                  => _x('Chapters', 'Post Type General Name', DOMAIN),
+        'singular_name'         => _x('Chapter', 'Post Type Singular Name', DOMAIN),
+        'menu_name'             => __('Chapters', DOMAIN),
+        'name_admin_bar'        => __('Chapter', DOMAIN),
+        'archives'              => __('Chapter Archives', DOMAIN),
+        'attributes'            => __('Chapter Attributes', DOMAIN),
+        'parent_item_colon'     => __('Parent Chapter:', DOMAIN),
+        'all_items'             => __('All Chapters', DOMAIN),
+        'add_new_item'          => __('Add New Chapter', DOMAIN),
         'add_new'               => __('Add New', DOMAIN),
-        'new_item'              => __('New Society', DOMAIN),
-        'edit_item'             => __('Edit Society', DOMAIN),
-        'update_item'           => __('Update Society', DOMAIN),
-        'view_item'             => __('View Society', DOMAIN),
-        'view_items'            => __('View Societies', DOMAIN),
-        'search_items'          => __('Search Society', DOMAIN),
+        'new_item'              => __('New Chapter', DOMAIN),
+        'edit_item'             => __('Edit Chapter', DOMAIN),
+        'update_item'           => __('Update Chapter', DOMAIN),
+        'view_item'             => __('View Chapter', DOMAIN),
+        'view_items'            => __('View Chapters', DOMAIN),
+        'search_items'          => __('Search Chapter', DOMAIN),
         'not_found'             => __('Not found', DOMAIN),
         'not_found_in_trash'    => __('Not found in Trash', DOMAIN),
         'featured_image'        => __('Featured Image', DOMAIN),
         'set_featured_image'    => __('Set featured image', DOMAIN),
         'remove_featured_image' => __('Remove featured image', DOMAIN),
         'use_featured_image'    => __('Use as featured image', DOMAIN),
-        'insert_into_item'      => __('Insert into Society', DOMAIN),
-        'uploaded_to_this_item' => __('Uploaded to this Society', DOMAIN),
-        'items_list'            => __('Societies list', DOMAIN),
-        'items_list_navigation' => __('Societies list navigation', DOMAIN),
-        'filter_items_list'     => __('Filter Societies list', DOMAIN),
+        'insert_into_item'      => __('Insert into Chapter', DOMAIN),
+        'uploaded_to_this_item' => __('Uploaded to this Chapter', DOMAIN),
+        'items_list'            => __('Chapters list', DOMAIN),
+        'items_list_navigation' => __('Chapters list navigation', DOMAIN),
+        'filter_items_list'     => __('Filter Chapters list', DOMAIN),
     );
     $args = array(
-        'label'                 => __('Society', DOMAIN),
-        'description'           => __('Custom post type for Societies', DOMAIN),
+        'label'                 => __('Chapter', DOMAIN),
+        'description'           => __('Custom post type for Chapters', DOMAIN),
         'labels'                => $labels,
         'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'excerpt', 'custom-fields'),
         'hierarchical'          => false,
@@ -45,18 +45,18 @@ function custom_post_type_societies() {
         'show_in_nav_menus'     => true,
         'can_export'            => true,
         'has_archive'           => true,
-        'rewrite'               => array('slug' => 'societies'),
+        'rewrite'               => array('slug' => 'chapters'),
         'exclude_from_search'   => false,
         'publicly_queryable'    => true,
         'show_in_rest'          => true,
         'capability_type'       => 'page',
     );
-    register_post_type('societies', $args);
+    register_post_type('chapters', $args);
 }
 add_action('init', 'custom_post_type_societies', 0);
 
 function societies_register_post_meta() {
-    register_post_meta('societies', 'society_logo', array(
+    register_post_meta('chapters', 'chapter_logo', array(
         'auth_callback' => function() {
             return current_user_can('edit_posts');
         },

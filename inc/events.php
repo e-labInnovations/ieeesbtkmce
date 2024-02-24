@@ -40,85 +40,6 @@ function register_events_post_type() {
 }
 add_action('init', 'register_events_post_type');
 
-// Add custom fields for event date, registration link and registration status
-function events_custom_fields() {
-    add_meta_box(
-        'event_datetime',
-        'Event Datetime',
-        'event_datetime_callback',
-        'events',
-        'normal',
-        'default'
-    );
-
-    add_meta_box(
-        'registration_link',
-        'Registration Link',
-        'registration_link_callback',
-        'events',
-        'normal',
-        'default'
-    );
-
-    add_meta_box(
-        'registration_status',
-        'Registration Status',
-        'registration_status_callback',
-        'events',
-        'normal',
-        'default'
-    );
-}
-
-function event_datetime_callback($post) {
-    $event_datetime = get_post_meta($post->ID, 'event_datetime', true);
-    ?>
-<label for="event_datetime">Event Date & Time:</label>
-<input type="datetime-local" id="event_datetime" name="event_datetime" value="<?php echo esc_attr($event_datetime); ?>">
-<?php
-}
-
-function registration_link_callback($post) {
-    $registration_link = get_post_meta($post->ID, 'registration_link', true);
-    ?>
-<label for="registration_link">Registration Link:</label>
-<input type="text" id="registration_link" name="registration_link" value="<?php echo esc_url($registration_link); ?>">
-<?php
-}
-
-function registration_status_callback($post) {
-    $registration_status = get_post_meta($post->ID, 'registration_status', true);
-    ?>
-<label for="registration_status">
-    <select name="registration_status">
-        <option value="open" <?php selected($registration_status, 'open'); ?>>Open</option>
-        <option value="closed" <?php selected($registration_status, 'closed'); ?>>Closed</option>
-    </select>
-    Registration Status
-</label>
-<?php
-}
-
-function save_event_custom_fields($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    
-    if (isset($_POST['event_datetime'])) {
-        update_post_meta($post_id, 'event_datetime', sanitize_text_field($_POST['event_datetime']));
-    }
-
-    if (isset($_POST['registration_link'])) {
-        update_post_meta($post_id, 'registration_link', esc_url($_POST['registration_link']));
-    }
-
-    if (isset($_POST['registration_status'])) {
-        update_post_meta($post_id, 'registration_status', sanitize_text_field($_POST['registration_status']));
-    }
-}
-
-add_action('add_meta_boxes', 'events_custom_fields');
-add_action('save_post', 'save_event_custom_fields');
-
-
 // Add custom columns to the events table
 function events_custom_columns($columns) {
     $columns['event_datetime'] = 'Event Date & Time';
@@ -164,7 +85,39 @@ function registerMajorEventAPI() {
     }    
 }
 
-//MultiPostThumbnails
-// if (class_exists('MultiPostThumbnails')) { 
-//     new MultiPostThumbnails(array('label' => 'Major Events Feature Image', 'id' => 'feature-major-event', 'post_type' => 'events'));
-// };
+
+function events_register_post_meta() {
+    register_post_meta('events', 'event_datetime', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+    ));
+    register_post_meta('events', 'registration_link', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+    ));
+    register_post_meta('events', 'registration_status', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'boolean',
+    ));
+    register_post_meta('events', 'organizer', array(
+        'auth_callback' => function() {
+            return current_user_can('edit_posts');
+        },
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'integer',
+    ));
+}
+add_action('init', 'events_register_post_meta');

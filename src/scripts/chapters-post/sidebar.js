@@ -7,15 +7,15 @@ const Sidebar = () => {
     return select("core/editor").getCurrentPostType();
   });
 
-  if (postType !== "societies") return null; // Will only render component for post type 'societies'
+  if (postType !== "chapters") return null; // Will only render component for post type 'chapters'
 
   return (
     <PluginDocumentSettingPanel
-      title="Society Details"
+      title="Chapter Details"
       name="meta-sidebar"
       initialOpen="true"
     >
-      <MetaImageControl label="Society Logo" metaKey="society_logo" />
+      <MetaImageControl label="Chapter Logo" metaKey="chapter_logo" />
     </PluginDocumentSettingPanel>
   );
 };

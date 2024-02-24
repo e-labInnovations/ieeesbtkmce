@@ -35,7 +35,7 @@ function register_blocks() {
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-tkmce");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-ieeesbtkmce");
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-vision-and-mission");
-    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-societies");
+    register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/about-chapters");
 
     register_block_type(IEEESBTKMCE_THEME_PATH . "/build/blocks/footer-contact");
   }

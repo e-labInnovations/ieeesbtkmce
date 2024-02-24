@@ -90,7 +90,7 @@ function load_editor_assets() {
   );
   wp_enqueue_style('ieeesbtkmce-mainc', get_theme_file_uri("/build/index.css"),
     [],
-    filemtime(IEEESBTKMCE_THEME_PATH . "/build/index.css") || 'v1.0',
+    strval(filemtime(IEEESBTKMCE_THEME_PATH . "/build/index.css")) || 'v1.0',
     "all"
   );
 
@@ -105,14 +105,17 @@ add_action("enqueue_block_editor_assets", function () {
     "ieeesbtkmce-main",
     get_theme_file_uri("/build/index.css"),
     [],
-    filemtime(IEEESBTKMCE_THEME_PATH . "/build/index.css") || 'v1.0'
+    strval(filemtime(IEEESBTKMCE_THEME_PATH . "/build/index.css")) || 'v1.0'
   );
 
   if (get_post_type() === 'awards') {
     ieeesbtkmce_enqueue_script("awards-post");
   }
-  if (get_post_type() === 'societies') {
-    ieeesbtkmce_enqueue_script("societies-post");
+  if (get_post_type() === 'chapters') {
+    ieeesbtkmce_enqueue_script("chapters-post");
+  }
+  if (get_post_type() === 'events') {
+    ieeesbtkmce_enqueue_script("events-post");
   }
   
 });
@@ -218,8 +221,8 @@ require_once IEEESBTKMCE_THEME_PATH . "/inc/events.php";
 //Alumni Testimonials
 require_once IEEESBTKMCE_THEME_PATH . "/inc/alumni-testimonials.php";
 
-//Societies
-require_once IEEESBTKMCE_THEME_PATH . "/inc/societies.php";
+//chapters
+require_once IEEESBTKMCE_THEME_PATH . "/inc/chapters.php";
 
 //Awards
 require_once IEEESBTKMCE_THEME_PATH . "/inc/awards.php";

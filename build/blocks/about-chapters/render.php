@@ -1,14 +1,14 @@
-<section class="societies-slider">
+<section class="chapters-slider">
   <div class="my-8 flex flex-col gap-6 md:my-16">
     <div class="flex w-full items-center justify-between py-2">
-      <h2 class="font-poppins text-3xl text-primary-800">Societies</h2>
+      <h2 class="font-poppins text-3xl text-primary-800">Chapters</h2>
       <div class="flex gap-2">
-        <div class="cursor-pointer rounded-full border border-gray-400 bg-white p-3" id="sl-prev">
+        <div class="cursor-pointer rounded-full border border-gray-400 bg-white p-3" id="cl-prev">
           <svg class="h-3 w-3 text-gray-400 sm:h-4 sm:w-4" xmlns="http://www.w3.org/2000/svg">
             <use xlink:href="/icons.svg#icon-arrow-left"></use>
           </svg>
         </div>
-        <div class="cursor-pointer rounded-full border border-primary-800 bg-white p-3" id="sl-next">
+        <div class="cursor-pointer rounded-full border border-primary-800 bg-white p-3" id="cl-next">
           <svg class="h-3 w-3 text-primary-800 sm:h-4 sm:w-4" xmlns="http://www.w3.org/2000/svg">
             <use xlink:href="/icons.svg#icon-arrow-right"></use>
           </svg>
@@ -16,12 +16,12 @@
       </div>
     </div>
 
-    <div id="sl-slider-container" class="w-full overflow-hidden">
-      <div id="sl-slider" class="flex w-full">
+    <div id="cl-slider-container" class="w-full overflow-hidden">
+      <div id="cl-slider" class="flex w-full">
         <?php
 // The Query
 $args = array(
-    'post_type' => 'societies',
+    'post_type' => 'chapters',
     'post_status' => 'publish',
     'posts_per_page' => -1,
 );
@@ -33,7 +33,7 @@ if ( $the_query->have_posts() ) {
     $the_query->the_post();
 
 
-    $societyLogoId = get_post_meta( get_the_ID(), 'society_logo', true );
+    $societyLogoId = get_post_meta( get_the_ID(), 'chapter_logo', true );
     $image_url = "";
     if ($societyLogoId) {
       $image_src = wp_get_attachment_image_src( $societyLogoId, 'full' );

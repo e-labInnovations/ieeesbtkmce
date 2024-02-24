@@ -18,15 +18,11 @@ const Metabox = () => {
     select("core/editor").getEditedPostAttribute("meta"),
   );
 
-  const chapters = useSelect((select) => {
-    return select("core").getEntityRecords("postType", "page");
-  });
-
-  if (postType !== "awards") return null; // Will only render component for post type 'awards'
+  if (postType !== "events") return null; // Will only render component for post type 'events'
 
   return (
     <PluginDocumentSettingPanel
-      title="Award Details"
+      title="Event Details"
       name="meta"
       initialOpen="true"
       icon={

@@ -1,8 +1,8 @@
-document.querySelectorAll(".societies-slider").forEach((sl) => {
-  let nextBtn = sl.querySelector("#sl-next");
-  let prevBtn = sl.querySelector("#sl-prev");
-  let sliderContainer = sl.querySelector("#sl-slider-container");
-  let slider = sl.querySelector("#sl-slider");
+document.querySelectorAll(".chapters-slider").forEach((cl) => {
+  let nextBtn = cl.querySelector("#cl-next");
+  let prevBtn = cl.querySelector("#cl-prev");
+  let sliderContainer = cl.querySelector("#cl-slider-container");
+  let slider = cl.querySelector("#cl-slider");
   let slides = slider.querySelectorAll(".slide");
 
   let elementsToShow = 3;
