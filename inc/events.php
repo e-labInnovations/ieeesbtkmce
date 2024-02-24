@@ -109,15 +109,22 @@ function events_register_post_meta() {
         },
         'show_in_rest'  => true,
         'single'        => true,
-        'type'          => 'boolean',
+        'type'          => 'string',
     ));
-    register_post_meta('events', 'organizer', array(
+    register_post_meta('events', 'organizers', array(
         'auth_callback' => function() {
             return current_user_can('edit_posts');
         },
-        'show_in_rest'  => true,
         'single'        => true,
-        'type'          => 'integer',
+        'type'         => 'array',
+        'show_in_rest' => array(
+            'schema' => array(
+                'type'  => 'array',
+                'items' => array(
+                    'type' => 'integer',
+                ),
+            )
+        )
     ));
 }
 add_action('init', 'events_register_post_meta');

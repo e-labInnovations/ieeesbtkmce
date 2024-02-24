@@ -1,16 +1,22 @@
 import { PluginDocumentSettingPanel } from "@wordpress/edit-post";
 import {
   PanelRow,
-  DatePicker,
+  DateTimePicker,
   TextControl,
   SelectControl,
+  BaseControl,
 } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+
+const animatedComponents = makeAnimated();
 
 const Metabox = () => {
   const postType = useSelect((select) => {
     return select("core/editor").getCurrentPostType();
   });
+  if (postType !== "events") return null; // Will only render component for post type 'events'
 
   const { editPost } = useDispatch("core/editor");
 
@@ -18,7 +24,25 @@ const Metabox = () => {
     select("core/editor").getEditedPostAttribute("meta"),
   );
 
-  if (postType !== "events") return null; // Will only render component for post type 'events'
+  const chapters = useSelect((select) => {
+    const query = {
+      status: "publish",
+      per_page: -1,
+    };
+
+    return select("core").getEntityRecords("postType", "chapters", query);
+  });
+
+  let chapterOptions = [];
+  chapterOptions.push({ value: -1, label: "IEEE" });
+  if (chapters) {
+    chapters.forEach((chapter) => {
+      chapterOptions.push({
+        value: chapter.id,
+        label: `${chapter.slug.toUpperCase()} - ${chapter.title.rendered}`,
+      });
+    });
+  }
 
   return (
     <PluginDocumentSettingPanel
@@ -32,36 +56,63 @@ const Metabox = () => {
       }
     >
       <PanelRow>
-        <h3 className="text-lg">Award Date / Year*</h3>
+        <h3 className="text-lg">Event Date</h3>
       </PanelRow>
       <PanelRow>
-        <DatePicker
-          currentDate={meta && meta.award_date ? meta.award_date : null}
-          onChange={(value) => editPost({ meta: { award_date: value } })}
+        <DateTimePicker
+          currentDate={meta && meta.event_datetime ? meta.event_datetime : null}
+          onChange={(value) => editPost({ meta: { event_datetime: value } })}
+          is12Hour
         />
       </PanelRow>
 
       <PanelRow>
         <TextControl
-          label="Awarding Authority"
-          value={meta && meta.awarding_authority ? meta.awarding_authority : ""}
-          onChange={(value) =>
-            editPost({ meta: { awarding_authority: value } })
-          }
+          label="Registration Link"
+          value={meta && meta.registration_link ? meta.registration_link : ""}
+          onChange={(value) => editPost({ meta: { registration_link: value } })}
         />
       </PanelRow>
 
       <PanelRow>
         <SelectControl
-          label="Recipient Society"
-          value={meta && meta.award_recipient ? meta.award_recipient : "-1"}
+          label="Registration Status"
+          value={
+            meta && meta.registration_status ? meta.registration_status : "-1"
+          }
           options={[
-            { label: "IEEE", value: "-1" },
-            { label: "CASS", value: "cass" },
-            { label: "CS", value: "cs" },
+            { label: "Not Open", value: "not_open" },
+            { label: "Open", value: "open" },
+            { label: "Closed", value: "closed" },
           ]}
-          onChange={(value) => editPost({ meta: { award_recipient: value } })}
+          onChange={(value) =>
+            editPost({ meta: { registration_status: value } })
+          }
         />
+      </PanelRow>
+      <PanelRow>
+        <BaseControl label="Organizers">
+          <Select
+            value={
+              chapterOptions
+                ? chapterOptions.filter((option) => {
+                    return meta.organizers.includes(option.value);
+                  })
+                : []
+            }
+            isMulti
+            components={animatedComponents}
+            name="Organizers"
+            options={chapterOptions}
+            className="w-full"
+            classNamePrefix="select"
+            onChange={(options) => {
+              editPost({
+                meta: { organizers: options.map((org) => org.value) },
+              });
+            }}
+          />
+        </BaseControl>
       </PanelRow>
     </PluginDocumentSettingPanel>
   );
