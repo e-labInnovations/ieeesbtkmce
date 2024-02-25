@@ -1,16 +1,18 @@
 import { RichText } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
-  const { content, societies } = attributes;
+  const { content, societies, title } = attributes;
   const theme_url = themeData.theme_url;
 
   return (
     <section>
       <div className="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row sm:gap-24 md:my-16 xl:px-28">
         <div className="flex max-h-min w-full flex-col gap-6 sm:w-5/12">
-          <h2 className="font-poppins text-3xl text-primary-800 sm:block">
-            Trusted Among Global Organizations
-          </h2>
+          <RichText.Content
+            tagName="h2"
+            value={title}
+            className="font-poppins text-3xl text-primary-800 sm:block"
+          />
           <RichText.Content
             tagName="p"
             value={content}

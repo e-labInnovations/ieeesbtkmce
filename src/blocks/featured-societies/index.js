@@ -8,8 +8,10 @@ import Save from "./save";
 const attributes = {
   content: {
     type: "String",
-    source: "html",
-    selector: "p",
+  },
+  title: {
+    type: "string",
+    default: "Trusted Among Global Organizations",
   },
   societies: {
     type: "object",

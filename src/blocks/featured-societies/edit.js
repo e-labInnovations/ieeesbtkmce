@@ -12,7 +12,7 @@ import { Fragment, useEffect, useState } from "@wordpress/element";
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-  const { content, societies } = attributes;
+  const { content, societies, title } = attributes;
   const blockProps = useBlockProps({
     className: "w-full overflow-hidden",
   });
@@ -124,9 +124,13 @@ export default function Edit({ attributes, setAttributes }) {
       <section {...blockProps}>
         <div className="container mx-auto my-8 flex flex-col gap-8 px-4 sm:flex-row sm:gap-24 md:my-16 xl:px-28">
           <div className="flex max-h-min w-full flex-col gap-6 sm:w-5/12">
-            <h2 className="font-poppins text-3xl text-primary-800 sm:block">
-              Trusted Among Global Organizations
-            </h2>
+            <RichText
+              className="font-poppins text-3xl text-primary-800 sm:block"
+              tagName="h2"
+              value={title}
+              onChange={(title) => setAttributes({ title })}
+              placeholder={"Title..."}
+            />
             <RichText
               className="font-poppins text-base font-light text-black"
               tagName="p"

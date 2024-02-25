@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       const newsItems = latestNewsSection.querySelectorAll(
         imagesClasses.default,
       );
-      const disabledClasses = ["pointer-events-none", "opacity-50"];
+      const disabledClasses = ["pointer-events-none", "opacity-50", "hidden"];
       const activeNewsItem = {
         title: latestNewsSection.querySelector("#active-news-title"),
         content: latestNewsSection.querySelector("#active-news-content"),
