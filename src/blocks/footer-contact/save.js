@@ -16,12 +16,12 @@ export default function save({ attributes }) {
         value={name}
       />
       <div className="mt-auto flex items-center gap-2">
-        <a href={`mailto:${email}`}>
+        <a href={`tel:${phone}`}>
           <svg className="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
             <use xlinkHref="/icons.svg#icon-call" />
           </svg>
         </a>
-        <a href={`tel:${phone}`}>
+        <a href={`mailto:${email}`}>
           <svg className="h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1">
             <use xlinkHref="/icons.svg#icon-mail" />
           </svg>

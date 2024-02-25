@@ -7,14 +7,15 @@
   - [x] `src/blocks/about-us/save.js:9` & `src/blocks/about-us/edit.js:19`
   - [x] `src/blocks/major-events-item/render.php` add default thumbnail image
 - [ ] Fix `src/blocks/faq/edit.js` answer updating
-- [ ] Change DateTime picker style in `inc/events.php` `event_datetime`
-- [ ] Move all svg icons to single one and use references
+- [x] Change DateTime picker style in `inc/events.php` `event_datetime`
+- [x] Move all svg icons to single one and use references
 - After completion
   - [ ] Watch `201. Templates (Part 2)` and fix the template default images
   - [ ] `src/blocks/major-events/edit.js` fix child position and scrolling
-- ~~[ ] SVG Sprites working in frontend but not in admin side (Block editor side)~~
+- [x] SVG Sprites working in frontend but not in admin side (Block editor side)
 - [ ] Hide alumni testimonial from menu
 - [x] use hammer.js for iOS scroll for major events (Mobile)
-- [ ] add `transition ease-in-out hover:translate-x-1` classes footer link
-- [ ] Fix footer style
+- [x] add `transition ease-in-out hover:translate-x-1` classes footer link
+- [x] Fix footer style
 - ~~[ ] Add `md:my-16` to every section~~
+- [ ] Fix Header menu id `#menu-header`, currently the menu name for Header must be `Header`

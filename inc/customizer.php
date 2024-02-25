@@ -159,6 +159,7 @@ class IEEESBTKMCE_Customizer {
       ])
     );
 
+    /*
     //Logo
     $wp_customize->add_setting("ieeesbtkmce-footer-logo", [
       "default" => "",
@@ -180,6 +181,7 @@ class IEEESBTKMCE_Customizer {
         ]
       )
     );
+    */
 
     //Description
     $wp_customize->add_setting("ieeesbtkmce-footer-description", [
