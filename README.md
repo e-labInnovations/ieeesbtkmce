@@ -18,4 +18,10 @@
 - [x] add `transition ease-in-out hover:translate-x-1` classes footer link
 - [x] Fix footer style
 - ~~[ ] Add `md:my-16` to every section~~
+- [x] Increase About Us block image size in mobile
 - [ ] Fix Header menu id `#menu-header`, currently the menu name for Header must be `Header`
+- [ ] Visit website buttons in about page double line issue in mobile
+- [ ] About TKMCE block - Image and content arrangement in mobile
+- [ ] Remove collabrotech and add YouTube and WhatsApp channel links (Footer & About Us)
+- [ ] Footer menu link icon for list
+- [ ] Trusted among global... new chapter

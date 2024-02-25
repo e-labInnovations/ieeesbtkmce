@@ -26,9 +26,9 @@ export default function Edit({ attributes, setAttributes }) {
           <h2 className="my-5 font-sans text-3xl text-primary-800 sm:mb-6 sm:hidden">
             About Us
           </h2>
-          <div className="flex w-full justify-center px-16 sm:px-0">
+          <div className="flex w-full justify-center px-8 sm:px-0">
             <div
-              className="flex bg-contain bg-center bg-no-repeat p-12 sm:p-8 lg:p-16"
+              className="flex bg-contain bg-center bg-no-repeat p-10 sm:p-10 lg:p-16"
               style={{
                 backgroundImage: `url('${
                   themeData.theme_url + "/assets/images/about-bg.png"
