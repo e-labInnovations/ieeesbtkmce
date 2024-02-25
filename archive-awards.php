@@ -23,6 +23,9 @@ get_header(null, array('mode' => 'light')); ?>
           }
         ?>
       </div>
+
+      <?php get_template_part('template-parts-php/pagination', 'default'); ?>
+
     </div>
   </section>
 
