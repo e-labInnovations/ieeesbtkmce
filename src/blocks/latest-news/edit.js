@@ -4,9 +4,8 @@ import {
   RichText,
   __experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
-import { selectBlock } from "@wordpress/blocks";
-import { useSelect, dispatch } from "@wordpress/data";
-import { Fragment, useState, useEffect } from "@wordpress/element";
+import { useSelect } from "@wordpress/data";
+import { useState, useEffect } from "@wordpress/element";
 import { Popover, Button } from "@wordpress/components";
 import "./editor.scss";
 
@@ -27,15 +26,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   );
 
   const selectInnerBlock = (innerBlock = null) => {
-    innerBlock = innerBlock ? innerBlock : innerBlocks[currentItemPos];
+    if (innerBlocks) {
+      innerBlock = innerBlock ? innerBlock : innerBlocks[currentItemPos];
 
-    setAttributes({
-      activeItem: innerBlock.clientId,
-      title: innerBlock.attributes.title || "",
-      content: innerBlock.attributes.content || "",
-      registerLink: innerBlock.attributes.registerLink || null,
-      detailsLink: innerBlock.attributes.detailsLink || null,
-    });
+      if (innerBlock) {
+        setAttributes({
+          activeItem: innerBlock.clientId,
+          title: innerBlock.attributes.title || "",
+          content: innerBlock.attributes.content || "",
+          registerLink: innerBlock.attributes.registerLink || null,
+          detailsLink: innerBlock.attributes.detailsLink || null,
+        });
+      }
+    }
   };
 
   useEffect(() => {
@@ -45,7 +48,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
   useEffect(() => {
     if (selectedBlock && selectedBlock.name == "ieeesbtkmce/latest-news-item") {
       selectInnerBlock(selectedBlock);
-      console.log("selectedBlock:", selectedBlock);
     }
   }, [selectedBlock]);
 
@@ -220,75 +222,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
           <h2 className="font-sans text-3xl text-primary-800 sm:hidden">
             Latest News
           </h2>
-          <div {...innerBlocksProps}>
-            {/* <div className="news-item hidden">
-              <img
-                src="https://picsum.photos/id/12/340/400"
-                className="h-full max-h-full rounded-xl"
-                alt=""
-              />
-              <p
-                className="hidden"
-                data-title="This is a title1"
-                data-details-url="/home"
-                data-register-url="#"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-            </div>
-            <div className="news-item hidden">
-              <img
-                src="https://picsum.photos/id/18/340/400"
-                className="h-full max-h-full rounded-xl"
-                alt=""
-              />
-              <p
-                className="hidden"
-                data-title="This is a title2"
-                data-details-url="#"
-                data-register-url="/somelink"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia assumenda vitae magni culpa dolor vel ex saepe
-                recusandae sit, consectetur esse tempore a doloribus velit,
-                alias tempora, officia at sapiente.
-              </p>
-            </div>
-            <div className="news-item hidden3">
-              <img
-                src="https://picsum.photos/id/17/340/400"
-                className="h-full max-h-full rounded-xl"
-                alt=""
-              />
-              <p
-                className="hidden"
-                data-title="This is a title4"
-                data-details-url="#"
-                data-register-url="#"
-              >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Molestias voluptate facere, officiis voluptas id esse
-                perferendis consequatur velit quod aperiam facilis quidem fugit
-                optio
-              </p>
-            </div>
-            <div className="news-item hidden">
-              <img
-                src="https://picsum.photos/id/15/340/400"
-                className="h-full max-h-full rounded-xl"
-                alt=""
-              />
-              <p
-                className="hidden"
-                data-title="This is a title5"
-                data-details-url="#"
-                data-register-url="#"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt libero perferendis minima? lore
-              </p>
-            </div> */}
-          </div>
+          <div {...innerBlocksProps}></div>
         </div>
       </div>
     </section>

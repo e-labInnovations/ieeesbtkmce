@@ -49,16 +49,13 @@ export default function Edit({ attributes, setAttributes }) {
   return (
     <div {...blockProps}>
       <select
+        value={eventId}
         class="my-2 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-black focus:border-primary-800 focus:ring-primary-800"
         onChange={(e) => setAttributes({ eventId: e.target.value })}
       >
         <option>Choose an event</option>
         {allEvents.map((event) => {
-          return (
-            <option value={event.id} selected={eventId == event.id}>
-              {event.title.rendered}
-            </option>
-          );
+          return <option value={event.id}>{event.title.rendered}</option>;
         })}
       </select>
       <div dangerouslySetInnerHTML={{ __html: thePreview }}></div>
