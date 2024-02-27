@@ -21,7 +21,7 @@
 - [x] Increase About Us block image size in mobile
 - [ ] Fix Header menu id `#menu-header`, currently the menu name for Header must be `Header`
 - [ ] Visit website buttons in about page double line issue in mobile
-- [ ] About TKMCE block - Image and content arrangement in mobile
+- [x] About TKMCE block - Image and content arrangement in mobile
 - [ ] Remove collabrotech and add YouTube and WhatsApp channel links (Footer & About Us)
 - [ ] Footer menu link icon for list
 - [ ] Trusted among global... new chapter

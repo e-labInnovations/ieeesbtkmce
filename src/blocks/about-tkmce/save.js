@@ -5,9 +5,9 @@ export default function save({ attributes }) {
 
   return (
     <section>
-      <div className="my-8 flex flex-col gap-6 sm:flex-row md:my-16">
+      <div className="my-8 flex flex-col-reverse gap-6 sm:flex-row md:my-16">
         <div className="flex w-full flex-col gap-6 sm:w-1/2">
-          <h2 className="font-poppins text-3xl text-primary-800">
+          <h2 className="hidden font-poppins text-3xl text-primary-800 md:block">
             About TKM College of Engineering
           </h2>
           <RichText.Content
@@ -23,6 +23,9 @@ export default function save({ attributes }) {
           </a>
         </div>
         <div className="flex w-full flex-col gap-6 sm:w-1/2">
+          <h2 class="font-poppins text-3xl text-primary-800 md:hidden">
+            About TKM College of Engineering
+          </h2>
           <img
             src={
               image && image.url

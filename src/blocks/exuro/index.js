@@ -7,8 +7,6 @@ import Save from "./save";
 const attributes = {
   content: {
     type: "String",
-    source: "html",
-    selector: "p",
   },
   image: {
     type: "object",

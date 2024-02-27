@@ -64,6 +64,23 @@
           background-image: url('data:image/svg+xml;utf8,<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.80123 6.74078L6.96697 5.67106C6.70481 5.51751 6.39395 5.4281 6.06055 5.4281C5.12878 5.4281 4.37073 6.12371 4.37073 6.97873C4.37073 7.83376 5.12878 8.52937 6.06055 8.52937C6.99232 8.52937 7.75038 7.83376 7.75038 6.97873C7.75038 6.67282 7.65294 6.38754 7.48561 6.14698L6.31987 7.21669L5.80123 6.74078Z" fill="%23006DA5"/><path d="M11.8636 6.9786C11.8636 6.06405 11.609 5.1697 11.1256 4.37822L9.68069 4.55991C10.2211 5.23907 10.5405 6.07518 10.5405 6.9786C10.5405 9.24537 8.53085 11.0895 6.06057 11.0895C3.5903 11.0895 1.58064 9.24537 1.58064 6.9786C1.58064 4.71182 3.59035 2.86768 6.0606 2.86768C7.04511 2.86768 7.95627 3.16083 8.6964 3.65669L8.8944 2.33076C8.03187 1.88719 7.05724 1.65356 6.0606 1.65356C4.51055 1.65356 3.05327 2.20747 1.95725 3.21324C0.861194 4.21899 0.257568 5.55623 0.257568 6.9786C0.257568 8.40096 0.861194 9.7382 1.95725 10.744C3.05327 11.7497 4.51053 12.3036 6.0606 12.3036C7.61066 12.3036 9.06792 11.7497 10.1639 10.744C11.26 9.7382 11.8636 8.40098 11.8636 6.9786Z" fill="%23006DA5"/><path d="M6.06054 3.54077C3.99474 3.54077 2.31409 5.08297 2.31409 6.97863C2.31409 8.87428 3.99472 10.4165 6.06054 10.4165C8.12636 10.4165 9.80699 8.87428 9.80699 6.97863C9.80699 6.15174 9.48713 5.39216 8.95509 4.79843L8.01296 5.66297C8.3088 6.03164 8.48389 6.48669 8.48389 6.97863C8.48389 8.20479 7.39679 9.20235 6.06056 9.20235C4.72434 9.20235 3.63723 8.20479 3.63723 6.97863C3.63723 5.75247 4.72434 4.75491 6.06056 4.75491C6.59666 4.75491 7.09253 4.91557 7.49432 5.18705L8.43646 4.32252C7.78941 3.83426 6.96165 3.54077 6.06054 3.54077Z" fill="%23006DA5"/><path d="M11.2677 0.816406L9.63755 2.31225L9.39801 3.91621L11.146 3.69641L12.7761 2.20056L11.6758 1.82608L11.2677 0.816406Z" fill="%23006DA5"/></svg>');
         }
 
+        .link-icon {
+          li {
+            padding-left: 18px;
+            position: relative;
+          }
+          li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px; /* Adjust the vertical positioning as needed */
+            width: 13px; /* Width of the SVG */
+            height: 13px; /* Height of the SVG */
+            fill: currentColor;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16"> <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/> <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/> </svg>');
+          }
+        }
+
         nav.dark {
           @apply fixed top-0 z-50 w-full border-gray-200 px-10;
 
@@ -2031,7 +2048,7 @@
         </symbol>
       </svg>
 
-      <div class="bg-primary-800">
+      <div class="bg-primary-800 text-white">
         <div
           class="container mx-auto flex w-full flex-col px-4 py-8 text-white"
         >
@@ -2047,9 +2064,9 @@
               <p
                 class="mt-6 text-justify font-poppins text-base font-light text-white"
               >
-                Lorem ipsum dolor sit amet consectetur. Convallis elit dignissim
-                proin nunc tempor lacus. Adipiscing dignissim luctus feugiat
-                risus sem in sapien. Lobortis lectus cursus tellus.🤣
+                111 Lorem ipsum dolor sit amet consectetur. Convallis elit
+                dignissim proin nunc tempor lacus. Adipiscing dignissim luctus
+                feugiat risus sem in sapien. Lobortis lectus cursus tellus.🤣
               </p>
               <div class="flex flex-col justify-between lg:flex-row">
                 <a
@@ -2072,7 +2089,7 @@
                 >
                   Quick links
                 </h2>
-                <div class="menu-quick-links-container">
+                <div class="menu-quick-links-container link-icon">
                   <ul
                     id="menu-quick-links"
                     class="font-poppins text-base font-light text-white"
