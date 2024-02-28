@@ -155,44 +155,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-
 
 function save({
   attributes
 }) {
-  const {
-    name,
-    position,
-    phone,
-    email
-  } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex h-full flex-col"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    className: "font-poppins text-base font-[275] text-white",
-    tagName: "h5",
-    value: position
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    className: "mb-4 font-poppins text-base font-light text-white",
-    tagName: "h4",
-    value: name
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-auto flex items-center gap-2"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: `tel:${phone}`
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    className: "h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("use", {
-    xlinkHref: "/icons.svg#icon-call"
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: `mailto:${email}`
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    className: "h-5 w-6 fill-gray-200 transition ease-in-out hover:-translate-y-1"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("use", {
-    xlinkHref: "/icons.svg#icon-mail"
-  })))));
+  }, "Silent is Golden");
 }
 
 /***/ }),
@@ -277,7 +246,7 @@ module.exports = window["wp"]["element"];
   \**********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/footer-contact","version":"0.1.0","title":"Footer Contact","category":"ieeesbtkmce","description":"","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ieeesbtkmce/footer-contact","version":"0.1.0","title":"Footer Contact","category":"ieeesbtkmce","description":"","supports":{"html":false,"anchor":true},"textdomain":"ieeesbtkmce","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ })
 

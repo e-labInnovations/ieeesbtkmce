@@ -176,9 +176,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const attributes = {
   content: {
-    type: "String",
-    source: "html",
-    selector: "p"
+    type: "String"
   },
   image: {
     type: "object"

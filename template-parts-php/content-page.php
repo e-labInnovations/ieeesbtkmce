@@ -6,7 +6,7 @@ get_header(null, array('mode' => 'light')); ?>
     <?php the_title() ?>
   </h1>
 
-  <article class="prose lg:prose-xl">
+  <article class="">
     <?php the_content() ?>
   </article>
 

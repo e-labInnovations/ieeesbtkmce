@@ -183,8 +183,16 @@ function ieeesbtkmce_add_support() {
 
   add_image_size("major-event-thumb", 330, 230, true);
   add_image_size("alumni-testimonials-thumb", 400, 400, true);
+  // add_image_size("og-image", 1200, 630, true);
+  set_post_thumbnail_size(1200, 630, true);
 }
 add_action("after_setup_theme", "ieeesbtkmce_add_support");
+
+//Admin post thumbnail size
+function change_admin_post_thumbnail_size( $size ) {
+  return "og-image";
+}
+add_filter( 'admin_post_thumbnail_size', 'change_admin_post_thumbnail_size' );
 
 //Register new menus
 function ieeesbtkmce_menus() {
