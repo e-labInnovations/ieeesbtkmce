@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",(function(e){gsap.registerPlugin(ScrollTrigger);const t=document.querySelectorAll(".counters-count");gsap.from(t,{textContent:0,duration:1,ease:Power1.easeIn,snap:{textContent:1},stagger:.25,scrollTrigger:{trigger:".counters",start:"50px 80%",end:"bottom-=50px",toggleActions:"play none none reverse",markers:!1}})}));
