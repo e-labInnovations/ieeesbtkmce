@@ -222,6 +222,9 @@ new IEEESBTKMCE_Customizer();
 //SVG Sprite
 require_once IEEESBTKMCE_THEME_PATH . "/inc/svg-sprite.php";
 
+//Schema Filters
+require_once IEEESBTKMCE_THEME_PATH . "/inc/schema-filters.php";
+
 /*** Custom Post Type **/
 //Events
 require_once IEEESBTKMCE_THEME_PATH . "/inc/events.php";
