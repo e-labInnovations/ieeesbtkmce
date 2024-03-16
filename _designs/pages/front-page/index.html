@@ -179,7 +179,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./tailwind.config.js"></script>
+    <script src="../../tailwind.config.js"></script>
   </head>
   <body class="relative">
     <!-- SVG Sprite Start -->
@@ -2055,11 +2055,9 @@
           <div class="grid grid-cols-5 gap-8 lg:grid-cols-9">
             <div class="col-span-3 mb-6 md:mb-0">
               <a href="/" class="flex items-center">
-                <img
-                  src="./imgs/footer-logo.png"
-                  class="h-16"
-                  alt="IEEE SB TKMCE"
-                />
+                <svg class="h-16 w-40 text-white">
+                  <use xlink:href="#ieeesbtkmce-logo"></use>
+                </svg>
               </a>
               <p
                 class="mt-6 text-justify font-poppins text-base font-light text-white"
@@ -2332,5 +2330,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js?ver=6.4.2"></script>
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="./script.js"></script>
+    <script src="../../assets/js/navbar.js"></script>
   </body>
 </html>
