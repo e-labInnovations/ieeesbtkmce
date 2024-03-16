@@ -117,6 +117,9 @@ add_action("enqueue_block_editor_assets", function () {
   if (get_post_type() === 'events') {
     ieeesbtkmce_enqueue_script("events-post");
   }
+  if (get_post_type() === 'certificates') {
+    ieeesbtkmce_enqueue_script("certificates-post");
+  }
   
 });
 
@@ -127,34 +130,36 @@ function enqueue_custom_script() {
     ($pagenow === "post.php" || $pagenow === "post-new.php") &&
     get_post_type() === "certificates"
   ) {
-    wp_enqueue_style(
-      "ieeesbtkmce-maincss",
-      get_theme_file_uri("/build/index.css")
-    );
+    ieeesbtkmce_enqueue_script("certificates-post");
+    
+    // wp_enqueue_style(
+    //   "ieeesbtkmce-maincss",
+    //   get_theme_file_uri("/build/index.css")
+    // );
 
-    wp_enqueue_media();
-    wp_enqueue_script(
-      "pdfjs",
-      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js",
-      [],
-      null,
-      true
-    );
-    wp_enqueue_script(
-      "fabricjs",
-      "https://unpkg.com/fabric@5.3.0/dist/fabric.min.js",
-      [],
-      null,
-      true
-    );
-    wp_enqueue_script(
-      "certificate-script",
-      get_template_directory_uri() . "/assets/js/certificates-admin.js",
-      ["jquery", "pdfjs", "fabricjs"],
-      null,
-      true
-    );
-    ieeesbtkmce_enqueue_script("main");
+    // wp_enqueue_media();
+    // wp_enqueue_script(
+    //   "pdfjs",
+    //   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js",
+    //   [],
+    //   null,
+    //   true
+    // );
+    // wp_enqueue_script(
+    //   "fabricjs",
+    //   "https://unpkg.com/fabric@5.3.0/dist/fabric.min.js",
+    //   [],
+    //   null,
+    //   true
+    // );
+    // wp_enqueue_script(
+    //   "certificate-script",
+    //   get_template_directory_uri() . "/assets/js/certificates-admin.js",
+    //   ["jquery", "pdfjs", "fabricjs"],
+    //   null,
+    //   true
+    // );
+    // ieeesbtkmce_enqueue_script("main");
   }
 }
 add_action("admin_enqueue_scripts", "enqueue_custom_script");
