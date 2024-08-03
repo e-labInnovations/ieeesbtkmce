@@ -15,6 +15,9 @@ tailwind.config = {
         poppins: ["Poppins", "sans-serif"],
         oswald: ["Oswald", "sans-serif"],
       },
+      spacing: {
+        ml_18: "76px",
+      }
     },
   },
   plugins: [],
